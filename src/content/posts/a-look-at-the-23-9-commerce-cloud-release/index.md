@@ -4,7 +4,7 @@ description: >-
   We are getting closer to the holiday period, and also one of the last releases
   of the year! This time we look at the September 2023 (23.9) release!
 date: '2023-08-28T07:35:34.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /a-look-at-the-23-9-commerce-cloud-release/
 draft: false
 heroImage: japan-shopping-street-23-9-bd4ea7a693.jpeg
@@ -19,6 +19,9 @@ takeaways:
   - "Calls out temporary SLAS token behaviour and roadmap timing to plan around"
 ---
 We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the [September 2023 (23.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_9_release.htm&type=5)! Are you interested in last month's release notes? Read the [23.8 release overview](/what-is-new-in-the-23-8-commerce-cloud-release/).
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 ## Custom SCAPI endpoints in 23.9
 

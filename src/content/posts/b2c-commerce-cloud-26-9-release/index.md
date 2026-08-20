@@ -5,7 +5,7 @@ description: >-
   multiple tax items, and the SLAS enforcement deadlines landing through
   October.
 date: '2026-08-20T07:30:00.000Z'
-lastmod: '2026-08-20T07:30:00.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /b2c-commerce-cloud-26-9-release/
 draft: false
 heroImage: b2c-commerce-cloud-26-9-release-hero.jpg
@@ -13,6 +13,7 @@ heroImageAlt: >-
   A rhino developer juggling a consent form, a tax ledger, and a countdown
   clock in a Business Manager control room
 categories:
+  - Release Notes
   - Salesforce Commerce Cloud
   - Technical
 tags:

@@ -4,7 +4,7 @@ description: >-
   Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This
   time, we look at the May 2024 (24.5) release!
 date: '2024-05-03T11:25:41.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/
 draft: false
 heroImage: robots-behind-bars-e1714735507313-e727779a98.jpg
@@ -22,6 +22,9 @@ takeaways:
   - "Calls out new headless capabilities and deprecations teams should review before upgrading"
 ---
 Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This time, we look at the [May 2024 (24.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_5_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month's release notes? Read the [24.4 release overview](/getting-to-know-the-sfcc-24-4-release/).
 

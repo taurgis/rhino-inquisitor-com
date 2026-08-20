@@ -4,7 +4,7 @@ description: >-
   Are you interested in what is new in each Salesforce B2C Commerce Cloud
   release? Then this is the article for you! Let us look at 22.7 (July)
 date: '2022-06-13T15:06:49.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-the-22-7-release/
 draft: false
 heroImage: apache-rhino-engine-279b4d3146.png
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out the related cartridge and tooling releases that support commerce payments, Einstein, and hybrid storefront work"
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [July 2022 (22.7) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month's release notes? Read the [22.6 release overview](/salesforce-b2c-commerce-the-22-6-release/).
 

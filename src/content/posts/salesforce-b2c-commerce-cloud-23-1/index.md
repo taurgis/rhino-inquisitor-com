@@ -4,7 +4,7 @@ description: >-
   A new year means releases for Salesforce B2C Commerce Cloud are back! Let us
   have a look if there are some presents for us!
 date: '2022-12-19T08:35:50.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-23-1/
 draft: false
 heroImage: a-shopping-cart-with-fireworks-d5005827cc.jpg
@@ -20,6 +20,9 @@ takeaways:
   - "Calls out the accompanying PWA Kit, b2c-tools, and sfcc-ci releases that matter for day-to-day development"
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [January 2023 (23.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 22.10 release notes](/salesforce-b2c-commerce-cloud-22-10/)!
 

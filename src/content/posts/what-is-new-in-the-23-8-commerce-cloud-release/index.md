@@ -4,7 +4,7 @@ description: >-
   Review the 23.8 Commerce Cloud release and the platform changes teams should
   understand before holiday readiness work ramps up.
 date: '2023-07-27T13:28:13.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/
 draft: false
 heroImage: christmas-at-the-beach-scaled-75bd57b575.jpg
@@ -22,6 +22,9 @@ takeaways:
   - "Explains why teams should still review quieter releases carefully when the main impact is operational rather than feature-heavy"
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 22.6 release notes](/salesforce-b2c-commerce-the-22-6-release/)!
 

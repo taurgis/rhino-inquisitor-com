@@ -4,7 +4,7 @@ description: >-
   Review the new SCAPI and headless platform features in Salesforce B2C Commerce
   Cloud, and see which updates matter most for composable storefront teams.
 date: '2023-11-13T09:54:35.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
 draft: false
 heroImage: robot-operating-on-its-own-head-797d8fde74.jpg
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out new logging, CSP, and Store APIs that affect real-world headless implementation work"
 ---
 The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](/category/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 However, more options are now available with multiple "layers" in the Headless architecture. Each layer can have its release schedule, and some layers are more modular than others, allowing for finer-grained releases that will not impact the rest (at least in theory).
 

@@ -4,7 +4,7 @@ description: >-
   Are you interested in what is new in each Salesforce B2C Commerce Cloud
   release? Then this is the article for you! Let us look at 22.6
 date: '2022-05-16T13:52:22.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
 heroImage: 22-6-release-einstein-dashboards-722f4cbace.png
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out the related PWA Kit release and resolved platform issues that were worth testing in this cycle"
 ---
 Again, here we are with the latest [release notes](/category/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 ## Einstein Dashboards
 

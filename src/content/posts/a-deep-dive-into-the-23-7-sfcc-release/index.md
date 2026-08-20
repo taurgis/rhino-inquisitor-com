@@ -4,7 +4,7 @@ description: >-
   Review the key changes in Salesforce B2C Commerce Cloud 23.7, from platform
   updates to headless improvements worth testing this month.
 date: '2023-06-28T07:47:03.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /a-deep-dive-into-the-23-7-sfcc-release/
 draft: false
 heroImage: person-looking-at-clothing-scaled-e57317ea0f.jpg
@@ -20,6 +20,9 @@ takeaways:
   - "Flags new tooling and version upgrades worth testing after the release"
 ---
 It's summertime, which means we get to check out the fresh release of the Salesforce B2C Commerce Cloud. Join me as we delve into all the new features of the [July 2023 (23.7)](https://help.salesforce.com/s/articleView?language=en_US&id=sf.rn_b2c_rn_23_7_release.htm&type=5) release. Are you interested in last month's release notes? Read the [23.6 release overview](/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/).
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 ## Environment Variables are now live on Managed Runtime
 

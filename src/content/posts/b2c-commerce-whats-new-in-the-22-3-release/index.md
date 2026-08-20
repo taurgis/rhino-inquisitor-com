@@ -4,7 +4,7 @@ description: >-
   Get some insights in the latest updates to Salesforce B2C Commerce. We have a
   look at the release notes and provide some background.
 date: '2022-03-08T07:42:23.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /b2c-commerce-whats-new-in-the-22-3-release/
 draft: false
 heroImage: lightning-man-e1646654739934-c9812efc2b.jpg
@@ -22,6 +22,9 @@ takeaways:
   - "Calls out new platform constraints such as the promotion bonus product limit"
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for March 2022. Let us dig deeper into any new and exciting features added to the platform.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Check out the original release notes [for March 2022](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_3_release.htm&type=5&language=en_US).
 

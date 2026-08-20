@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 24.2 release and the platform updates
   worth testing across storefront, API, and operational workflows.
 date: '2024-02-05T06:59:49.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/
 draft: false
 heroImage: a-question-mark-cloning-machine-12d5adc228.jpg
@@ -22,6 +22,9 @@ takeaways:
   - "Flags platform and framework upgrades like SFRA 7 and PWA Kit 3.4"
 ---
 It's time to gear up for the February 2024 ([24.2](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_2_release.htm&type=5)) release of Salesforce B2C Commerce Cloud! With the arrival of this latest release, let's look at what's new and exciting!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 You can always check out [last month's release notes](/sfcc-24-1-release-a-new-year-update/) by clicking here if you missed it.
 

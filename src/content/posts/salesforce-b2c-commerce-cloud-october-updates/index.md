@@ -4,7 +4,7 @@ description: >-
   There are no official updates in October, but that doesn't mean that nothing
   is moving! Let us have a look at what has changed!
 date: '2022-10-24T17:48:25.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-october-updates/
 draft: false
 heroImage: people-upgrading-a-server-rack-0c2ba08791.png
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out smaller Account Manager, idea-exchange, and cartridge/tool updates worth monitoring between major releases"
 ---
 We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-22-10/)) of the year. But that does not mean there are no updates to some APIs and cartridges. Let us have a look what has changed in the past month.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 ## OCAPI & SCAPI
 

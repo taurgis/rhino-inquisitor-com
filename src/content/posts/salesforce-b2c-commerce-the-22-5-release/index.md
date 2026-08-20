@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
   updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: b2c-control-center-3581b7d6c3.png
@@ -22,6 +22,9 @@ takeaways:
   - "Calls out business-manager and payments improvements that matter for category automation and stored-payment experiences"
 ---
 A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the [release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&type=5) to see what is new!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month's release notes? Read the [22.4 release overview](/b2c-commerce-whats-new-in-22-4/).
 

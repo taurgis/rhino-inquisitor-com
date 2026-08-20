@@ -4,7 +4,7 @@ description: >-
   A new year means release notes for the back end have started again! This time,
   we look at the January 2024 (24.1) release!
 date: '2024-01-08T09:10:13.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
 heroImage: shopping-carts-to-the-shredder-735353fe04.jpg
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out the related PWA Kit and tooling updates that teams should track early in the 2024 release cycle"
 ---
 A new year means release notes for the back end have started again! This time, we look at the [January 2024 (24.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last year's release notes? Read the [23.10 release overview](/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/).
 

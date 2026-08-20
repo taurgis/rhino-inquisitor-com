@@ -4,7 +4,7 @@ description: >-
   The weather (at least here) is giving us more sunshine, so let us shine a
   light on the next Salesforce B2C Commerce Cloud release!
 date: '2023-05-25T06:26:10.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
 heroImage: a-neon-shopping-cart-scaled-863c5d17ed.jpg
@@ -20,6 +20,9 @@ takeaways:
   - "Points to new CDN firewall and logpush capabilities worth enabling and testing"
 ---
 The weather (at least here) is giving us more sunshine, so let us shine a light on the next Salesforce B2C Commerce Cloud release! This time we look at the [June 2023 (23.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_6_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 23.5 release notes](/a-look-at-the-sfcc-23-5-release/)!
 

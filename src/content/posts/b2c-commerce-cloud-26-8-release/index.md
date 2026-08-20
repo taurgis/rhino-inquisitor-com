@@ -5,7 +5,7 @@ description: >-
   SCAPI Metrics API, Storefront Next v1.1.0, and the PWA Kit deadlines you
   can't ignore.
 date: '2026-07-23T09:00:00.000Z'
-lastmod: '2026-07-23T09:00:00.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /b2c-commerce-cloud-26-8-release/
 draft: false
 heroImage: b2c-commerce-cloud-26-8-release-hero.jpg
@@ -13,6 +13,7 @@ heroImageAlt: >-
   A rhino at a control desk covered in dashboards, watching a catalog feed
   branch out to store and web icons
 categories:
+  - Release Notes
   - Salesforce Commerce Cloud
   - Technical
 tags:
@@ -25,8 +26,10 @@ takeaways:
   - "Covers Agentic Commerce Search's 26.7 GA as a separate paid SKU, plus the SCAPI Metrics API, Shopper Baskets v2, and Storefront Next v1.1.0 updates that touch integration and storefront code"
   - "Warns about the x86 and HTTP proxy retirement deadlines on Managed Runtime before they turn into a production incident"
 ---
-
 Every August release lands in the same window: July 21 to August 20, 2026 for [26.8](https://help.salesforce.com/s/articleView?id=release-notes.rn_b2c_26_8.htm&release=262&type=5), and every year someone on the team asks whether it is worth reading the notes at all. This one is. Not because of a single headline feature, but because three separate parts of the stack move at once: how your catalog gets to the point of sale, how Business Manager finds things, and how much longer your Managed Runtime environment will run on the architecture it is on today.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 There are eleven major items in the official notes. We are not walking through all eleven line by line — some are cosmetic, and a post that tries to cover everything ends up telling you nothing. What follows is the subset that changes what you do on a Monday morning, grouped by where it actually bites: catalog and monitoring, search, Business Manager itself, the API layer, and the storefront runtimes. One of those items points back to a feature we should have covered last month, so we're closing that gap here too.
 

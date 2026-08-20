@@ -4,7 +4,7 @@ description: >-
   In some places there is too much rain, in other places it is too hot. The
   weather might not be consistent, but the release schedule of SFCC sure is!
 date: '2024-07-08T07:51:29.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /the-latest-in-sfcc-version-24-7/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-24-7-release-notes-7b5bf8e6a0.jpg
@@ -22,6 +22,9 @@ takeaways:
   - "Calls out related PWA Kit and tooling updates that teams should verify as part of their upgrade cycle"
 ---
 In some places there is too much rain, in other places it is too hot. The weather might not be consistent, but the release schedule of SFCC sure is! This time we look at the [July 2024 (24.7) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_7_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month's release notes? Read the [24.6 release overview](/what-is-new-in-sfcc-24-6/).
 

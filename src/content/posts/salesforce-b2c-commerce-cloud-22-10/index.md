@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.10 release and the final platform
   updates worth noting before the year wraps up.
 date: '2022-09-28T13:33:05.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-10/
 draft: false
 heroImage: tiktok-1-d92d51296d.jpg
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out related cartridge and storefront tooling releases that matter for hybrid, SFRA, and SLAS projects"
 ---
 What a year it has been, and now it is time for the final release of this year: the [October 2022 (22.10) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 And yes, as it is every year, there will be no releases between November and January to provide stability on the platform during the holiday period.
 

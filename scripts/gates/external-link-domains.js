@@ -57,6 +57,105 @@ const PATH_OVERRIDES = Object.freeze([
     reason:
       'SFRA repo is now closed-source (GitHub login + Commerce Cloud NDA required); ' +
       'anonymous requests get a login wall or 404, not a real dead-link signal'
+  },
+  // 2026-08 release-notes link sweep: verified via the GitHub API (authenticated)
+  // that each of these repos still exists but was flipped to private after the
+  // linking article was published — same "login wall, not a real dead link"
+  // situation as the SFRA override above, confirmed repo-by-repo rather than
+  // assumed.
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/plugin_slas',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/b2c-tools',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/sfra-webpack-builder',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/resource-manager',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/plugin_einstein_api',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/social_channel_integrations',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/sgmf-scripts',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/composable-storefront-pocs',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/plugin_commercepayments',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/plugin_redirect',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/plugin_datalayer',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/composable-hybrid-dev-server',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/b2c-japan-package',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/b2c-commerce-toolkit-for-grocery',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/eu-price-indication',
+    strategy: 'skip',
+    reason: 'Repo confirmed private via GitHub API; anonymous requests get a 404, not a real dead-link signal'
+  },
+  {
+    prefix: 'https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-site-performance.html',
+    strategy: 'skip',
+    reason:
+      'Confirmed live and current via direct Playwright fetch (45k+ chars of real article ' +
+      'content) — the render strategy\'s shared SALESFORCE_SPA_DEAD_MARKERS false-positives ' +
+      'on this specific page because the article\'s own body text discusses "404 page not ' +
+      'found" error pages as a site-performance topic'
   }
 ]);
 

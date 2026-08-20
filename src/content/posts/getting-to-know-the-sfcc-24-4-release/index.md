@@ -4,7 +4,7 @@ description: >-
   It's that time of the year again! The April 2024 (24.4) release of Salesforce
   B2C Commerce Cloud is finally here, just in time for the spring season.
 date: '2024-04-01T08:03:24.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /getting-to-know-the-sfcc-24-4-release/
 draft: false
 heroImage: a-group-of-paintings-walking-on-a-road-d1415ca232.jpg
@@ -21,6 +21,9 @@ takeaways:
   - "Flags security and operations changes like OCAPI token invalidation and staging eCDN management"
 ---
 It's that time of the year again! The [April 2024 (24.4)](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_4_release.htm&type=5) release of Salesforce B2C Commerce Cloud is finally here, just in time for the spring season. Let's take a closer look at all the exciting new features and improvements this release offers.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 24.3 release notes](/digging-into-the-b2c-commerce-cloud-24-3-release/)!
 

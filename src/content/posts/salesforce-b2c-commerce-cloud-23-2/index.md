@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 23.2 release, including Page Designer
   and SCAPI changes developers should notice.
 date: '2023-01-18T19:00:06.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/
 draft: false
 heroImage: artist-painting-on-screen-7d21e84105.jpg
@@ -24,6 +24,9 @@ takeaways:
   - "Calls out the broader release impact across SCAPI, SLAS, tax handling, reporting, and PWA Kit updates"
 ---
 February is almost here, and so is the [February 2023](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_2_release.htm&type=5) (23.2) release! If you are an avid user of Page Designer, this is the update you have been waiting for - and Salesforce, keep 'em comin'!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 23.1 release notes](/salesforce-b2c-commerce-cloud-23-1/)!
 

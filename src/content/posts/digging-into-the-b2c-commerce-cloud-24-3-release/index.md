@@ -4,7 +4,7 @@ description: >-
   As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has
   arrived! Let us have a look at the March release of 2024.
 date: '2024-03-04T09:04:46.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
 heroImage: a-shopping-cart-overfilled-with-products-2342f0919f.jpg
@@ -22,6 +22,9 @@ takeaways:
   - "Flags operational changes like disabled scheduled backups and new Business Manager alerts"
 ---
 As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has arrived! Let us have a look at the [March release of 2024](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_3_release.htm&type=5).
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month's release notes? Read the [24.2 release overview](/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/).
 

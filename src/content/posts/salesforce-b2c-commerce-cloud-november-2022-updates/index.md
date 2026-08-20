@@ -4,7 +4,7 @@ description: >-
   A closer look at the November 2022 B2C Commerce Cloud updates, including
   cartridge releases, tooling changes, and SCAPI work.
 date: '2022-11-28T18:36:33.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-november-2022-updates/
 draft: false
 heroImage: shopping-cart-in-the-clouds-4e07433888.jpg
@@ -21,6 +21,9 @@ takeaways:
 ---
 It is a slow period in B2C Commerce Cloud update land as no significant [releases](/category/release-notes/) happen during the holiday period. But updates still occur in other places!
 
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
+
 In this article, I consolidate all the updates I have found across the different areas encompassing Salesforce B2C Commerce Cloud.
 
 ## SFRA v6.3.0
@@ -33,7 +36,7 @@ In this case, it was a major update to [plugin\_slas](https://github.com/Salesfo
 
 ## PWA Kit v2.3.0
 
-As expected, another big update hit the PWA Kit with quite [an extensive changelog](https://github.com/SalesforceCommerceCloud/pwa-kit/compare/v2.2.0...v2.3.0). The "spotlight" change is the added [React Query](https://tanstack.com/query/v4/docs/overview) support for the server side.
+As expected, another big update hit the PWA Kit with quite [an extensive changelog](https://github.com/SalesforceCommerceCloud/pwa-kit/compare/v2.2.0...v2.3.0). The "spotlight" change is the added [React Query](https://tanstack.com/query/latest/docs/framework/react/overview) support for the server side.
 
 Some other noteworthy changes (besides bugfixes):
 
@@ -74,14 +77,14 @@ Some new ideas made their way to the IdeaExchange!
 
 ### Adyen (v22.2.1)
 
-- [https://github.com/SalesforceCommerceCloud/link\_adyen](https://github.com/SalesforceCommerceCloud/link_adyen)
+- [https://github.com/Adyen/adyen-salesforce-commerce-cloud](https://github.com/Adyen/adyen-salesforce-commerce-cloud) (the cartridge has since moved from the SalesforceCommerceCloud org to Adyen's own)
 
 > Adyen provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge enables an SFCC storefront to use the Adyen payment service. This cartridge supports SFRA version 5.x.x & 6.x.x and SiteGenesis JS-Controllers version 103.1.11 and higher.
 
 ### New
 
 - Support for the new India live environment. Use this environment with the corresponding India location-based live endpoint.
-- A custom [Business Manager configuration page](https://docs.adyen.com/plugins/salesforce-commerce-cloud/set-up-the-cartridge#set-up-the-business-manager).
+- A custom [Business Manager configuration page](https://docs.adyen.com/plugins/salesforce-commerce-cloud/sfra/set-up-the-cartridge).
 - New supported payment method: [UPI](https://docs.adyen.com/payment-methods/upi).
 
 ### Improved
@@ -91,7 +94,7 @@ Some new ideas made their way to the IdeaExchange!
 
 ### Mollie (v22.3.0)
 
-- [https://github.com/SalesforceCommerceCloud/link\_mollie](https://github.com/SalesforceCommerceCloud/link_mollie)
+- `SalesforceCommerceCloud/link_mollie` (this repo is no longer available)
 
 > This is the integration cartridge for Mollie
 

@@ -4,7 +4,7 @@ description: >-
   In this post we take a look at the release notes of Salesforce B2C Commerce
   Cloud for April 2022, and dig a bit deeper into them.
 date: '2022-03-21T19:57:05.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /b2c-commerce-whats-new-in-22-4/
 draft: false
 heroImage: warehouse-5806bba713.jpg
@@ -23,6 +23,9 @@ takeaways:
   - "Calls out new caching and variation-group behaviour worth testing before rollout"
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are [a lot quicker than the other Salesforce platforms](https://medium.com/inside-the-salesforce-ecosystem/a-partners-guide-to-navigating-the-salesforce-release-cycle-efa36ed3c64), not every month will be as extensive a list as the other.
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Check out the original release notes [for April 2022](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
 
@@ -45,7 +48,7 @@ A new major release of PWA Kit is on the horizon! This release has a few new toy
 - An all-new CLI tool called "mrt" that combines Webpack, Jest, and Babel to support zero-config projects
 - Experimental support for non-React projects is added
 
-You can find more information about this release on [GitHub](https://github.com/SalesforceCommerceCloud/pwa-kit/discussions/395).
+You can find more information about this release on [GitHub](https://github.com/SalesforceCommerceCloud/pwa-kit/releases).
 
 ## SCAPI
 

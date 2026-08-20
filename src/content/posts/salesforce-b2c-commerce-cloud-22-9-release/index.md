@@ -4,7 +4,7 @@ description: >-
   Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer
   copy and paste to Shopper Context updates and Salesforce Payments changes.
 date: '2022-08-17T18:45:35.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/
 draft: false
 heroImage: copy-paste-page-designer-full-d97d9a9ee9.jpg
@@ -25,6 +25,9 @@ takeaways:
   - "Calls out supporting tool and cartridge updates that affect migration, security, and storefront integration work"
 ---
 We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 22.8 release notes](/salesforce-b2c-commerce-cloud-22-8/)!
 
@@ -114,7 +117,7 @@ In August, someone at Salesforce has been cleaning house at the "[Known Issues](
 
 ### link\_beecloud\_recaptcha (v2022.1.0)
 
-- [https://github.com/SalesforceCommerceCloud/link\_beecloud\_recaptcha](https://github.com/SalesforceCommerceCloud/link_beecloud_recaptcha)
+- `SalesforceCommerceCloud/link_beecloud_recaptcha` (this repo is no longer available)
 
 > BeeCloud provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge provides integration with Google reCaptcha for checkout process.
 

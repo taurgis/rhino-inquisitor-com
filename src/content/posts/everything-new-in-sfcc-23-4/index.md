@@ -4,7 +4,7 @@ description: >-
   Catch up on the Salesforce B2C Commerce Cloud 23.4 release and the platform
   changes that matter most for developers this month.
 date: '2023-03-15T19:32:56.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /everything-new-in-sfcc-23-4/
 draft: false
 heroImage: >-
@@ -22,6 +22,9 @@ takeaways:
   - "Flags Node and PWA Kit upgrade pressure tied to Managed Runtime support windows"
 ---
 As the clock ticks on a new month has arrived, and with that the next [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) release! This time we look at the [April 2023 (23.4) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_4_release.htm&language=en_US&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 23.3 release notes](/salesforce-b2c-commerce-cloud-23-3-release/)!
 

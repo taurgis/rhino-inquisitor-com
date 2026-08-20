@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-08T09:00:00.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out the new public cartridges and tooling updates that extend compliance, tracking, and authentication options"
 ---
 Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Read the 23.2 release notes](/salesforce-b2c-commerce-cloud-23-2/)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 ## Trial sandboxes
 
@@ -96,7 +99,7 @@ A new release for [Account Manager](https://account.demandware.com/) has happene
 
 ## PWA Kit v2.6.0
 
-A new PWA Kit release happens every few weeks, so this month is no different. In this release, the biggest modification is a performance boost to the "[Mega Menu](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/drawer-menu/index.jsx)" by lazy loading menu items below a configured 'depth'. Want to see what else this new version has in store? Review the [PWA Kit v2.6.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.6.0).
+A new PWA Kit release happens every few weeks, so this month is no different. In this release, the biggest modification is a performance boost to the "[Mega Menu](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/drawer-menu/index.js)" by lazy loading menu items below a configured 'depth'. Want to see what else this new version has in store? Review the [PWA Kit v2.6.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.6.0).
 
 ## Bugfixes
 

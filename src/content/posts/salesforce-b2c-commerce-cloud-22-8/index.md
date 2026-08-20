@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.8 release, including quota
   changes, SCAPI hook updates, eCDN verification, and holiday readiness work.
 date: '2022-07-25T07:19:45.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
 draft: false
 heroImage: 85e37556-72f2-49a5-b436-a5616e9776a7-3984eb1bb9.jpeg
@@ -21,6 +21,9 @@ takeaways:
   - "Calls out related PWA Kit, SDK, and cartridge updates that affect headless and hybrid storefront teams"
 ---
 A new month means new candy for us in Salesforce B2C Commerce Cloud. But what will we find in that jar this month? Let us find out!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month’s release notes? [Read the 22.7 release notes](/salesforce-b2c-commerce-cloud-the-22-7-release/)! Or are you looking for the [official release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_8_release.htm&type=5)?
 
@@ -187,7 +190,7 @@ SLAS does not allow you to hook in any external IDP at the moment. You need to a
 
 Newly supported IDPs are:
 
-- [SAP Gigya](https://www.sap.com/acquired-brands/what-is-gigya.html)
+- [SAP Gigya](https://www.sap.com/products/acquired-brands/what-is-gigya.html)
 - [AWS Cognito](https://aws.amazon.com/cognito/)
 - [Apple](https://developer.apple.com/sign-in-with-apple/)
 - [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)

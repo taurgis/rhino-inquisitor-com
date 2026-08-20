@@ -4,7 +4,7 @@ description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of
 date: '2023-10-02T12:35:45.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: shopping-carts-on-a-tablet-fa1824b0b9.jpeg
@@ -22,6 +22,9 @@ takeaways:
   - "Calls out related Account Manager and PWA Kit changes that affect operations, compliance, and composable storefront delivery"
 ---
 It's a yearly tradition not to release major updates during the holiday season to maintain platform stability, so here we are with the final release of 2023. This time, we look at the [October 2023 (23.10) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_10_release.htm&type=5)! Are you interested in last month's release notes? Read the [23.9 release overview](/a-look-at-the-23-9-commerce-cloud-release/).
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 ## Temporary Baskets
 

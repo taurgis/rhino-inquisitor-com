@@ -4,7 +4,7 @@ description: >-
   23.5 release overview covering eCDN certificate renewal, search updates,
   order-management controls, and new SCAPI basket capabilities.
 date: '2023-04-20T05:52:49.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-08-20T12:00:00.000Z'
 url: /a-look-at-the-sfcc-23-5-release/
 draft: false
 heroImage: >-
@@ -23,6 +23,9 @@ takeaways:
   - "Notes security and operational changes that deserve follow-up testing"
 ---
 Another month, another release! This time we look at the [May 2023 (23.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
+
+> [!NOTE]
+> A 2026 update: these notes are from an earlier release cycle. For what's shipped since, browse the [release notes archive](/category/release-notes/).
 
 Are you interested in last month's release notes? Read the [23.4 release overview](/everything-new-in-sfcc-23-4/).
 
