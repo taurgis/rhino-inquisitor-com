@@ -48,10 +48,10 @@ Do not render any legible text, labels, signage, storefront names, logos, UI ele
 The post's front matter already specifies this exact filename and alt text; the generated image should match this framing precisely:
 
 ```yaml
-heroImage: multi-site-multi-brand-storefronts-on-sfcc-hero.png
+heroImage: multi-site-multi-brand-storefronts-on-sfcc-hero.jpg
 heroImageAlt: >-
   A cartoon rhino architect at a fork: one path leads to a single
   storefront, the other splits into several branded ones.
 ```
 
-Save the final output to the post's own folder as `multi-site-multi-brand-storefronts-on-sfcc-hero.png`.
+Save the final output to the post's own folder as `multi-site-multi-brand-storefronts-on-sfcc-hero.jpg` (JPG matches the house convention for hero images; PNG at this size is ~4MB and hurts LCP).

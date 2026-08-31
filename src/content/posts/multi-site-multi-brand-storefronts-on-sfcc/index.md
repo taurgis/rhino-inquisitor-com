@@ -7,7 +7,7 @@ date: '2026-08-31T09:00:00.000Z'
 lastmod: '2026-08-31T09:00:00.000Z'
 url: /multi-site-multi-brand-storefronts-on-sfcc/
 draft: true
-heroImage: multi-site-multi-brand-storefronts-on-sfcc-hero.png
+heroImage: multi-site-multi-brand-storefronts-on-sfcc-hero.jpg
 heroImageAlt: >-
   A cartoon rhino architect at a fork: one path leads to a single
   storefront, the other splits into several branded ones.
