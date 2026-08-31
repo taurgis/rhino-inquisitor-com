@@ -108,7 +108,7 @@ module.exports = [
 
 Per-site divergence at the component level rides on [template extensibility](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/template-extensibility.html), the feature PWA Kit v3 shipped and turned on by default for any project generated after June 15, 2023. Declare a base template, declare an `overrides` directory, and any file you recreate at the same path in that directory silently replaces the base template's version at build time — no forked repository, no duplicated boilerplate for the 90% of the app that doesn't change. Template extensibility, rather than a site-ID branch, is what performs the per-site (or per-brand) swap: override the home page component for brand B, leave everything else pointed at the shared base.
 
-Salesforce's own docs are upfront about the cost on the other side of that convenience: "the more files that you override, the more effort is required to keep up with changes in the base template." Every override you keep is a small API contract you've taken on: an override that doesn't re-export everything its base-template counterpart exported breaks the build, with errors like `export 'CAT_MENU_DEFAULT_ROOT_CATEGORY' ... was not found in 'retail-react-app/app/constants'`. Write one override and that's easy to keep straight. Carry fifty across a base template that keeps moving, and each upgrade becomes a hunt for the ones that no longer line up. That's a fair trade for a handful of divergent pages. It's a bad trade for the same "we override half the app for every brand" pattern that should have been a split codebase in the first place.
+Salesforce's own docs are upfront about the cost on the other side of that convenience: "the more files that you override, the more effort is required to keep up with changes in the base template." Every override you keep is a small API contract you've taken on: an override that doesn't re-export everything its base-template counterpart exported breaks the build, with errors like `export 'CAT_MENU_DEFAULT_ROOT_CATEGORY' ... was not found in '@salesforce/retail-react-app/app/constants'`. Write one override and that's easy to keep straight. Carry fifty across a base template that keeps moving, and each upgrade becomes a hunt for the ones that no longer line up. That's a fair trade for a handful of divergent pages. It's a bad trade for the same "we override half the app for every brand" pattern that should have been a split codebase in the first place.
 
 ## Storefront Next: Page Designer, Extensions, and When Commerce Apps Earn Their Keep
 
@@ -131,18 +131,18 @@ This is the part that trips people up on both platforms, so walk through it deli
 ```mermaid
 sequenceDiagram
     participant Shopper
-    participant SiteA as "us.example.com\n(Site: RefArch)"
-    participant SiteB as "de.example.com\n(Site: RefArchGlobal)"
-    participant Auth as "SLAS / Hybrid Auth"
+    participant SiteA as us.example.com (Site: RefArch)
+    participant SiteB as de.example.com (Site: RefArchGlobal)
+    participant Auth as SLAS / Hybrid Auth
 
     Shopper->>SiteA: Add product to basket (guest)
     SiteA->>SiteA: POST baskets — basket scoped to RefArch
     Shopper->>SiteB: Switches to the DE locale site
-    Note over SiteA,SiteB: No built-in cross-site basket carryover —\nbaskets are scoped to the site that created them
+    Note over SiteA,SiteB: No built-in cross-site basket carryover —<br/>baskets are scoped to the site that created them
     Shopper->>SiteB: Logs in
     SiteB->>Auth: SLAS token issued, dwsid kept in sync (Hybrid Auth, 25.3+)
-    SiteB->>SiteB: dw.order.mergeBasket merges guest + registered basket\n(same-site login merge only, 25.10+)
-    Note over SiteB: The DE basket and the earlier RefArch basket\nremain two separate baskets unless you design otherwise
+    SiteB->>SiteB: dw.order.mergeBasket merges guest + registered basket<br/>(same-site login merge only, 25.10+)
+    Note over SiteB: The DE basket and the earlier RefArch basket<br/>remain two separate baskets unless you design otherwise
 ```
 
 Baskets get created two ways, depending on which stack owns the page: `POST baskets` through SCAPI (the Salesforce Commerce API, the headless REST API composable storefronts call), or `getCurrentOrNewBasket()` through the Script API on the SFRA side. Either way, the basket is scoped to the site that created it. Salesforce's own [hybrid implementation guidance](https://developer.salesforce.com/docs/commerce/commerce-api/guide/hybrid-storefront-baskets.html) is explicit that you should call the API matching whichever technology owns that page, and never mix SCAPI calls into Script API controllers. Nothing in that guidance promises a basket travels with a shopper from one site to another, because sites are the unit baskets are scoped to in the first place. Switching from `us.example.com` to `de.example.com` mid-session is, from the platform's point of view, closer to switching stores than switching pages.
