@@ -18,19 +18,18 @@ format_available:
   - detailed
 tier: standard
 ttl: 
-fetched_at: 2026-07-09T13:31:03.825Z
-validated_at: 2026-07-09T13:31:03.825Z
-stale_after: 2026-08-08T13:31:03.825Z
+fetched_at: 2026-08-31T09:02:48.950Z
+validated_at: 2026-08-31T09:02:48.950Z
+stale_after: 2026-09-30T09:02:48.950Z
 capture_method: route_markdown
 extraction_status: extracted
 extraction_confidence: high
 quality_notes:
   - captured from public Markdown/MDX source: https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/page-designer.md
-  - auto-generated tags via keyword extraction
 supplied_at: 
 supplied_by: 
-etag: "841a08caf801d958b905f2c61d83759b"
-last_modified: Thu, 09 Jul 2026 01:19:22 GMT
+etag: "ad1668156c66f4c8683ce90c40fc186e"
+last_modified: Fri, 28 Aug 2026 03:44:16 GMT
 content_hash: 5a80d3051d6e999f91bfe0185acdb4eff0bb184b6a80ffb3ff0f568576af963e
 token_estimate:
   compressed: 161
