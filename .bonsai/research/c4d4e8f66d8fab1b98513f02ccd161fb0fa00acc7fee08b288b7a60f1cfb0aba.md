@@ -19,23 +19,22 @@ format_available:
   - detailed
 tier: standard
 ttl: 
-fetched_at: 2026-07-23T13:24:16.357Z
-validated_at: 2026-07-23T13:24:16.357Z
-stale_after: 2026-08-22T13:24:16.357Z
+fetched_at: 2026-09-08T15:05:04.489Z
+validated_at: 2026-09-08T15:05:04.489Z
+stale_after: 2026-10-08T15:05:04.489Z
 capture_method: route_markdown
 extraction_status: extracted
 extraction_confidence: high
 quality_notes:
   - captured from public Markdown/MDX source: https://salesforcecommercecloud.github.io/b2c-developer-tooling/help/help-admin/b2c_new_business_manager_ui.md
-  - auto-generated tags via keyword extraction
 supplied_at: 
 supplied_by: 
-etag: W/"6a593c23-f04"
-last_modified: Thu, 16 Jul 2026 20:16:35 GMT
-content_hash: b81aeb5daab7697c174f1d979908548240b02be3bf39ca18ef2c26389cc2ae31
+etag: W/"6a8dd185-806"
+last_modified: Tue, 25 Aug 2026 17:31:49 GMT
+content_hash: 848d8051043e34234a59e6e73a7601c492fb05a4c68a543a587c2714e238872c
 token_estimate:
-  compressed: 895
-  detailed: 960
+  compressed: 448
+  detailed: 513
 status: active
 site_module_id: salesforce
 docs_engine: 
@@ -73,39 +72,6 @@ Starting with Salesforce B2C Commerce Version 26.5, the default user interface i
 - Does the new homepage dashboard replace B2C Commerce Reports & Dashboards?
    
    No. The new Merchant Tools and Administration dashboards primarily focus on Business Manager related information (product catalog status, search index status, errors, and quota violations). Reports & Dashboards continue to capture and display business and technical metrics.
-- Can I customize the home page dashboard in the Cosmos UI?
-   
-   Yes. You can customize your workspace in the home page dashboard. In the Quick Find box, select **New Custom App**. _(image: New Custom App)_
-- Who can create custom apps?
-   
-   Merchandisers, admins, and developers can create custom apps.
-- Can I still open modules that aren’t in the Merchandising App?
-   
-   Yes. You can use any module that you have permission to access.
-- Do I need a special role or permission to see or use the Merchandising App?
-   
-   No special permissions are required. However, the modules that you see are based on your assigned permissions.
-- Can I add any Business Manager module or only a predefined set?
-   
-   You can add all Business Manager modules that you have access to based on your permissions.
-- Can I rename modules or sections?
-   
-   You can rename sections, but you can't rename modules.
-- Can I hide or remove modules I don't use?
-   
-   You can remove sections and all modules contained in the section from the left navigation. You can also move modules between sections.
-- How do I undo or reset a customization?
-   
-   To reset a custom app, delete its sections.
-- Do my edits apply only to me or to everyone in my organization?
-   
-   Your customizations apply only to your user account and aren't available to other users. Your edits are specific to your instance and aren't shared between instances for the same user account.
-- Can I have more than one workspace or app at the same time, for example, Merchandising and Administration?
-   
-   Yes. You can create multiple custom apps in Business Manager.
-- How do I switch back to the full Merchant Tools or classic navigation experience?
-   
-   Open the App Launcher, and switch to Merchant Tools or Administration.
 - How do I report problems?
    
    Contact Salesforce Customer Support to report functional issues with the Business Manager UI.
@@ -135,39 +101,6 @@ Starting with Salesforce B2C Commerce Version 26.5, the default user interface i
 - Does the new homepage dashboard replace B2C Commerce Reports & Dashboards?
    
    No. The new Merchant Tools and Administration dashboards primarily focus on Business Manager related information (product catalog status, search index status, errors, and quota violations). Reports & Dashboards continue to capture and display business and technical metrics.
-- Can I customize the home page dashboard in the Cosmos UI?
-   
-   Yes. You can customize your workspace in the home page dashboard. In the Quick Find box, select **New Custom App**. _(image: New Custom App)_
-- Who can create custom apps?
-   
-   Merchandisers, admins, and developers can create custom apps.
-- Can I still open modules that aren’t in the Merchandising App?
-   
-   Yes. You can use any module that you have permission to access.
-- Do I need a special role or permission to see or use the Merchandising App?
-   
-   No special permissions are required. However, the modules that you see are based on your assigned permissions.
-- Can I add any Business Manager module or only a predefined set?
-   
-   You can add all Business Manager modules that you have access to based on your permissions.
-- Can I rename modules or sections?
-   
-   You can rename sections, but you can't rename modules.
-- Can I hide or remove modules I don't use?
-   
-   You can remove sections and all modules contained in the section from the left navigation. You can also move modules between sections.
-- How do I undo or reset a customization?
-   
-   To reset a custom app, delete its sections.
-- Do my edits apply only to me or to everyone in my organization?
-   
-   Your customizations apply only to your user account and aren't available to other users. Your edits are specific to your instance and aren't shared between instances for the same user account.
-- Can I have more than one workspace or app at the same time, for example, Merchandising and Administration?
-   
-   Yes. You can create multiple custom apps in Business Manager.
-- How do I switch back to the full Merchant Tools or classic navigation experience?
-   
-   Open the App Launcher, and switch to Merchant Tools or Administration.
 - How do I report problems?
    
    Contact Salesforce Customer Support to report functional issues with the Business Manager UI.
@@ -177,4 +110,4 @@ Starting with Salesforce B2C Commerce Version 26.5, the default user interface i
 
 ## Provenance
 
-Fetched from https://help.salesforce.com/s/articleView?id=cc.b2c_new_business_manager_ui.htm&language=en_US&type=5 on 2026-07-23T13:24:16.357Z
+Fetched from https://help.salesforce.com/s/articleView?id=cc.b2c_new_business_manager_ui.htm&language=en_US&type=5 on 2026-09-08T15:05:04.489Z

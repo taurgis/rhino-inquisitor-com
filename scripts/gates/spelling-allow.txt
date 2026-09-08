@@ -104,6 +104,7 @@ braintree
 breakpoint
 broc
 brotli
+browsable
 bucher
 bugfix
 bugfixes
@@ -397,6 +398,7 @@ mihai
 minification
 minify
 misconfiguration
+misconfigured
 misconfigure
 mishika
 mispicks
