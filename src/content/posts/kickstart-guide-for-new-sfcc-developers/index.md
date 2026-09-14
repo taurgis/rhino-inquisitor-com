@@ -4,7 +4,7 @@ description: >-
   An interactive guide for new SFCC developers covering storefront patterns,
   platform concepts, and practical next steps for hands-on learning.
 date: '2026-01-12T14:05:43.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-09-14T16:20:00.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
 heroImage: the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
@@ -100,7 +100,7 @@ However, just pushing the code isn't enough. You then need to go into the Busine
 
 ### The Cartridge Path: Where Order Is Everything
 
-The **cartridge path** is arguably the most important and unique concept in SFCC development. It is the mechanism that allows for SFCC's powerful extensibility. Think of it like layers of paint: the last layer you apply is the one you see.
+The **cartridge path** is arguably the most important and unique concept in SFCC development. It is the mechanism that allows for SFCC's powerful extensibility. Think of it like the `PATH` variable in a shell: an ordered list of places to look, where the search stops at the first place that has what you asked for.
 
 In Business Manager, under `Administration > Sites > Manage Sites > Settings`, you define a colon-separated list of cartridge names. A typical path looks like this:
 
@@ -116,9 +116,11 @@ When a request comes in for a specific [controller](https://beeit.io/blog/gettin
 
 This is how you customise the storefront. You never modify `app_storefront_base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_mybrand`), and it will automatically override the base version.
 
-But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before _ the base controller's route, `server.append()` to execute code _ after_, or `server.replace()` to override it completely.
+But what if you don't want to completely replace a controller, only add some logic before or after it runs? For this, [B2C Commerce provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) `module.superModule`. You never `require` it. The platform sets it on every module, and it resolves to the next file with the same name and location in a cartridge further to the right on the path. If there is no such file, it is `null` rather than an error, which is why a typo in the filename fails quietly instead of blowing up.
 
-This extensibility model is powerful, but it comes with a responsibility. A developer's architectural choices here have massive long-term consequences for the site's maintainability. The easy path is often to copy an entire base controller into your custom cartridge and make a small change. This is a `replace` by default. However, a year later, when Salesforce releases a critical security patch for that base controller, your site won't receive it because you've completely overridden the original file. Your code is now brittle and carries significant technical debt.
+`module.superModule` only hands you the base controller. The route-level verbs belong to SFRA's `server` module, which you _do_ require. Pass the base controller to [`server.extend()`](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-customizing-sfra.html) to inherit its routes, then reach for one of three methods on a route by name: `server.prepend()` runs your middleware before the base chain, `server.append()` runs it after, and `server.replace()` throws away the base chain for that one route while leaving the controller's other routes intact.
+
+This extensibility model is powerful, but it comes with a responsibility. A developer's architectural choices here have massive long-term consequences for the site's maintainability. The easy path is often to copy an entire base controller into your custom cartridge and make a small change. That is not a `replace` of one route; it is a whole-file override, and every route in the file is now yours to maintain. However, a year later, when Salesforce releases a critical security patch for that base controller, your site won't receive it because you've completely overridden the original file. Your code is now brittle and carries significant technical debt.
 
 The more disciplined, correct approach is to use `prepend` or `append` whenever possible to inject only the logic you need, preserving the underlying base functionality and its future upgrade path. This discipline is a key differentiator between a junior and a senior SFCC developer.
 
