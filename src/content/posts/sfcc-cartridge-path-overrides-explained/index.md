@@ -2,7 +2,7 @@
 title: 'SFCC Cartridge Path & Overrides: module.superModule, Hooks, and the Mistakes Everyone Makes'
 description: >-
   Learn how SFCC resolves the cartridge path, when to use module.superModule
-  vs require(), and why hook order and ISML overrides trip up experienced devs.
+  vs require(), and why hook order and ISML overrides trip up developers.
 date: '2026-09-14T13:55:09.000Z'
 lastmod: '2026-09-14T13:55:09.000Z'
 url: /sfcc-cartridge-path-overrides-explained/
@@ -40,7 +40,7 @@ Conflating the second and third is the single most common failure mode reported 
 
 ## How the Cartridge Path Actually Resolves Files
 
-The cartridge path is always searched left to right. The first cartridge that contains a matching controller, ISML template, script, or model wins, and the application server stops looking the moment it finds one. (ISML is SFCC's server-side template format for rendering storefront HTML — the file type behind most of the examples in this post.) That's documented behavior, not community folklore — see the [B2C Commerce Cartridges guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-cartridges.html) and the [SFRA Features and Components guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-features-and-comps.html). A typical SFRA (Storefront Reference Architecture — Salesforce's reference storefront codebase, the base most SFCC sites extend) stack looks like this:
+The cartridge path is always searched left to right. The first cartridge that contains a matching controller, ISML template, script, or model wins, and the application server stops looking the moment it finds one. (ISML is SFCC's server-side template format for rendering storefront HTML — the file type behind most of the examples in this post.) That's documented behaviour, not community folklore — see the [B2C Commerce Cartridges guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-cartridges.html) and the [SFRA Features and Components guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-features-and-comps.html). A typical SFRA (Storefront Reference Architecture — Salesforce's reference storefront codebase, the base most SFCC sites extend) stack looks like this:
 
 ```mermaid
 flowchart LR
@@ -54,7 +54,7 @@ flowchart LR
 
 If `custom_mysite` has its own `cartridge/templates/default/product/productTile.isml`, that file is served, and `app_storefront_base`'s version of the same path is never touched for that request. This is why cartridge order in **Administration > Sites > Manage Sites > [your site] > Settings tab** (the Cartridges field) isn't a suggestion — that's where the site's cartridge path string actually gets set, and per the [Cartridges guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-cartridges.html#register-a-cartridge), cartridges there "take precedence in order from left to right." Get the order wrong and your override is invisible even though the file is objectively there.
 
-One detail trips people up in multi-locale sites: the [Localization guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) confirms the application server does **not** apply locale fallback when locating templates or cartridge files — locale fallback is a thing for localizable attribute *values*, not for which physical file gets loaded. A missing template doesn't fall back to a "default locale" copy in the same cartridge; the platform just keeps walking the cartridge path.
+One detail trips people up in multi-locale sites: the [Localisation guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) confirms the application server does **not** apply locale fallback when locating templates or cartridge files — locale fallback is a thing for localisable attribute *values*, not for which physical file gets loaded. A missing template doesn't fall back to a "default locale" copy in the same cartridge; the platform just keeps walking the cartridge path.
 
 ## module.superModule: Extending Instead of Replacing
 
@@ -83,7 +83,7 @@ module.exports.getDisplayPrice = getDisplayPrice;
 ```
 
 > [!NOTE]
-> `module.superModule` is documented platform behavior, not a community convention: the [SFRA Modules guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) devotes a full section to "Inheriting and Overriding Modules in Your Cartridge Stack Using Module.SuperModule," and the [Customize SFRA guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-customizing-sfra.html) uses the same property in its `Product.js` walkthrough. The mechanics below match those guides.
+> `module.superModule` is documented platform behaviour, not a community convention: the [SFRA Modules guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) devotes a full section to "Inheriting and Overriding Modules in Your Cartridge Stack Using Module.SuperModule," and the [Customise SFRA guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-customizing-sfra.html) uses the same property in its `Product.js` walkthrough. The mechanics below match those guides.
 
 Two lines at the bottom of that example carry the actual teaching point. `module.superModule` hands you the *whole* exports object of the next file down the path, not just the one function you care about — so `base` already contains every other helper `pricingHelper.js` exposes further down the chain. `module.exports = base` copies all of those forward untouched, and only the line after it swaps in your extended `getDisplayPrice`. Skip that first assignment and every other function the base helper exports quietly disappears for anything that requires your cartridge's copy, even ones you never meant to touch.
 
@@ -120,7 +120,7 @@ sequenceDiagram
     Note over Caller: Only the LAST cartridge's return value reaches the caller
 ```
 
-This is the opposite of the platform's other hook system: the [Extensibility via Hooks guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/extensibility_via_hooks.html) for Shopper API hooks — the same hook behavior applies whether you reach them through SCAPI (Salesforce's modern B2C Commerce API) or OCAPI (its older predecessor, the Open Commerce API) — documents that if a hook there returns a value, execution **skips** the system implementation and any subsequent registered hooks for that extension point. Same platform, same word "hook," genuinely different execution contract depending on which hook system you're in. If you've only ever worked with one of the two, the other one's behaviour will surprise you the first time you rely on it.
+This is the opposite of the platform's other hook system: the [Extensibility via Hooks guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/extensibility_via_hooks.html) for Shopper API hooks — the same hook behaviour applies whether you reach them through SCAPI (Salesforce's modern B2C Commerce API) or OCAPI (its older predecessor, the Open Commerce API) — documents that if a hook there returns a value, execution **skips** the system implementation and any subsequent registered hooks for that extension point. Same platform, same word "hook," genuinely different execution contract depending on which hook system you're in. If you've only ever worked with one of the two, the other one's behaviour will surprise you the first time you rely on it.
 
 One currency note while you're deciding which of the two to learn first: Salesforce [marked OCAPI deprecated as of April 2026](https://developer.salesforce.com/docs/commerce/commerce-api/guide/why-use-scapi.html) — it keeps running with security fixes for existing implementations, but SCAPI is where new hook capability and platform investment goes. If you're wiring up a new Shopper API hook today, SCAPI is the one to reach for.
 
