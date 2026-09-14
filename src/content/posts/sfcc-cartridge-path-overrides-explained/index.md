@@ -87,7 +87,9 @@ function getDisplayPrice(product, apiProduct) {
     return price;
 }
 
+// Forward every other export from the base helper through untouched...
 module.exports = base;
+// ...then swap in only the function we extended.
 module.exports.getDisplayPrice = getDisplayPrice;
 ```
 
@@ -122,14 +124,14 @@ That ordering guarantee holds *across* cartridges only. The same guide is explic
 sequenceDiagram
     participant Caller as HookMgr.callHook()
     participant Custom as app_custom_mysite hook
-    participant Link as LINK_thirdparty hook
+    participant Vendor as LINK_thirdparty hook
     participant Plugin as plugin_wishlists hook
     participant Base as app_storefront_base hook
 
     Caller->>Custom: execute
     Custom-->>Caller: return value (discarded)
-    Caller->>Link: execute
-    Link-->>Caller: return value (discarded)
+    Caller->>Vendor: execute
+    Vendor-->>Caller: return value (discarded)
     Caller->>Plugin: execute
     Plugin-->>Caller: return value (discarded)
     Caller->>Base: execute
