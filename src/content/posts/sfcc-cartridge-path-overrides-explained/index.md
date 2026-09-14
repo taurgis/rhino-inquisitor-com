@@ -34,7 +34,7 @@ People say "override" for all of the following, and then wonder why the advice t
 
 - **File-level resolution.** The application server walks the cartridge path and serves the first matching controller, template, script, or model it finds. Nothing runs the file from the cartridge behind it unless you write code that says so.
 - **Module-level extension** via `module.superModule`. Inside a script, you deliberately reach past your own file to the next matching file further down the path — this is how you extend a base controller or model instead of fully replacing it.
-- **Hook registration and execution** via `HookMgr`. Every cartridge that registers the same hook ID gets called, in cartridge-path order, regardless of whether any single cartridge "wins."
+- **Hook registration and execution** via `HookMgr`. Every cartridge that registers a script for the same extension point gets called, in cartridge-path order, regardless of whether any single cartridge "wins."
 
 Conflating the second and third is the single most common failure mode reported in `#b2c-general` and `#sfra`: developers assume a hook works like a template override (highest cartridge wins, full stop) when it doesn't.
 
@@ -45,23 +45,25 @@ The cartridge path is always searched left to right. The first cartridge that co
 ```mermaid
 flowchart LR
     subgraph "Cartridge Path (left wins)"
-        A["custom_mysite\n(your code)"] --> B["link_thirdparty\n(vendor cartridge)"]
+        A["app_custom_mysite\n(your code)"] --> B["LINK_thirdparty\n(vendor cartridge)"]
         B --> C["plugin_wishlists\n(SFRA plugin)"]
         C --> D["app_storefront_base\n(SFRA base)"]
     end
     R["Request for:\nHome-Show controller\nhomePage.isml\nhelpers/pricing.js"] -.resolves left-to-right.-> A
 ```
 
-If `custom_mysite` has its own `cartridge/templates/default/product/productTile.isml`, that file is served, and `app_storefront_base`'s version of the same path is never touched for that request. This is why cartridge order in **Administration > Sites > Manage Sites > [your site] > Settings tab** (the Cartridges field) isn't a suggestion — that's where the site's cartridge path string actually gets set, and per the [Cartridges guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-cartridges.html#register-a-cartridge), cartridges there "take precedence in order from left to right." Get the order wrong and your override is invisible even though the file is objectively there.
+If `app_custom_mysite` has its own `cartridge/templates/default/product/productTile.isml`, that file is served, and `app_storefront_base`'s version of the same path is never touched for that request. This is why cartridge order in **Administration > Sites > Manage Sites > [your site] > Settings tab** (the Cartridges field) isn't a suggestion — that's where the site's cartridge path string actually gets set, and per the [Cartridges guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-cartridges.html#register-a-cartridge), cartridges there "take precedence in order from left to right." Get the order wrong and your override is invisible even though the file is objectively there.
 
-One detail trips people up in multi-locale sites: the [Localisation guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) confirms the application server does **not** apply locale fallback when locating templates or cartridge files — locale fallback is a thing for localisable attribute *values*, not for which physical file gets loaded. A missing template doesn't fall back to a "default locale" copy in the same cartridge; the platform just keeps walking the cartridge path.
+One detail trips people up in multi-locale sites, and it's worth separating two things that both get called "locale fallback." The configurable fallback chain (`en_US` > `en` > default) applies to localisable attribute *values* on objects like Product. It does not apply to file lookup: the [Localisation guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) states the application server "doesn't consider the fallback locale when locating ISML templates, web forms, resource files in cartridges, or static content such as images."
+
+That is not the same as saying templates have no locale resolution at all. They do, and it's a separate, non-configurable mechanism: per the [Templates guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html), templates live in a locale-specific folder under `cartridge/templates/`, with `cartridge/templates/default` as the default-locale folder. The platform checks the current locale's folder and falls back to `default` **within that same cartridge**. If nothing matches there, resolution moves on to the next cartridge on the path — it never reaches sideways into another cartridge's locale folder.
 
 ## module.superModule: Extending Instead of Replacing
 
 Plain file-level resolution is all-or-nothing — you replace the whole file. Most of the time you don't want that. You want the base controller's route to still run its validation, its session handling, its rendering, and you just want to add or adjust one piece. That's what `module.superModule` is for: inside a script that shares its exact path and filename with a file further down the cartridge path, `module.superModule` refers to that next file, so you can call into it instead of duplicating it.
 
 ```js
-// custom_mysite/cartridge/scripts/helpers/pricingHelper.js
+// app_custom_mysite/cartridge/scripts/helpers/pricingHelper.js
 'use strict';
 
 var base = module.superModule;
@@ -87,7 +89,7 @@ module.exports.getDisplayPrice = getDisplayPrice;
 
 Two lines at the bottom of that example carry the actual teaching point. `module.superModule` hands you the *whole* exports object of the next file down the path, not just the one function you care about — so `base` already contains every other helper `pricingHelper.js` exposes further down the chain. `module.exports = base` copies all of those forward untouched, and only the line after it swaps in your extended `getDisplayPrice`. Skip that first assignment and every other function the base helper exports quietly disappears for anything that requires your cartridge's copy, even ones you never meant to touch.
 
-The chain only works if the path and filename are byte-for-byte identical across cartridges. Per the SFRA Modules guide's own resolution-scenario table, if no matching module exists further down the path, `module.superModule` returns `null` — not `undefined`, and not a silent no-op. Reference a property or method on that `null` (as `base.getDisplayPrice(...)` does in the example above) and you get an immediate `TypeError`, which at least points you at the right file. The genuinely silent failure mode is different: rename or move *your own* override file so it no longer matches the base file's path, and file-level resolution simply serves the unmodified base file for that request — your extension never runs, and nothing errors because `module.superModule` is never even reached. That's the case that costs you an afternoon, because there's no stack trace or log line to chase — just a feature that behaves like it was never shipped.
+The chain only works if the path and filename are byte-for-byte identical across cartridges. Per the SFRA Modules guide's own resolution-scenario table, if no matching module exists further down the path, `module.superModule` returns `null` — not `undefined`, and not a silent no-op. Reference a property or method on that `null` (as `base.getDisplayPrice(...)` does in the example above) and you get an immediate `TypeError` — that part is ordinary JavaScript semantics rather than anything Salesforce documents, but it holds — which at least points you at the right file. The genuinely silent failure mode is different: rename or move *your own* override file so it no longer matches the base file's path, and file-level resolution simply serves the unmodified base file for that request — your extension never runs, and nothing errors because `module.superModule` is never even reached. That's the case that costs you an afternoon, because there's no stack trace or log line to chase — just a feature that behaves like it was never shipped.
 
 ### When to Use require() Instead
 
@@ -102,17 +104,20 @@ Reach for `module.superModule` when you're extending your own same-named file's 
 
 A hook is a named extension point: the platform calls out to whichever script has registered for that name, and the caller doesn't need to know — or care — which cartridge, if any, is listening. That's the whole appeal of hooks over hardcoded calls. It's also where most of the Slack confusion lives, because once more than one cartridge registers for the same name, SFRA's two hook systems don't behave the same way.
 
-For **SFRA custom hooks** (registered in `hooks.json`), the [SFRA Hooks guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-hooks.html) documents that when multiple cartridges register the same hook ID, **every one of them executes**, in cartridge-path order — but the value `HookMgr.callHook` returns to the caller is the value from the **last** hook that ran. Priority order and return-value order run in opposite directions. In a left-to-right cartridge path, "last" means the rightmost cartridge that implements the hook, closest to `app_storefront_base`. A higher-priority custom cartridge cannot override that return value just by implementing the hook — it runs earlier, and its return value gets discarded in favour of whatever the base cartridge hands back.
+For **SFRA custom hooks** (registered in `hooks.json`), the [SFRA Hooks guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-hooks.html) documents that when multiple cartridges register a script for the same extension point, **every one of them executes**, in cartridge-path order — but the value `HookMgr.callHook` returns to the caller is the value from the **last** hook that ran. Priority order and return-value order run in opposite directions. In a left-to-right cartridge path, "last" means the rightmost cartridge that implements the hook, closest to `app_storefront_base`. A higher-priority custom cartridge cannot override that return value just by implementing the hook — it runs earlier, and its return value gets discarded in favour of whatever the base cartridge hands back.
 
 ```mermaid
 sequenceDiagram
     participant Caller as HookMgr.callHook()
-    participant Custom as custom_mysite hook
+    participant Custom as app_custom_mysite hook
+    participant Link as LINK_thirdparty hook
     participant Plugin as plugin_wishlists hook
     participant Base as app_storefront_base hook
 
     Caller->>Custom: execute
     Custom-->>Caller: return value (discarded)
+    Caller->>Link: execute
+    Link-->>Caller: return value (discarded)
     Caller->>Plugin: execute
     Plugin-->>Caller: return value (discarded)
     Caller->>Base: execute
@@ -132,47 +137,62 @@ The requester behind this post ran a hands-on experiment against custom hooks, a
 - Throwing an actual JavaScript error **does** stop the remaining cartridges' hook implementations from executing — but only because the exception propagates up and aborts the call chain. This part isn't spelled out in the guides above, so treat it as **observed behaviour**: wrap `HookMgr.callHook` in try/catch if you rely on it, or an unhandled error in a hook will do more damage than you intended.
 - The community "unhooking" technique — redefining `module.superModule.theHookFunction` as a no-op inside a higher-priority cartridge's hook script, intending to disable a base cartridge's hook implementation without touching that cartridge — does **not** fully stop execution down the chain. In the requester's testing it only suppressed the *next* cartridge's implementation. With three or more cartridges registering the same hook, the third and any beyond it still ran. This is also **observed behaviour**, not documented anywhere: a cartridge's `hooks.json` registration is always local to that cartridge, regardless of whether its `script` value is written as a relative path or a `*/cartridge/...` identifier — that scoping comes from which cartridge's `package.json` points to the file, not from the path syntax. What actually crosses the boundary is `module.superModule` *inside* that hook script, reaching into the next cartridge's implementation the same way it would in any other module — it's a separate mechanism from hook registration itself, and it's why the no-op doesn't propagate further than one cartridge down.
 
-Which means the "unhooking trick" is a **partial override of the next cartridge only**, not a kill switch for the whole hook chain. If your cartridge path has more than two cartridges implementing the same hook ID, treat this technique as unreliable rather than as documented, repeatable behaviour — verify it against your own cartridge stack before depending on it in production, and don't assume a two-cartridge test generalises to a four-cartridge stack.
+Which means the "unhooking trick" is a **partial override of the next cartridge only**, not a kill switch for the whole hook chain. If your cartridge path has more than two cartridges implementing the same extension point, treat this technique as unreliable rather than as documented, repeatable behaviour — verify it against your own cartridge stack before depending on it in production, and don't assume a two-cartridge test generalises to a four-cartridge stack.
 
 The correct modern file for registering custom hooks is **`hooks.json`**, referenced from `package.json` (for example `"hooks": "./cartridge/scripts/hooks.json"`), per both the SFRA Hooks guide and the Extensibility via Hooks guide. If you find `hooks.xml` in older tutorials or forum answers, that's a legacy reference — don't copy it into a current SFRA project.
 
 ## The ISML Override That Didn't Take
 
-Here's the failure mode from the opening: you drop a template into `custom_mysite/cartridge/templates/default/product/productTile.isml`, matching the base cartridge's path exactly, cartridge order is correct, and the storefront still renders the old markup.
+Here's the failure mode from the opening: you drop a template into `app_custom_mysite/cartridge/templates/default/product/productTile.isml`, matching the base cartridge's path exactly, cartridge order is correct, and the storefront still renders the old markup.
 
-The official docs confirm the resolution mechanism itself — exact path match, no locale fallback, left-to-right search. They also confirm part of the fix: the [Code Deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) states that when you activate a code version, "cached items (which might be dependent on a change to the compatibility mode) are cleared after activating a new code version." What the docs don't spell out is the exact nature of ISML template compilation caching itself — that part is genuinely **observed field behaviour**, not a cited platform guarantee.
+The official docs confirm the resolution mechanism itself — exact path match, no locale fallback, left-to-right search. They also confirm part of the fix: the [Code Deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) states that when you activate a code version, "cached items (which might be dependent on a change to the compatibility mode) are cleared after activating a new code version." What the docs don't spell out is the exact nature of ISML template compilation caching itself — that part is genuinely **observed field behaviour**, not a cited platform guarantee. Note that the guide confirms cache-clearing generally; it never names compiled templates as one of the "cached items."
 
-One term before the fix: a code version is a deployed folder of cartridges that Business Manager can hold alongside others, but only one is *active* and actually serving the storefront at a time. Template caching in an active code version can hold onto a compiled version of a template, and a fresh code-version activation — which the guide above confirms clears cached items — is the practical fix developers report reaching for. In a sandbox or dev environment, disabling template caching while you iterate saves you from chasing a phantom bug that's actually a stale compiled template. Before you touch the cartridge path or your file names, rule out caching: activate a new code version, or the "did I even deploy" question will eat your afternoon instead.
+One term before the fix: a code version is a deployed folder of cartridges that Business Manager can hold alongside others, but only one is *active* and actually serving the storefront at a time. Something in an active code version can hold onto a compiled template, and a fresh code-version activation is the practical fix developers report reaching for.
+
+Be careful with the word "caching" here, because SFCC has three separate things that answer to it and only two are documented. **Page Caching** (Administration > Sites > Manage Sites > [site] > Cache tab) caches rendered HTML for templates using `<iscache>`, and the [Content Cache guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) recommends disabling it on sandboxes so changes show immediately. **Custom caches** (`dw.system.CacheMgr`, declared in `caches.json`) are yours to fill, and the [Custom Caches guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html) confirms they clear when you change a file in the active code version. Neither of those is a compiled-template cache, and there is no Business Manager switch labelled "template caching" — so if you go looking for one, you won't find it. Turn off page caching first, because it's real, documented, and the likelier culprit. If the stale render survives that, you're into the undocumented territory this section is describing. Before you touch the cartridge path or your file names, rule out caching: activate a new code version, or the "did I even deploy" question will eat your afternoon instead.
 
 ## SCSS @import Errors Are a Build-Time Problem, Not a Cartridge Path Problem
 
-This is the other recurring thread, and it's a category error as much as a technical one. When you extend `app_storefront_base` styling from a custom cartridge, `@import` failures happen at **build time**, via `sgmf-scripts` compiling Sass — documented as part of SFRA's build tooling in the [SFRA Features and Components guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-features-and-comps.html). The cartridge path has nothing to do with it. Node resolves your `@import` paths against the actual folder structure on disk at compile time, long before any request hits the application server and long before cartridge-path resolution is even relevant.
+This is the other recurring thread, and it's a category error as much as a technical one. When you extend `app_storefront_base` styling from a custom cartridge, `@import` failures happen at **build time**, via `sgmf-scripts` compiling Sass — documented as part of SFRA's build tooling in the [SFRA Features and Components guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-features-and-comps.html). The runtime cartridge path plays no part in that compilation. Your Sass compiler resolves `@import` paths on the build machine, long before any request hits the application server.
+
+The resolution isn't magic, and it isn't a hand-walked filesystem path either. The [Customise SFRA guide](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-customizing-sfra.html) documents a `paths` property in your cartridge's `package.json` that maps an alias to another cartridge's location on disk. You import through that alias.
+
+```json
+// package.json
+"paths": {
+  "base": "../storefront-reference-architecture/cartridges/app_storefront_base/"
+}
+```
 
 ```scss
 // Anti-pattern: assumes the cartridge NAME is a valid import path
 @import "app_storefront_base/variables";
 
-// Correct pattern: reference the real relative path into the base
-// cartridge's SCSS folder structure, as sgmf-scripts resolves it
+// Also wrong: hand-computing a relative path into the base cartridge
 @import "../../../../app_storefront_base/cartridge/client/default/scss/variables";
+
+// Correct pattern: import through the alias defined in package.json
+@import "~base/variables";
 ```
 
-The mistake that keeps this thread alive isn't really about SCSS paths — it's the assumption that anything named `app_storefront_base` should resolve the way a template or controller does. It doesn't. Runtime cartridge-path resolution governs ISML, controllers, and scripts. Build-time module resolution — a separate concern, run outside the application server — governs your SCSS imports. Fix the relative path to the real folder on disk, and the build error goes away regardless of what your site's cartridge path looks like in Business Manager.
+So when a cross-cartridge `@import` breaks, the fix is almost always a missing or wrong `paths` entry in `package.json` — not a recomputed relative path.
+
+One caveat on the framing, because the neat split is only half true. Runtime cartridge-path resolution governs ISML, controllers, and scripts; build-time module resolution governs your SCSS imports. But the *compiled* CSS and JS that fall out of that build are static assets, and those do follow ordinary left-to-right cartridge-path resolution at runtime. The Customise SFRA guide is explicit about it: put `.css` and `.js` files at the same paths as the originals and they override like-named files in any cartridge to the right. So the cartridge path decides which cartridge's compiled stylesheet wins. It just has nothing to do with why the Sass compiler couldn't find `variables` in the first place.
 
 ## Troubleshooting Checklist: My Override Isn't Taking Effect
 
 Work through these in order — they're roughly ordered from "most likely" to "least likely" based on what actually shows up in support threads:
 
 1. **Confirm the cartridge is assigned to the site and correctly positioned.** Check **Administration > Sites > Manage Sites > [Site] > Settings tab** — the custom cartridge needs to be to the left of anything it's meant to override.
-2. **Confirm the file path and name match exactly, case-sensitively**, between your cartridge and the one you're overriding. A single mismatched character is enough to make the override invisible.
+2. **Confirm the file path and name match exactly, case-sensitively**, between your cartridge and the one you're overriding. A single mismatched character is enough to make the override invisible. (Worth flagging: no Salesforce doc I could find states the case-sensitivity rule outright. It follows from the Linux-based file system and matches everyone's field experience, but treat it as practical advice rather than a cited guarantee.)
 3. **Rule out caching before you doubt the code.** Rebuild static assets; for templates, try a fresh code-version activation, or disable template caching in a dev sandbox.
 4. **If you're using `module.superModule` and it's not behaving as expected, check whether you're actually getting a `TypeError`.** A `module.superModule` reference that finds nothing further down the path resolves to `null`, and calling a method on it throws immediately — that's a loud failure pointing you at the file, not a silent one. The silent case is step 2's: the override file itself is misnamed or misplaced, so it never gets served in the first place.
-5. **For hooks, verify the hook ID and registration in `hooks.json`**, and confirm that file is correctly referenced from `package.json`. Then confirm whether you actually need the hook to change the *return value* (only the last cartridge's hook wins that) or just need your side effect to run (in which case cartridge order among the hooks matters less, since — per the documented custom-hooks behaviour — every registered implementation executes).
+5. **For hooks, verify the extension point name and its registration in `hooks.json`**, and confirm that file is correctly referenced from `package.json`. Then confirm whether you actually need the hook to change the *return value* (only the last cartridge's hook wins that) or just need your side effect to run (in which case cartridge order among the hooks matters less, since — per the documented custom-hooks behaviour — every registered implementation executes).
 
 Most "my override isn't taking effect" threads resolve at step 1 or step 3. The ones that don't are almost always a `module.superModule` typo or a misunderstanding of what `HookMgr.callHook`'s return value actually represents.
 
 ## Why This Matters Beyond the Bug Hunt
 
-None of this is academic once a project has more than two or three cartridges. Third-party LINK cartridges (prebuilt integrations from Salesforce's partner marketplace), SFRA plugins, and your own custom cartridge all compete for the same file paths and the same hook IDs, and the platform gives you no visibility into that competition beyond the cartridge path string itself. Decide cartridge order deliberately, as an architectural choice made once, not as a trial-and-error setting you nudge every time something doesn't render. If you're reviewing a solution design rather than debugging a single override, the same three mechanisms — file resolution, `module.superModule`, and hook registration — are also the three places a badly ordered cartridge path will quietly break someone else's customisation six months from now, long after whoever set the order has moved to another project.
+None of this is academic once a project has more than two or three cartridges. Third-party LINK cartridges (prebuilt integrations from LINK partners such as PayPal and Bazaarvoice, now distributed through AppExchange since the LINK Marketplace was retired), SFRA plugins, and your own custom cartridge all compete for the same file paths and the same extension points, and the platform gives you no visibility into that competition beyond the cartridge path string itself. Decide cartridge order deliberately, as an architectural choice made once, not as a trial-and-error setting you nudge every time something doesn't render. If you're reviewing a solution design rather than debugging a single override, the same three mechanisms — file resolution, `module.superModule`, and hook registration — are also the three places a badly ordered cartridge path will quietly break someone else's customisation six months from now, long after whoever set the order has moved to another project.
 
 If you haven't already, [understanding where SFRA lets you hook into a request or controller](/where-to-hook-into-an-sfra-controller/) is the natural next read — it covers route-level `prepend`/`append`/`replace` behaviour that sits on top of everything explained here. For a broader tour of the cartridges worth knowing about before you decide where in the path they go, see [our survey of helpful SFCC cartridges](/helpful-salesforce-b2c-commerce-cloud-cartridges/), and if module organisation and scope confusion is a recurring theme on your team, [the field guide to custom caches](/field-guide-to-custom-caches-in-sfcc/) covers a related class of "it's silently doing the wrong thing" bug in SFCC.

@@ -18,10 +18,6 @@ adapter
 adapters
 addon
 addons
-cron
-microsite
-safe harbor
-tooltip
 adrien
 adyen
 aes
@@ -79,6 +75,7 @@ badass
 balancers
 bam
 barach
+bazaarvoice
 bdw
 becbeab
 beecloud
@@ -157,16 +154,17 @@ complianz
 composability
 composable
 config
-counterintuitively
 configurability
 configurator
 contentful
 contentstack
 cors
+counterintuitively
 counterpunch
 crackin
 credly
 crm
+cron
 crypto
 csv
 cust
@@ -180,15 +178,16 @@ cybersource
 cyr
 datadog
 datalayer
+datasheet
 dataspace
 dataspaces
-datasheet
 deliverability
 demandware
 deprecations
 des
 detections
 dev
+developer center
 differentiator
 diffie
 dir
@@ -366,7 +365,6 @@ lockdown
 lockdowns
 lodash
 log center
-developer center
 logpush
 lohfink
 lohr
@@ -392,14 +390,15 @@ metaverse
 michaels
 microservice
 microservices
+microsite
 middleware
 middlewares
 mihai
 minification
 minify
 misconfiguration
-misconfigured
 misconfigure
+misconfigured
 mishika
 mispicks
 mjuszczyk
@@ -473,8 +472,8 @@ pkey
 pmid
 pmlib
 pnats
-pnpm
 png
+pnpm
 poc
 pocs
 pok
@@ -554,6 +553,7 @@ rulesets
 runbook
 runtimes
 sachin
+safe harbor
 sailblazer
 salesforce
 sandboxed
@@ -654,6 +654,7 @@ tokeniser
 tolinski
 toolkits
 toolset
+tooltip
 tordgeman
 touchpoints
 trailblazercgl
