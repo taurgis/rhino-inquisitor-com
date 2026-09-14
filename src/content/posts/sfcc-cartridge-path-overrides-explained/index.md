@@ -6,8 +6,8 @@ description: >-
 date: '2026-09-14T13:55:09.000Z'
 lastmod: '2026-09-14T13:55:09.000Z'
 url: /sfcc-cartridge-path-overrides-explained/
-draft: true
-heroImage: sfcc-cartridge-path-overrides-explained-hero.png
+draft: false
+heroImage: sfcc-cartridge-path-overrides-explained-hero.jpg
 heroImageAlt: >-
   A cartoon rhino at a desk points to the first of four upright translucent
   panes, the only one lit by the lantern.
