@@ -4,7 +4,7 @@ description: >-
   Learn how SFCC resolves the cartridge path, when to use module.superModule
   vs require(), and why hook order and ISML overrides trip up developers.
 date: '2026-09-14T13:55:09.000Z'
-lastmod: '2026-09-14T13:55:09.000Z'
+lastmod: '2026-09-15T09:10:00.000Z'
 url: /sfcc-cartridge-path-overrides-explained/
 draft: false
 heroImage: sfcc-cartridge-path-overrides-explained-hero.jpg
@@ -62,7 +62,34 @@ If `app_custom_mysite` has its own `cartridge/templates/default/product/productT
 
 Multi-locale sites trip people up on one detail, because two different things both answer to the name "locale fallback." The configurable fallback chain (`en_US` > `en` > default) applies to localisable attribute *values* on objects like Product. It does not apply to file lookup: the [Localisation guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) states the application server "doesn't consider the fallback locale when locating ISML templates, web forms, resource files in cartridges, or static content such as images."
 
-That is not the same as saying templates have no locale resolution at all. They do, and it's a separate, non-configurable mechanism: per the [Templates guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html), templates live in a locale-specific folder under `cartridge/templates/`, with `cartridge/templates/default` as the default-locale folder, and "each cartridge has its own templates directory." The practical order this implies — check the current locale's folder, fall back to `default` **within that same cartridge**, and only then move on to the next cartridge — is reasoned from those two facts plus ordinary left-to-right resolution. Salesforce doesn't state that sequence outright in the current guide, so treat the exact locale-versus-cartridge search order as inference rather than a citation. The [Localisation guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) documents the same locale-then-`default` fallback explicitly for static files, "on a per file basis," which is the nearest thing to a direct confirmation.
+That is not the same as saying templates have no locale resolution at all. They do, and it's a separate, non-configurable mechanism. Per the [Templates guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html), templates live in a locale-specific folder under `cartridge/templates/`, with `cartridge/templates/default` as the default-locale folder, and "each cartridge has its own templates directory." That guide also rules out the shortcut of dropping a file one level up: every template has to sit in a locale folder or in `default`, and "can't be stored in the `templates` directory itself."
+
+What the guide never spells out is the search order those two facts imply. Combine them with ordinary left-to-right resolution and the search becomes two levels deep rather than flat: inside a single cartridge, the active locale's folder is checked and then `default`, and only when both miss does the search move on to the next cartridge. Salesforce doesn't state that sequence anywhere in the current guide, so treat the diagram below as reasoning from documented facts, not as a citation.
+
+```mermaid
+flowchart TD
+    Req["Render product/productTile.isml\nactive locale: fr_FR"] --> A1
+
+    subgraph SA["1. app_custom_mysite (leftmost on path)"]
+        A1{"templates/fr_FR/\nproduct/productTile.isml"} -. miss .-> A2{"templates/default/\nproduct/productTile.isml"}
+    end
+
+    A2 -. miss .-> B1
+
+    subgraph SB["2. app_storefront_base (next on path)"]
+        B1{"templates/fr_FR/\nproduct/productTile.isml"} -. miss .-> B2{"templates/default/\nproduct/productTile.isml"}
+    end
+
+    A1 == hit ==> Done["Rendered. Search stops here."]
+    A2 == hit ==> Done
+    B1 == hit ==> Done
+    B2 == hit ==> Done
+    B2 -. miss .-> Fail["Template not found"]
+```
+
+That nesting is what catches people out. A `default` copy in your custom cartridge beats a locale-specific copy in the base cartridge. Locale precision buys you nothing against cartridge order.
+
+The [Localisation guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) is the nearest thing to a direct confirmation, because it documents exactly this fallback for static files: request a URL under locale `es_US` and "the files in folder es_US are loaded first. If they aren't found, Salesforce B2C Commerce uses the default folder as a fallback." It adds that "this logic occurs on a per file basis," so the fallback is resolved file by file rather than folder by folder.
 
 ## module.superModule: Extending Instead of Replacing
 
@@ -161,7 +188,7 @@ The correct modern file for registering custom hooks is **`hooks.json`**, refere
 
 Here's the failure mode from the opening: you drop a template into `app_custom_mysite/cartridge/templates/default/product/productTile.isml`, matching the base cartridge's path exactly, cartridge order is correct, and the storefront still renders the old markup.
 
-The official docs confirm the resolution mechanism itself — exact path match, locale folder then `default` within a cartridge, left-to-right across cartridges. They also confirm part of the fix: the [Code Deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) states that when you activate a code version, "cached items (which might be dependent on a change to the compatibility mode) are cleared after activating a new code version." What it never does is name compiled templates as one of those "cached items" — so the existence of an ISML compilation cache is **observed field behaviour**, not a cited platform guarantee.
+The official docs confirm the resolution mechanism itself — exact path match, and left-to-right across cartridges (the locale-then-`default` step within a cartridge is the inferred part, as above). They also confirm part of the fix: the [Code Deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) states that when you activate a code version, "cached items (which might be dependent on a change to the compatibility mode) are cleared after activating a new code version." What it never does is name compiled templates as one of those "cached items" — so the existence of an ISML compilation cache is **observed field behaviour**, not a cited platform guarantee.
 
 A term first, if it's new to you: a code version is a deployed folder of cartridges that Business Manager can hold alongside others, though only one is *active* and serving the storefront at a time. The platform appears to hold onto a compiled form of each template within an active code version, and activating a code version afresh is the fix developers consistently report reaching for.
 
