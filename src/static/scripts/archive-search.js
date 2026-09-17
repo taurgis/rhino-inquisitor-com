@@ -232,6 +232,17 @@
       '</div>';
   }
 
+  // `normalize`, `tokenize`, `scoreEntry`, `compareTitles` and `compareByNewest`
+  // are intentionally paralleled by a second copy in
+  // src/assets/scripts/webmcp-tools.js, which serves the WebMCP `searchArticles`
+  // tool. Decided deliberately: this site has no bundler, so there is no import
+  // to share, and the two are expected to diverge — this copy feeds a rendered
+  // list with its own sort controls, and only ever reads the score as a `>= 0`
+  // match gate, while the agent-facing copy sorts by the score itself.
+  //
+  // Keep the token gate and the 6/4/3/1 weights below in step with that copy,
+  // so a visitor searching this page and an agent calling searchArticles agree
+  // on what counts as a match.
   function scoreEntry(entry, tokens) {
     var title = normalize(entry.title);
     var summary = normalize(entry.summary);
