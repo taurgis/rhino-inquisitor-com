@@ -7,7 +7,12 @@
   // file gets misread as broken Markdown (frontmatter dashes as setext
   // headings, template lines as list items, etc). Same rationale as the
   // MD034 exception below: markdownlint has no Hugo-template awareness.
-  "ignores": ["src/layouts/**/*.md"],
+  // .agents/skills/**/*.md is vendored skill content installed by Forward
+  // Nexus from upstream registries (mattpocock/skills, taurgis/bonsai, …).
+  // It is not authored prose, and lint-fixing it would drift from the source
+  // and show up as local drift in `forward-nexus sync`. Same rationale as the
+  // .bonsai/research/** exclusion in scripts/preflight.sh.
+  "ignores": ["src/layouts/**/*.md", ".agents/skills/**/*.md"],
   "config": {
     "MD013": false,
     "MD024": { "siblings_only": true },

@@ -1,6 +1,22 @@
 {
   "version": 4,
   "skills": {
+    "ask-matt": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "2a070bd329cae615c21aceded54d1bedc990eb2a383707fa456d5bdffad398c8",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/ask-matt/SKILL.md",
+      "installPath": ".agents/skills/ask-matt",
+      "installHash": "0cd14026efa0330083cbc7adf590976c162b60e02f696a8dcce96f0b4dab8a72",
+      "sourceHash": "2a070bd329cae615c21aceded54d1bedc990eb2a383707fa456d5bdffad398c8",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
     "caveman": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
@@ -12,6 +28,376 @@
       "sourceType": "github",
       "computedHash": "300fb8578258161e1752a2a4142a7e9ff178c960bcb83b84422e2987421f33bf",
       "sourceHash": "300fb8578258161e1752a2a4142a7e9ff178c960bcb83b84422e2987421f33bf"
+    },
+    "code-review": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "f37b5848592f8769be0e2c5b87c7fdd200a4be16c500c0cdc829eaf8327df658",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/code-review/SKILL.md",
+      "installPath": ".agents/skills/code-review",
+      "installHash": "caa9a086baaf9e0f7cd71f64edfa83da6821c05e826b083221f3d02e3d6a1905",
+      "sourceHash": "f37b5848592f8769be0e2c5b87c7fdd200a4be16c500c0cdc829eaf8327df658",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "codebase-design": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "bd7b0131d3ba199d34c9fa7152aae4670047fdc9fdbcc71ce3b1e9438b158fae",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/codebase-design/SKILL.md",
+      "installPath": ".agents/skills/codebase-design",
+      "installHash": "5a17552cc1482f1a40124bf4e6c9dbd90ac0dbb47e71c07d47369f9e5f2ae3b5",
+      "sourceHash": "bd7b0131d3ba199d34c9fa7152aae4670047fdc9fdbcc71ce3b1e9438b158fae",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "diagnosing-bugs": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "45f6584de808e26bbfb631526c302d54470b5c9515f08314c27884324506b82b",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/diagnosing-bugs/SKILL.md",
+      "installPath": ".agents/skills/diagnosing-bugs",
+      "installHash": "37b5e9c624513551da790b52864dc8c84bff996a6d03a380cc6facdcc0a88354",
+      "sourceHash": "45f6584de808e26bbfb631526c302d54470b5c9515f08314c27884324506b82b",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "domain-modeling": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "eadb9d42e84f997dd21b94a06342a5e8991d4ae72cf044e20c1fdbb881d2e9a2",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/domain-modeling/SKILL.md",
+      "installPath": ".agents/skills/domain-modeling",
+      "installHash": "a11713c0ff7870efa3c331b2e273f09116158485246edc89ae5088eefd1b0b48",
+      "sourceHash": "eadb9d42e84f997dd21b94a06342a5e8991d4ae72cf044e20c1fdbb881d2e9a2",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "forward-nexus": {
+      "source": "Forward-Services-NV/forward-nexus-projects",
+      "sourceType": "github",
+      "computedHash": "0a1178de3f06f1d1d0b56727a12bded9c4c49e015183b5c2e8755d661f5c0082",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/forward-nexus/SKILL.md",
+      "installPath": ".agents/skills/forward-nexus",
+      "installHash": "0d4b522936c45ec594c33438370ba35edeb0c804c4d1a706de1eb959759820ae",
+      "sourceHash": "0a1178de3f06f1d1d0b56727a12bded9c4c49e015183b5c2e8755d661f5c0082",
+      "versionPolicy": "minor",
+      "includePrerelease": false,
+      "sourceVersion": "1.0.0",
+      "installVersion": "1.0.0"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "9cdbb4b8f7a3aeaef82e6230c9e823500d4a8a1214c726cf342cf9829d34fc7d",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/grill-me/SKILL.md",
+      "installPath": ".agents/skills/grill-me",
+      "installHash": "9cdbb4b8f7a3aeaef82e6230c9e823500d4a8a1214c726cf342cf9829d34fc7d",
+      "sourceHash": "9cdbb4b8f7a3aeaef82e6230c9e823500d4a8a1214c726cf342cf9829d34fc7d",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "grill-with-docs": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "29128c81cd30c5178ba8610552112066be071a67d5db6e8ed2cfa9e22e3b1f85",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/grill-with-docs/SKILL.md",
+      "installPath": ".agents/skills/grill-with-docs",
+      "installHash": "35e62aa423aaeab6a414bcac273f56dfb17802ef2334b41b6a3b00f28196c8cf",
+      "sourceHash": "29128c81cd30c5178ba8610552112066be071a67d5db6e8ed2cfa9e22e3b1f85",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "grilling": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "285b6cef43d72969b772da5dc6663f56ecacdca9f519b3c74187ba7726502ad5",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/grilling/SKILL.md",
+      "installPath": ".agents/skills/grilling",
+      "installHash": "4dd886b0196bf43729d954ae326016f2bd9f5f79d892500b407c33a753362f14",
+      "sourceHash": "285b6cef43d72969b772da5dc6663f56ecacdca9f519b3c74187ba7726502ad5",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "461fbede4f7050115cf96ae9a237e3a9dea96e65203ddeddb079018e46142f80",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/handoff/SKILL.md",
+      "installPath": ".agents/skills/handoff",
+      "installHash": "20e5f4afdef502637510bc5c64d27645d3c85c88df9cb006824bbb0980166319",
+      "sourceHash": "461fbede4f7050115cf96ae9a237e3a9dea96e65203ddeddb079018e46142f80",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "implement": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "ce2cae1881c560ab75504edd8fd4c00ac4bdbd34475e29eeb6faac8aea9459ea",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/implement/SKILL.md",
+      "installPath": ".agents/skills/implement",
+      "installHash": "2139cfedf24791adbc839aaab6019cff158af1e28bfead020ec6e0ce01b3e74d",
+      "sourceHash": "ce2cae1881c560ab75504edd8fd4c00ac4bdbd34475e29eeb6faac8aea9459ea",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "improve-codebase-architecture": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "aa25f459c5258775ea891130a9d28243e667a579d68d13a912bb68b3300d877d",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/improve-codebase-architecture/SKILL.md",
+      "installPath": ".agents/skills/improve-codebase-architecture",
+      "installHash": "2449db6ab1ded9581f69fcc56c1f64818112d05e271fd4c5da23c6523f9d3d9d",
+      "sourceHash": "aa25f459c5258775ea891130a9d28243e667a579d68d13a912bb68b3300d877d",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "prototype": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "daf6983084ab492540ea4d5d4df61e7adbbfd3632f99c23c3b7ff3d1f4926710",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/prototype/SKILL.md",
+      "installPath": ".agents/skills/prototype",
+      "installHash": "d3fc74689bd993e39c44bfae510d014eecffbeec2922764b065377fd1327c0f6",
+      "sourceHash": "daf6983084ab492540ea4d5d4df61e7adbbfd3632f99c23c3b7ff3d1f4926710",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "research": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "a5b9a55efb22419b3c969bb60361dce966fa593ca86d4edc1db11fd08a4446e5",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/research/SKILL.md",
+      "installPath": ".agents/skills/research",
+      "installHash": "c8c1cba327a6f824b554cd978079a3dadd7406d73174f8fb9bfef58824691970",
+      "sourceHash": "a5b9a55efb22419b3c969bb60361dce966fa593ca86d4edc1db11fd08a4446e5",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "resolving-merge-conflicts": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "d0e7553e0418657dcf094e4d3d2f6b1b05691797ecc87bf77bf44b9d05711018",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/resolving-merge-conflicts/SKILL.md",
+      "installPath": ".agents/skills/resolving-merge-conflicts",
+      "installHash": "63b2dcadbe9124caeb3448f1378286fe18dcefb2494f60e136831b8b4986ca27",
+      "sourceHash": "d0e7553e0418657dcf094e4d3d2f6b1b05691797ecc87bf77bf44b9d05711018",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "setup-matt-pocock-skills": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "6eceb350cad87825c15c3079088f860b99f31c7dedc25446a39908737b7498ae",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+      "installPath": ".agents/skills/setup-matt-pocock-skills",
+      "installHash": "552b0f48b9fe054aa93c5d432fefbd7bd9645e3f2d20b4e22432453a81800b21",
+      "sourceHash": "6eceb350cad87825c15c3079088f860b99f31c7dedc25446a39908737b7498ae",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "ad40f2d56e0325dd718dd8d4d6fe7014add6dc3c2b960f28ba2c4824adc185ac",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/tdd/SKILL.md",
+      "installPath": ".agents/skills/tdd",
+      "installHash": "e753a5da75292bbe59d302d89566bc2c53d0e73944da2f0e944a7578883c07d0",
+      "sourceHash": "ad40f2d56e0325dd718dd8d4d6fe7014add6dc3c2b960f28ba2c4824adc185ac",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "teach": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "956c2cfc8b2286fa82c6b60b86dc12bee8fc909accc2e4242200b08749002889",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/teach/SKILL.md",
+      "installPath": ".agents/skills/teach",
+      "installHash": "b8a69574c7a019bed84e84313dc8bf02e1d1bf925ba43057d433217c63863206",
+      "sourceHash": "956c2cfc8b2286fa82c6b60b86dc12bee8fc909accc2e4242200b08749002889",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "to-questionnaire": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "fd04deee5769a2b02abcd68393446809b132a992d6be082f56773ab82e4e2eb4",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/to-questionnaire/SKILL.md",
+      "installPath": ".agents/skills/to-questionnaire",
+      "installHash": "befbec7005695163741a57bc94810dc5048fb766baaa485d5160b1d7f86335c1",
+      "sourceHash": "fd04deee5769a2b02abcd68393446809b132a992d6be082f56773ab82e4e2eb4",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "to-spec": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "a0e6fcf12d40f3fbbd131be9f311d9e5deb1c5da5561a1f6ef6e62700562015e",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/to-spec/SKILL.md",
+      "installPath": ".agents/skills/to-spec",
+      "installHash": "3fa1a0695d4ea242fae9e569e4d22aa1788623197abb33bfadafae7315789bbf",
+      "sourceHash": "a0e6fcf12d40f3fbbd131be9f311d9e5deb1c5da5561a1f6ef6e62700562015e",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "to-tickets": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "bc05e0b20721590afa6e1b1ef4eb74821e83c4fd251ffbdba7f313cf7818b93b",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/to-tickets/SKILL.md",
+      "installPath": ".agents/skills/to-tickets",
+      "installHash": "bf5e6ebcb4f1272de0c188d5b3901f265a03d1fa9935a21a7a56938e21e2e761",
+      "sourceHash": "bc05e0b20721590afa6e1b1ef4eb74821e83c4fd251ffbdba7f313cf7818b93b",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "triage": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "a9c4c7d1312bdcaa1d3860da5f3e577baea2e990fdfcc677b76778381405f79d",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/triage/SKILL.md",
+      "installPath": ".agents/skills/triage",
+      "installHash": "b954d74c219c805bf353d6642251a713c9b2e9cfdb11babfe588bcfe7dfd16d5",
+      "sourceHash": "a9c4c7d1312bdcaa1d3860da5f3e577baea2e990fdfcc677b76778381405f79d",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "wait-what": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "71a9a1f1773d4b1ff70a9d496db63855ef83a7fe906c72b70cdebf4815a2c4c1",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/wait-what/SKILL.md",
+      "installPath": ".agents/skills/wait-what",
+      "installHash": "71a9a1f1773d4b1ff70a9d496db63855ef83a7fe906c72b70cdebf4815a2c4c1",
+      "sourceHash": "71a9a1f1773d4b1ff70a9d496db63855ef83a7fe906c72b70cdebf4815a2c4c1",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "wayfinder": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "9b6d4b3e665a61e1d372f82f2a4dc60bccd69d50bb2675df9cb77a07e1102459",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/wayfinder/SKILL.md",
+      "installPath": ".agents/skills/wayfinder",
+      "installHash": "fa790eb4255b13d24d7e33ff4891ccd3d621558cc0ab87ae226777538ea16a8f",
+      "sourceHash": "9b6d4b3e665a61e1d372f82f2a4dc60bccd69d50bb2675df9cb77a07e1102459",
+      "versionPolicy": "minor",
+      "includePrerelease": false
     },
     "web-research": {
       "source": "taurgis/bonsai",
@@ -31,6 +417,38 @@
       "includePrerelease": false,
       "sourceVersion": "3.0.0",
       "installVersion": "3.0.0"
+    },
+    "wizard": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "53f5072af0e6f9d3480ccb7b08a6a466afdaff83afdcf1b575b8812ae4bc64e4",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/engineering/wizard/SKILL.md",
+      "installPath": ".agents/skills/wizard",
+      "installHash": "dee7f1a523994a1e063c69fe09c2f5b4da97a41ad68107722664e6e472cb2423",
+      "sourceHash": "53f5072af0e6f9d3480ccb7b08a6a466afdaff83afdcf1b575b8812ae4bc64e4",
+      "versionPolicy": "minor",
+      "includePrerelease": false
+    },
+    "writing-for-agents": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "57510e94025f7696b3c66481a7147e0aa3e9f0217f71a6528159879bb3410c81",
+      "agents": [
+        "claude-code",
+        "github-copilot",
+        "cursor"
+      ],
+      "repoPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "installPath": ".agents/skills/writing-for-agents",
+      "installHash": "95da47fc97af998e85b7d7e6d57b3ac76727c1e290cfe9ea09005aacb826959f",
+      "sourceHash": "57510e94025f7696b3c66481a7147e0aa3e9f0217f71a6528159879bb3410c81",
+      "versionPolicy": "minor",
+      "includePrerelease": false
     }
   },
   "instructions": {

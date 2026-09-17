@@ -45,6 +45,20 @@ This file is the root agent guide for the repository. It complements agent files
 
 - `.claude/workflows/write-article.js` — end-to-end first-draft pass for a new post: research, style/duplicate-topic review, drafting, image-prompt generation, prose/fact verification, and quality gates. Stops short of `draft: false` and any git action. Details: `docs/development/write-article-workflow.md`.
 
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues in `taurgis/rhino-inquisitor-com` via the `gh` CLI; PRs are not a request surface. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical labels, used verbatim. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` and `docs/adr/` at the repo root, created lazily by `/domain-modeling`. See `docs/agents/domain.md`.
+
 ## Instruction Gates
 
 Governance and quality gates live in [.github/instructions/](.github/instructions/): `hugo-coding-standards`, `seo-compliance`, `content-quality`, `ci-workflow-standards`, `post-writing-skills`, `documentation-updates`, and `agent-governance-quality`.

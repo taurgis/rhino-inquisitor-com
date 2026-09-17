@@ -1156,3 +1156,40 @@ about the post's own front matter.
 - `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)
 - `src/assets/styles/critical-{home,archive,post}.css` (now generated, do not hand-edit)
 - `package.json` / `package-lock.json` (`overrides.lighthouse` forcing `@lhci/cli` onto `lighthouse@13.0.3`)
+
+## Follow-up: markdownlint ignores vendored agent skills
+
+### Change summary
+
+Installing the `mattpocock/skills` set through Forward Nexus added 26 skill
+directories under `.agents/skills/`, and the pre-push preflight markdownlint
+step rejected the push: the vendored `SKILL.md` files use `<placeholder>`
+pseudo-tags as prose (MD033), restart ordered-list numbering mid-document
+(MD029), and leave some fenced blocks untagged (MD040). These are upstream
+authoring choices in third-party content, not this repo's prose.
+
+`.markdownlint-cli2.jsonc` now ignores `.agents/skills/**/*.md`, joining the
+existing `src/layouts/**/*.md` entry.
+
+### Old vs new behavior
+
+- Old: `ignores` covered only `src/layouts/**/*.md`, so every Forward Nexus
+  skill install put ~40 unfixable lint errors in front of the next push.
+  Fixing them in place would rewrite vendored files and surface as local drift
+  in `forward-nexus sync`.
+- New: markdown under `.agents/skills/` is skipped by the linter. Repo-authored
+  markdown — `docs/**`, `src/content/**`, `AGENTS.md`, `README.md` — is
+  unaffected, and `docs/agents/*.md` (written into the repo by
+  `/setup-matt-pocock-skills`) still lints clean.
+
+### Impact and verification
+
+- Impacted: the pre-push preflight markdownlint step
+  (`scripts/preflight.sh`). markdownlint does not run in CI, so no deploy leg
+  changes.
+- Verify: `npx markdownlint-cli2 "docs/**/*.md" AGENTS.md` reports 0 errors;
+  `git push` completes the preflight markdownlint step after a Forward Nexus
+  install.
+- Related files: `.markdownlint-cli2.jsonc`, `scripts/preflight.sh` (the
+  analogous `.bonsai/research/**` exclusion),
+  `docs/development/spec-driven-workflow-skills.md`.
