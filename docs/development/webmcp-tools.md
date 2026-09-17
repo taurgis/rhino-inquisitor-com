@@ -12,9 +12,12 @@ This is distinct from the machine-reader surface the site already serves
 `/index.json`). Those serve crawlers and retrieval pipelines that *fetch a URL*.
 WebMCP serves an agent that is *already executing JavaScript in the page*.
 
-The surface is being built in five slices. Four tools are registered —
+The surface was built in five slices. All four tools are registered —
 `listRecentArticles`, `searchArticles`, `getSiteOverview` and `getArticle` —
-with a verification pass still to come. The full spec and the reasoning behind every
+and the closing pass has verified the finished set against the built site on
+Chrome 153.0.8010.47; every figure it measured is recorded under
+[The finished surface, measured](#the-finished-surface-measured). The full spec
+and the reasoning behind every
 decision below live on the wayfinder map,
 [issue #49](https://github.com/taurgis/rhino-inquisitor-com/issues/49), and its
 closed tickets.
@@ -339,8 +342,9 @@ re-measures after each cut because JSON escaping can make a cut smaller than it
 looks; the cut itself is marked with an ellipsis. Across the 175 live entries
 exactly two openings get trimmed, and the largest payload lands on 1,500 —
 *on* the budget, not under it, because the fitter treats 1,500 as a maximum, the
-same way `fitToBudget` does and the same way Chrome's own wording reads
-("1,500 characters" per tool output).
+same way `fitToBudget` does and the same way Chrome's own wording reads — it
+recommends "1.5K character limit per individual tool output", a ceiling rather
+than a target, and 1,500 is the stricter reading of it.
 
 A companion that 404s, fails the network, is aborted, or comes back as something
 other than a companion returns every index-sourced field plus a sentence naming
@@ -449,8 +453,9 @@ Resist adding a field. The tool spec's own `getSiteOverview` rationale assumes
 `searchArticles` rows carry `primaryTopicUrl`, but its worked example for the
 row does not list it, and the two cannot both be honoured: measured against the
 live index, `primaryTopicUrl` costs **82 characters per row**, or 328 across
-four rows, against the **29 characters** of headroom left in the worst
-four-row payload observed on the real corpus. Adding it would cost roughly one
+four rows, against the **9 characters** of headroom left in the worst four-row
+payload the closing pass found on the real corpus (1,491 of 1,500 — see
+[The finished surface, measured](#the-finished-surface-measured)). Adding it would cost roughly one
 row out of every result set. The row is therefore exactly as specified.
 
 That left the spec's stated reason for omitting per-topic URLs from
@@ -521,6 +526,19 @@ also the direct proof that the signal Chrome hands `execute` reaches our
 `fetch()` — the round trip the abort criterion on
 [issue #57](https://github.com/taurgis/rhino-inquisitor-com/issues/57) asked for,
 and one no unit test can stand in for.
+
+**`executeTool()` hands back a JSON string, not the object the tool returned.**
+Chrome's docs say the method "returns the result of the tool execution". On M153
+an object returned from `execute` reaches the caller already serialized: the
+resolved value's `typeof` is `"string"`, holding the JSON text. That is load-
+bearing for the output budget rather than a curiosity, because it makes the
+thing being budgeted *exactly* the string the two budget fitters measure with
+`JSON.stringify` — they agree to the character, so the in-code limit is the
+limit the agent sees. It also sets one trap for a verification rig: stringify
+that result a second time and every inner quote is escaped again, inflating the
+measured length by roughly 5% and manufacturing phantom budget breaches.
+[Issue #53](https://github.com/taurgis/rhino-inquisitor-com/issues/53) pinned
+the input side and the plain-*string* return; this is the object return.
 
 One more observation, harmless but worth not being surprised by: `getTools()`
 reflects `annotations` back with `untrustedContentHint: false` filled in
@@ -595,7 +613,7 @@ could strand a returning visitor on a cached copy calling a dead API.
 npm run test:webmcp-tools
 ```
 
-67 tests covering the feature detect, the idempotency guard, per-tool
+103 tests covering the feature detect, the idempotency guard, per-tool
 registration isolation (both the sync-throw and the rejected-promise route),
 the `type: "posts"` filter, limit clamping, the shared
 promise (including single-fetch-under-concurrency and retry-after-rejection),
@@ -605,7 +623,11 @@ tie-break, the `primaryTopic`-not-`categories` topic filter and both
 empty-result sentences, and for `getSiteOverview` the empty-`properties`
 schema, `type`-not-`typeLabel` counting, the topic exclusions and tie-break,
 the articles-only date range, the five feed URLs, a live-scale budget check,
-the topic trim, the `about` cap, and the omit-rather-than-zero failure answer.
+the topic trim, the `about` cap, and the omit-rather-than-zero failure answer,
+and for `getArticle` every shape the `url` argument arrives in, the two
+index-only dead ends, the companion parse against verbatim fixtures copied out
+of a production build, the prose-skipping opening rule, the absolute
+`markdownUrl` against the same-origin fetch, and the second budget fitter.
 The script is a browser IIFE reading only globals, so it runs under `node:vm`
 with `document` and `fetch` stubbed — no DOM library needed. The test lives in
 `scripts/` rather than beside the asset so that test code stays out of Hugo's
@@ -658,15 +680,15 @@ therefore ahead of the deferred script that depends on them.
 npm run check:perf-budget
 ```
 
-Measured impact, from `validation/performance-budget-report.json`. The script
-is 7,311 B raw and **2,956 B gzipped** standalone, up from 1,194 B when it
-carried `listRecentArticles` alone.
+Measured impact, from `validation/performance-budget-report.json`. The finished
+script is 11,739 B raw and **4,380 B gzipped** standalone, up from 1,194 B
+gzipped when it carried `listRecentArticles` alone and 2,956 B at three tools.
 
-| Template | No tools | + listRecentArticles | + searchArticles | + getSiteOverview | Headroom remaining |
-|---|---|---|---|---|---|
-| homepage | 128,586 | 129,750 | 130,828 | 131,541 | 42,539 |
-| article | 147,652 | 148,848 | 149,926 | 150,721 | **23,359** |
-| category | 90,355 | 91,540 | 92,990 | 93,814 | 80,266 |
+| Template | No tools | + listRecentArticles | + searchArticles | + getSiteOverview | + getArticle | Headroom remaining |
+|---|---|---|---|---|---|---|
+| homepage | 128,586 | 129,750 | 130,828 | 131,541 | 133,092 | 40,988 |
+| article | 147,652 | 148,848 | 149,926 | 150,721 | 152,249 | **21,831** |
+| category | 90,355 | 91,540 | 92,990 | 93,814 | 95,354 | 78,726 |
 
 The `getSiteOverview` column includes the three `data-rhino-site-*` attributes
 on `<body>`, roughly 355 bytes of uncompressed HTML on every page carrying
@@ -676,11 +698,14 @@ on `<body>`, roughly 355 bytes of uncompressed HTML on every page carrying
 gate counts every `<script src>` with no `defer`/`async` exemption, so this
 weight lands on the critical-path total despite the script being deferred.
 
-The article template's ~23 KB is the binding headroom for `getArticle`, the one
-tool left. Note the gate reports `status: fail` both before and after this change,
-on six pre-existing Lighthouse SEO findings (score 92 against a required 95)
-that are unrelated to WebMCP — so `budgetFailures` and `scoreFailures` must be
-read separately rather than treating overall status as the signal.
+The article template — the binding one — keeps **21,831 B** of headroom with all
+four tools in place, so the whole surface cost 4,597 B of it: the script's
+4,380 B gzipped plus about 220 B of `<body>` attributes and script markup. Read
+`budgetFailures` and `scoreFailures` separately rather than treating the
+report's overall `status` as the signal: a category score below its threshold
+fails the gate too, and for reasons that have nothing to do with transfer
+weight — see [the gates](#the-gates-with-the-finished-script-in-place) for one
+that cost this pass a wrong diagnosis.
 
 ### Verify the ranking against the real corpus
 
@@ -726,11 +751,13 @@ sweep. What that full sweep established when `searchArticles` landed:
 - Sweeping all 351 distinct words in the corpus's titles at both `limit: 4` and
   `limit: 20` produced **no payload over 1,500 characters**; the worst was
   1,471. `query: "storefront"` trims to 3 of 19 matches at 1,143 characters,
-  proving the trim path on real data.
+  proving the trim path on real data. The closing pass re-ran this in the
+  browser over 392 distinct title words, all at `limit: 20`, and found a worst
+  of **1,491** — still inside the budget, and the tighter of the two figures.
 
 Re-run this sweep when the row shape, the weights, or the summary lengths in
-`/index.json` change — those 29 characters of worst-case headroom are the whole
-safety margin.
+`/index.json` change — those **9** characters of worst-case headroom are the
+whole safety margin.
 
 ### Verify getArticle against the real companions
 
@@ -897,6 +924,222 @@ Neither needs an origin-trial token either; a secure context (`localhost` or an
 HTTPS preview) is the only requirement. The Tool Inspector is the one route the
 scripted harness cannot replace, because only a real agent can show whether a
 tool gets *chosen* from its name and description.
+
+### The finished surface, measured
+
+The closing pass ran the finished four-tool script against a **production**
+build served over `localhost`, on **Chrome 153.0.8010.47** launched with
+`--enable-features=WebMCP,WebMCPTesting,DevToolsWebMCPSupport` — the rig shape
+[issue #50](https://github.com/taurgis/rhino-inquisitor-com/issues/50)
+established, reused rather than reinvented. Build production, not development:
+a development build ships no Markdown companions at all (see
+[Verify getArticle against the real companions](#verify-getarticle-against-the-real-companions)),
+so `getArticle` would answer every call with its could-not-read guidance.
+
+Chrome's budgets are **recommendations** in its own words ("we recommend the
+following character limits"), not enforced ceilings, and they fail invisibly:
+500 per tool description, 150 per parameter description, 30 per name, 1.5K per
+individual tool output. Every name and description read back out of
+`getTools()`, so this is what an agent is handed rather than what the source
+intends:
+
+| Tool | Name | Description | Parameters (name / description) |
+|---|---|---|---|
+| `getArticle` | 10 | 319 | `url` 3 / 124 |
+| `getSiteOverview` | 15 | 312 | none |
+| `listRecentArticles` | 18 | 249 | `limit` 5 / 55 |
+| `searchArticles` | 14 | 333 | `query` 5 / 110, `limit` 5 / 103, `topic` 5 / 99 |
+
+The tightest margin is `getArticle`'s `url` description at 124 of 150 — 26
+characters. Everything else sits at two thirds of its budget or less. All four
+tools reflect `annotations` as `{"readOnlyHint":true,"untrustedContentHint":false}`
+and `inputSchema` as a JSON **string**.
+
+Output is the budget that actually binds, so it was measured by sweeping real
+data rather than sampling:
+
+| Tool | Worst case measured | Where | Sweep |
+|---|---|---|---|
+| `getArticle` | **1,500** | `/simplifying-the-salesforce-order-of-execution/` and `/what-can-i-use-chatgpt-for-when-working-with-salesforce/` | all 175 index entries — 161 articles plus 14 reference pages; smallest 335 |
+| `searchArticles` | **1,491** | `query: "and"`, 4 returned of 128 matched | 392 distinct title words, each at `limit: 20` |
+| `listRecentArticles` | **1,480** | `limit: 4` | all 20 limits, 1 through 20 |
+| `getSiteOverview` | **1,052** | its only call | — |
+
+Nothing exceeded 1,500, the constant the script enforces, which is also the
+stricter reading of Chrome's "1.5K" (1,536 would leave 36 more). Two of the 175
+entries land on 1,500 *exactly* — the fitter is working at its limit on real
+content, not coasting.
+
+Two traps in that table worth keeping:
+
+- **The worst case is not the largest input.** `listRecentArticles` peaks at
+  `limit: 4` (1,480) and *falls* to 1,300 at `limit: 5`, holding there (1,301
+  from `limit: 10`) all the way to 20, because past four rows the fitter drops
+  to three and spends the difference on its "only the first N fit" sentence.
+  Measure every value, not a sample: a first pass sampled
+  `1, 2, 3, 4, 6, 8, 12, 16, 20` and put the fall at `limit: 6`, one value
+  late.
+- **Stringifying twice manufactures breaches.** A first run of this rig
+  measured `JSON.stringify(result).length` and reported a 1,540-character
+  `getArticle` payload with 41 search queries over budget. All of it was the
+  rig's own double-escaping of a value Chrome had already serialized (see
+  [What Chrome actually does, measured](#what-chrome-actually-does-measured)).
+
+Thirty guidance and input-shape paths were exercised deliberately, and **none
+threw**. They split cleanly, which is the distinction worth keeping: a tool
+either cannot answer and says so, or recovers from the malformed input and
+answers properly. Never an error either way.
+
+**Sixteen could not answer, and all sixteen returned a guiding sentence** —
+`searchArticles` with no query, an empty query, whitespace only, punctuation
+only, a wrong-typed query, words that match nothing, and an unknown topic;
+`listRecentArticles` when more rows were asked for than fit; `getArticle` with
+a missing, empty or wrong-typed url, an unknown path, a foreign origin on a real
+path, a listing root, a term URL, and the schema's own example path. Sentences
+ran 97 to 157 characters inside payloads of 135 to 1,301.
+
+**Fourteen recovered and answered properly**, which is what the input-shape
+criteria on [#52](https://github.com/taurgis/rhino-inquisitor-com/issues/52)
+and [#55](https://github.com/taurgis/rhino-inquisitor-com/issues/55) asked for:
+`limit` at 0, 999, negative, fractional, null and non-numeric all clamped and
+returned rows; `getArticle` resolved an uppercase url with no trailing slash, an
+`index.md` suffix, and a url carrying a query string and fragment to the same
+480-character article; `getSiteOverview` ignored an unexpected argument.
+
+With `/index.json` aborted at the network layer, all four tools answer the
+could-not-load sentence (payloads of 161 to 562 characters) instead of
+rejecting.
+
+The remaining browser-level facts, re-checked on the finished script:
+
+- Tool discovery returns all four, alphabetized by Chrome.
+- **Zero** `/index.json` requests on page load and exactly **one** across eight
+  tool calls, on the article, home and archive templates alike — the lazy fetch
+  [ticket #56](https://github.com/taurgis/rhino-inquisitor-com/issues/56)
+  specified, still lazy with four tools sharing the promise.
+- Zero console errors on all three templates.
+- Aborting a `getArticle` call at 500 ms rejected with `AbortError` at 501 ms
+  while its companion request was still in flight.
+
+Every figure above comes back from this, which regenerates the description
+budgets and the three sweepable worst cases in one run. Write it at the repo
+root rather than `/tmp`: a script outside the project cannot resolve the bare
+`playwright` specifier.
+
+```bash
+SKIP_AVIF_CACHE=1 npm run build:prod
+( cd public && python3 -m http.server 8792 --bind 127.0.0.1 >/dev/null 2>&1 & )
+
+node --input-type=module -e "
+import { chromium } from 'playwright';
+const browser = await chromium.launch({ channel: 'chrome',
+  args: ['--enable-features=WebMCP,WebMCPTesting,DevToolsWebMCPSupport'] });
+const page = await browser.newPage();
+await page.goto('http://127.0.0.1:8792/', { waitUntil: 'load' });
+console.log(browser.version());
+console.log(JSON.stringify(await page.evaluate(async () => {
+  const tools = await document.modelContext.getTools();
+  // Chrome returns the payload already serialized: measure that string's own
+  // length. JSON.stringify()ing it again double-escapes and reads ~5% high.
+  const chars = async (name, args) =>
+    (await document.modelContext.executeTool(
+      tools.find((t) => t.name === name), JSON.stringify(args), {})).length;
+  const peak = async (name, argsFor, values) => {
+    let top = 0;
+    for (const value of values) { top = Math.max(top, await chars(name, argsFor(value))); }
+    return top;
+  };
+  const entries = await (await fetch('/index.json')).json();
+  const words = new Set(entries.flatMap((e) =>
+    String(e.title).toLowerCase().match(/[a-z0-9]{3,}/g) || []));
+  return {
+    budgets: tools.map((t) => [t.name, t.name.length, t.description.length,
+      Object.entries(JSON.parse(t.inputSchema).properties)
+        .map(([k, v]) => [k, k.length, v.description.length])]),
+    getArticle: await peak('getArticle', (e) => ({ url: e.relPermalink }), entries),
+    searchArticles: await peak('searchArticles', (w) => ({ query: w, limit: 20 }), [...words]),
+    listRecentArticles: await peak('listRecentArticles', (n) => ({ limit: n }),
+      Array.from({ length: 20 }, (_, i) => i + 1)),
+    getSiteOverview: await chars('getSiteOverview', {})
+  };
+}), null, 1));
+await browser.close();
+"
+```
+
+Add the guidance probes, the `/index.json` request accounting and the abort to
+that same `page.evaluate` to reproduce the rest; the abort needs
+`executeTool(tool, json, { signal })` and a route that stalls the companion
+request, or it has nothing to cancel.
+
+### The gates, with the finished script in place
+
+`npm run gates:local` runs 38 blocking gates and stops at the first failure.
+**All 38 pass** with the finished script in place.
+
+Fresh Lighthouse medians, three runs per profile in `staticDistDir` mode, with
+the script declared on every page:
+
+| Template | Performance (≥90) | Accessibility (≥90) | Best practices (≥90) | SEO (≥95) |
+|---|---|---|---|---|
+| homepage | 97 mobile / 100 desktop | 100 | 100 | 100 |
+| article | 98 / 100 | 100 | 100 | 100 |
+| category | 97 / 100 | 100 | 100 | 100 |
+
+`budgetFailures: 0`, `scoreFailures: 0`, `status: "pass"`.
+
+**A stale `node_modules` can fail this gate on SEO, and it is not the site's
+fault.** Worth recording, because it cost this pass a wrong diagnosis. A first
+run scored SEO **92** against the required 95 on all three templates and both
+profiles, with the `robots-txt` audit at 0 reporting
+`Content-Signal: ai-train=yes, search=yes, ai-input=yes` as an
+`Unknown directive` — the Content Signals line this site deliberately publishes
+from `src/layouts/robots.txt`. That looked like Lighthouse penalising a policy
+choice, and it is not: `@lhci/cli` 0.15.1 bundles its own Lighthouse 12.6.1,
+which has no `content-signal` in the `DIRECTIVE_SAFELIST` of
+`core/audits/seo/robots-txt.js`, while the version this repo pins — 13.0.3, held
+in place by the `overrides: { "lighthouse": "$lighthouse" }` block in
+`package.json` — lists it explicitly, commented "not officially supported, but
+used in the wild". `npm ci` honours the override and leaves one top-level copy,
+which is what CI resolves; a `node_modules` predating the override can keep the
+nested 12.6.1 alive, and only the local run then fails. Confirm with:
+
+```bash
+node -e "console.log(require.resolve('lighthouse', { paths: ['node_modules/@lhci/cli'] }))"
+```
+
+If that prints a path under `@lhci/cli/node_modules`, run `npm ci` before
+trusting an SEO number. Read `budgetFailures` and `scoreFailures` separately in
+any case, rather than treating the overall `status` as the signal.
+
+Three acceptance checks on
+[issue #61](https://github.com/taurgis/rhino-inquisitor-com/issues/61) cannot be
+met from a script and are owner work, not gaps in the implementation:
+
+- **The DevTools WebMCP pane** (Application → WebMCP) needs a human clicking
+  through Available Tools, the invocation log, and **Run tool**. Everything the
+  pane surfaces was verified through the same API it renders, with the same
+  flags, but the pane itself was not walked.
+- **The Model Context Tool Inspector extension** needs a Chrome Web Store
+  install and a real agent driven from natural-language prompts. It is the one
+  route a script cannot replace, because it answers a question none of the
+  above does: whether each tool gets *chosen* from its name and description.
+- **The map owner's end-to-end review**, which the map names as its closing
+  step.
+
+One slice is outstanding by design rather than by capability: the check against
+the real tokened origins. Both `hugo.toml` token params ship empty today, so
+there is nothing live to verify against yet, and that slice is the only one on a
+clock — Edge's token expires **2026-11-01** and both trials end **2026-11-17**.
+Everything above was measured behind a local flag and has no expiry, so it can
+be redone at any time.
+
+One observation the pass turned up that is worth a follow-up rather than a
+silent fix: `searchArticles` with a valid `query` and an unmatched `topic`
+answers `No articles match "sfcc" on rhino-inquisitor.com…`, attributing the
+empty result to the query when the topic filter caused it. The sentence is
+guiding and within budget, so it meets the criterion as written, but an agent
+reading it would retry with different words rather than drop the topic.
 
 ## Related files
 
