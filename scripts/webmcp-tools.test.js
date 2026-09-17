@@ -18,6 +18,20 @@ const SOURCE = fs.readFileSync(
 
 const LIST_TOOL = 'listRecentArticles';
 const SEARCH_TOOL = 'searchArticles';
+const OVERVIEW_TOOL = 'getSiteOverview';
+
+// The real hugo.toml values, delivered to the script as <body> data attributes
+// by baseof.html. Used verbatim so the payload measurements below are the
+// production ones, not fixture-sized approximations.
+const SITE_DATA = {
+  rhinoSiteName: 'Rhino Inquisitor',
+  rhinoSiteDescription:
+    'Technical articles, migration notes, and platform guidance from Rhino Inquisitor.',
+  rhinoSiteAbout:
+    'Head of Commerce at Forward with more than a decade of experience in' +
+    ' Salesforce B2C Commerce Cloud architecture, delivery, platform strategy,' +
+    ' and migration.',
+};
 
 // Chrome's recommended per-output budget. Breaching it fails invisibly: the
 // agent silently drops or truncates. See the map issue's Notes.
@@ -59,7 +73,7 @@ function makeIndex({ posts = 8, pages = 2, summaryLength = 133 } = {}) {
  * Execute the script in a fresh sandbox whose global object is also its
  * `window`, mirroring a browser. Returns handles for assertions.
  */
-function load({ modelContext, fetchImpl, document: documentStub } = {}) {
+function load({ modelContext, fetchImpl, document: documentStub, siteData } = {}) {
   const registered = [];
   const fetchCalls = [];
 
@@ -82,7 +96,10 @@ function load({ modelContext, fetchImpl, document: documentStub } = {}) {
   sandbox.document =
     documentStub !== undefined
       ? documentStub
-      : { modelContext: modelContext === undefined ? defaultModelContext : modelContext };
+      : {
+          modelContext: modelContext === undefined ? defaultModelContext : modelContext,
+          body: { dataset: siteData === undefined ? { ...SITE_DATA } : siteData },
+        };
 
   sandbox.window = sandbox;
   sandbox.globalThis = sandbox;
@@ -193,6 +210,32 @@ test('swallows a registerTool failure without throwing', () => {
       },
     });
   });
+});
+
+// Chrome never throws from `registerTool` — measured on 153.0.8010.47, every
+// bad definition (missing description, unconvertible inputSchema, duplicate
+// name) arrives as a *rejection* of the returned promise. A try/catch alone
+// therefore catches nothing and the failure surfaces as an unhandled rejection
+// in the reader's console, which breaks the "nothing observable" posture.
+test('swallows a rejected registration promise, which is how Chrome reports one', async () => {
+  const unhandled = [];
+  const record = (reason) => unhandled.push(reason);
+  process.on('unhandledRejection', record);
+
+  try {
+    load({
+      modelContext: {
+        registerTool() {
+          return Promise.reject(new TypeError('Required member is undefined.'));
+        },
+      },
+    });
+    await new Promise((resolve) => setImmediate(resolve));
+  } finally {
+    process.off('unhandledRejection', record);
+  }
+
+  assert.deepEqual(unhandled, []);
 });
 
 // ---------------------------------------------------------------------------
@@ -806,7 +849,431 @@ test('one failing registration does not prevent the others', () => {
   assert.equal(sandbox.__rhinoWebmcpToolsLoaded, true);
   assert.deepEqual(
     registered.map((definition) => definition.name),
-    ['searchArticles'],
+    ['searchArticles', 'getSiteOverview'],
     'a rejected tool definition must not take the rest of the surface down',
   );
+});
+
+// ---------------------------------------------------------------------------
+// getSiteOverview
+// ---------------------------------------------------------------------------
+
+const OVERVIEW_DESCRIPTION =
+  'Describes rhino-inquisitor.com: what it publishes, how many articles it' +
+  ' has, the range of publication dates, the topics it covers with an article' +
+  ' count for each, and the URLs of its machine-readable feeds. Use it first' +
+  ' to judge whether this site covers a subject, and to get valid topic names' +
+  ' for searchArticles.';
+
+/**
+ * A corpus that separates every question the overview answers: two topics of
+ * different sizes, a page-only topic, a page with no topic at all, and a page
+ * dated *after* the newest article so an articles-only date range is
+ * distinguishable from a whole-index one.
+ */
+function overviewCorpus() {
+  return [
+    entry(1, { primaryTopic: 'Commerce Cloud', date: '2026-09-14T13:55:09Z' }),
+    entry(2, { primaryTopic: 'Commerce Cloud', date: '2024-05-01T00:00:00Z' }),
+    entry(3, { primaryTopic: 'Architecture', date: '2022-02-24T13:18:00Z' }),
+    entry(4, { type: 'pages', primaryTopic: 'Podcasts', date: '2027-01-01T00:00:00Z' }),
+    entry(5, { type: 'pages', primaryTopic: '', date: '2021-01-01T00:00:00Z' }),
+  ];
+}
+
+function overviewWith(entries, options) {
+  const { registered } = load({
+    ...options,
+    fetchImpl: () => Promise.resolve({ json: () => Promise.resolve(entries) }),
+  });
+  return toolFrom(registered, OVERVIEW_TOOL);
+}
+
+/** The live corpus's shape: 161 articles, 14 pages, 13 article topics. */
+function liveScaleCorpus() {
+  // Commerce Cloud and Architecture are one short each: the newest and oldest
+  // articles are appended below and belong to those topics, so the totals
+  // still come to the live 81 and 9.
+  const topics = [
+    ['Commerce Cloud', 80],
+    ['Release Notes', 30],
+    ['Community', 18],
+    ['Architecture', 8],
+    ['Certification', 6],
+    ['Corporate', 4],
+    ['AI', 3],
+    ['Go-Live', 3],
+    ['Documentation', 2],
+    ['ERD', 2],
+    ['React', 1],
+    ['Salesforce Platform', 1],
+    ['Technical', 1],
+  ];
+
+  const entries = [];
+  let i = 0;
+  for (const [primaryTopic, count] of topics) {
+    for (let n = 0; n < count; n += 1) {
+      i += 1;
+      entries.push(entry(i, { primaryTopic, date: '2024-05-01T00:00:00Z' }));
+    }
+  }
+  entries.push(entry(0, { primaryTopic: 'Commerce Cloud', date: '2026-09-14T13:55:09Z' }));
+  entries.push(entry(9000, { primaryTopic: 'Architecture', date: '2022-02-24T13:18:00Z' }));
+  for (let n = 0; n < 14; n += 1) {
+    entries.push(entry(200 + n, { type: 'pages', primaryTopic: 'Podcasts' }));
+  }
+  return entries;
+}
+
+test('registers getSiteOverview matching the specified contract', () => {
+  const tool = toolFrom(load().registered, OVERVIEW_TOOL);
+
+  assert.equal(tool.name, OVERVIEW_TOOL);
+  assert.equal(tool.title, 'Site overview');
+  assert.equal(tool.description, OVERVIEW_DESCRIPTION);
+  assert.equal(tool.annotations.readOnlyHint, true);
+  assert.deepEqual(Object.keys(tool.annotations), ['readOnlyHint']);
+  assert.equal(typeof tool.execute, 'function');
+});
+
+// The one open unknown this tool carried: whether Chrome accepts an
+// `inputSchema` with no parameters in it. Measured directly on Chrome
+// 153.0.8010.47 (`--enable-features=WebMCP`): registration resolves and
+// `getTools()` lists the tool with `inputSchema` reflected back as the string
+// `{"type":"object","properties":{}}`. The recorded fallback of omitting
+// `inputSchema` altogether is therefore not needed.
+test('getSiteOverview declares the measured empty-properties input schema', () => {
+  const tool = toolFrom(load().registered, OVERVIEW_TOOL);
+
+  assert.equal(typeof tool.inputSchema, 'object');
+  assert.equal(tool.inputSchema.type, 'object');
+  assert.equal(typeof tool.inputSchema.properties, 'object');
+  assert.deepEqual(Object.keys(tool.inputSchema.properties), []);
+  assert.equal(tool.inputSchema.$schema, undefined);
+  assert.equal(tool.inputSchema.required, undefined);
+});
+
+test('describes the site from hugo.toml, delivered as body data attributes', async () => {
+  const result = await overviewWith(overviewCorpus()).execute({});
+
+  assert.equal(result.name, SITE_DATA.rhinoSiteName);
+  assert.equal(result.description, SITE_DATA.rhinoSiteDescription);
+  assert.equal(result.about, SITE_DATA.rhinoSiteAbout);
+});
+
+test('caps the about text so prose can never crowd out the measured figures', async () => {
+  const tool = overviewWith(liveScaleCorpus(), {
+    siteData: { ...SITE_DATA, rhinoSiteAbout: 'y'.repeat(1600) },
+  });
+
+  const result = await tool.execute({});
+  const serialized = JSON.stringify(result);
+
+  assert.ok(serialized.length <= OUTPUT_BUDGET, `payload ${serialized.length} > ${OUTPUT_BUDGET}`);
+  // Shortened, and marked as shortened rather than passed off as the whole
+  // statement.
+  assert.ok(result.about.length < 1600);
+  assert.match(result.about, /…$/);
+  // The figures the tool exists to report all survive the cut.
+  assert.equal(result.articleCount, 161);
+  assert.ok(result.topics.length >= 5, `only ${result.topics.length} topics survived`);
+  assert.equal(result.feeds.sitemap, '/sitemap.xml');
+});
+
+test('leaves a normal-length about text exactly as written', async () => {
+  const result = await overviewWith(liveScaleCorpus()).execute({});
+
+  assert.equal(result.about, SITE_DATA.rhinoSiteAbout);
+});
+
+test('omits site details rather than throwing when the data attributes are absent', async () => {
+  const tool = overviewWith(overviewCorpus(), { siteData: {} });
+  const result = await tool.execute({});
+
+  assert.equal(result.name, undefined);
+  assert.equal(result.description, undefined);
+  assert.equal(result.about, undefined);
+  // The measurable part of the answer still stands.
+  assert.equal(result.articleCount, 3);
+});
+
+test('counts articles and pages by type, not by typeLabel', async () => {
+  const entries = overviewCorpus();
+  // A label that disagrees with the machine-stable field must not sway the
+  // count: `type` is the criterion.
+  entries[0].typeLabel = 'Page';
+  entries[3].typeLabel = 'Article';
+
+  const result = await overviewWith(entries).execute({});
+
+  assert.equal(result.articleCount, 3);
+  assert.equal(result.pageCount, 2);
+});
+
+test('lists every topic with at least one article, largest first', async () => {
+  const result = await overviewWith(overviewCorpus()).execute({});
+
+  assert.deepEqual(
+    Array.from(result.topics, (topic) => [topic.name, topic.articleCount]),
+    [
+      ['Commerce Cloud', 2],
+      ['Architecture', 1],
+    ],
+    'page-only topics and the empty topic are both excluded',
+  );
+});
+
+test('breaks a topic-count tie by name so the list is stable', async () => {
+  const entries = [
+    entry(1, { primaryTopic: 'React' }),
+    entry(2, { primaryTopic: 'AI' }),
+    entry(3, { primaryTopic: 'Technical' }),
+  ];
+
+  const result = await overviewWith(entries).execute({});
+
+  assert.deepEqual(Array.from(result.topics, (topic) => topic.name), [
+    'AI',
+    'React',
+    'Technical',
+  ]);
+});
+
+test('topic names are the exact strings searchArticles filters on', async () => {
+  const entries = overviewCorpus();
+  const { registered } = load({
+    fetchImpl: () => Promise.resolve({ json: () => Promise.resolve(entries) }),
+  });
+
+  const overview = await toolFrom(registered, OVERVIEW_TOOL).execute({});
+  const topic = overview.topics[0].name;
+  const search = await toolFrom(registered, SEARCH_TOOL).execute({
+    query: 'article',
+    topic,
+  });
+
+  assert.equal(search.matchCount, 2, `${topic} must be a usable topic filter`);
+});
+
+test('reports the newest and oldest article dates, ignoring pages', async () => {
+  const result = await overviewWith(overviewCorpus()).execute({});
+
+  // The corpus holds a page dated 2027 and a page dated 2021, both outside
+  // the article range. The field names say Article, so the range does too.
+  assert.equal(result.newestArticle, '2026-09-14T13:55:09Z');
+  assert.equal(result.oldestArticle, '2022-02-24T13:18:00Z');
+});
+
+test('omits the date range when no article carries a usable date', async () => {
+  // `entry()` substitutes a real date for a falsy one, so the undated case is
+  // built by deleting the field rather than by passing "".
+  const entries = [entry(1), entry(2, { date: 'not-a-date' })];
+  delete entries[0].date;
+  const result = await overviewWith(entries).execute({});
+
+  assert.equal(result.newestArticle, undefined);
+  assert.equal(result.oldestArticle, undefined);
+  assert.equal(result.articleCount, 2);
+});
+
+test('announces the five machine-readable feeds', async () => {
+  const result = await overviewWith(overviewCorpus()).execute({});
+
+  assert.deepEqual({ ...result.feeds }, {
+    llms: '/llms.txt',
+    llmsFull: '/llms-full.txt',
+    searchIndex: '/index.json',
+    rss: '/index.xml',
+    sitemap: '/sitemap.xml',
+  });
+});
+
+test('hands out a fresh feeds object per call, not a shared constant', async () => {
+  const tool = overviewWith(overviewCorpus());
+  const first = await tool.execute({});
+  first.feeds.rss = 'https://example.com/hijacked';
+  const second = await tool.execute({});
+
+  assert.equal(second.feeds.rss, '/index.xml');
+});
+
+test('keeps the live-scale overview under the per-output character budget', async () => {
+  const result = await overviewWith(liveScaleCorpus()).execute({});
+
+  assert.equal(result.articleCount, 161);
+  assert.equal(result.pageCount, 14);
+  assert.equal(result.topics.length, 13, 'every article topic fits today');
+  assert.equal(result.guidance, undefined, 'nothing was trimmed');
+  assert.ok(
+    JSON.stringify(result).length <= OUTPUT_BUDGET,
+    `overview payload ${JSON.stringify(result).length} > ${OUTPUT_BUDGET}`,
+  );
+});
+
+test('drops the least-covered topics before breaching the budget, and says so', async () => {
+  const entries = [];
+  for (let i = 0; i < 60; i += 1) {
+    entries.push(entry(i, { primaryTopic: `Topic number ${i}` }));
+  }
+  entries.push(entry(500, { primaryTopic: 'Topic number 0' }));
+
+  const result = await overviewWith(entries).execute({});
+  const serialized = JSON.stringify(result);
+
+  assert.ok(serialized.length <= OUTPUT_BUDGET, `payload ${serialized.length} > ${OUTPUT_BUDGET}`);
+  assert.ok(result.topics.length < 60, 'the full topic list cannot fit');
+  assert.ok(result.topics.length > 0);
+  // The biggest topic survives the cut; the cut itself is declared.
+  assert.equal(result.topics[0].name, 'Topic number 0');
+  assert.equal(
+    result.guidance,
+    `Only the ${result.topics.length} most-covered of 60 topics fit one` +
+      ' response. Fetch /index.json for the full list.',
+  );
+  // Never truncated, whatever else goes: a half-written name or feed URL is
+  // worse than a missing one.
+  for (const topic of result.topics) {
+    assert.match(topic.name, /^Topic number \d+$/);
+  }
+  assert.equal(result.feeds.sitemap, '/sitemap.xml');
+});
+
+test('omits every unmeasured figure when the index cannot be read', async () => {
+  const tool = overviewWith({ not: 'an array' });
+  const result = await tool.execute({});
+
+  // A zero count would be a claim about the site; an absent one is the truth
+  // about the failure. `matchCount: 0` elsewhere counts results, not articles.
+  assert.equal(result.articleCount, undefined);
+  assert.equal(result.pageCount, undefined);
+  assert.equal(result.topics, undefined);
+  assert.equal(result.newestArticle, undefined);
+  // What the document itself knows still stands, and the feeds are the way out.
+  assert.equal(result.name, SITE_DATA.rhinoSiteName);
+  assert.equal(result.feeds.llms, '/llms.txt');
+  assert.equal(
+    result.guidance,
+    'The article index for rhino-inquisitor.com could not be read. Fetch' +
+      " /llms.txt for a plain-text list of the site's articles instead.",
+  );
+});
+
+test('returns guidance rather than rejecting when the index fetch fails', async () => {
+  const tool = toolFrom(
+    load({ fetchImpl: () => Promise.reject(new Error('offline')) }).registered,
+    OVERVIEW_TOOL,
+  );
+
+  const result = await tool.execute({});
+
+  assert.equal(
+    result.guidance,
+    'Could not load the article index for rhino-inquisitor.com. Try again, or' +
+      ' fetch /llms.txt for a plain-text list of its articles.',
+  );
+  assert.equal(result.articleCount, undefined);
+  assert.equal(result.feeds.searchIndex, '/index.json');
+});
+
+test('an aborted overview resolves with guidance rather than rejecting', async () => {
+  const { registered } = load({
+    fetchImpl: (url, options) =>
+      new Promise((resolve, reject) => {
+        options.signal.addEventListener('abort', () => reject(new Error('aborted')));
+      }),
+  });
+
+  const controller = new AbortController();
+  const pending = toolFrom(registered, OVERVIEW_TOOL).execute({}, controller.signal);
+  controller.abort();
+
+  const result = await pending;
+  assert.ok(result.guidance);
+  assert.equal(result.articleCount, undefined);
+});
+
+test('getSiteOverview joins the index fetch shared by the other tools', async () => {
+  const { registered, fetchCalls } = load();
+
+  await Promise.all([
+    toolFrom(registered, OVERVIEW_TOOL).execute({}),
+    toolFrom(registered, LIST_TOOL).execute({}),
+    toolFrom(registered, SEARCH_TOOL).execute({ query: 'article' }),
+  ]);
+
+  assert.equal(fetchCalls.length, 1, 'three tools, one request');
+});
+
+// ---------------------------------------------------------------------------
+// The shape of execute's second argument
+// ---------------------------------------------------------------------------
+
+// Measured on Chrome 153.0.8010.47: `execute` is handed an options object
+// carrying the AbortSignal on a `signal` property, not the bare AbortSignal
+// its documentation describes. Handing that wrapper to fetch rejects the
+// request outright ("Failed to convert value to 'AbortSignal'"), so before
+// this was unwrapped every tool answered every call with nothing but its own
+// could-not-load guidance, however healthy the network was.
+test('unwraps the AbortSignal from the options object Chrome passes', async () => {
+  const controller = new AbortController();
+
+  for (const name of [OVERVIEW_TOOL, LIST_TOOL, SEARCH_TOOL]) {
+    const { registered, fetchCalls } = load();
+
+    await toolFrom(registered, name).execute({ query: 'article' }, {
+      signal: controller.signal,
+    });
+
+    assert.equal(fetchCalls.length, 1, `${name} made no request`);
+    assert.equal(
+      fetchCalls[0].options.signal,
+      controller.signal,
+      `${name} passed the wrapper to fetch instead of the signal`,
+    );
+  }
+});
+
+test('an abort delivered through the options object still yields guidance', async () => {
+  const { registered } = load({
+    fetchImpl: (url, options) =>
+      new Promise((resolve, reject) => {
+        options.signal.addEventListener('abort', () => reject(new Error('aborted')));
+      }),
+  });
+
+  const controller = new AbortController();
+  const pending = toolFrom(registered, OVERVIEW_TOOL).execute({}, {
+    signal: controller.signal,
+  });
+  controller.abort();
+
+  const result = await pending;
+  assert.ok(result.guidance);
+});
+
+test('tolerates a second argument that is neither shape', async () => {
+  const { registered, fetchCalls } = load();
+
+  const result = await toolFrom(registered, OVERVIEW_TOOL).execute({}, 'nonsense');
+
+  assert.equal(fetchCalls[0].options.signal, undefined);
+  assert.equal(result.articleCount, 8);
+});
+
+test('passes the overview AbortSignal through to fetch', async () => {
+  const { registered, fetchCalls } = load();
+  const controller = new AbortController();
+
+  await toolFrom(registered, OVERVIEW_TOOL).execute({}, controller.signal);
+
+  assert.equal(fetchCalls[0].options.signal, controller.signal);
+});
+
+test('tolerates being called with no arguments at all', async () => {
+  const tool = overviewWith(overviewCorpus());
+
+  const result = await tool.execute();
+
+  assert.equal(result.articleCount, 3);
 });

@@ -55,6 +55,15 @@
     'Could not load the article index for rhino-inquisitor.com. Try again, or' +
     ' fetch /llms.txt for a plain-text list of its articles.';
 
+  // The longest `about` text getSiteOverview will report. The field is prose
+  // read from hugo.toml, so nothing stops it growing, and the topic list is
+  // what has to give way if it does — exactly backwards, since the topics are
+  // the part an agent acts on. Capping the prose up front keeps that from ever
+  // happening: it leaves well over half the output budget for measured data
+  // whatever anyone writes in the params. Today's value is 156 characters, so
+  // this never fires; it is a floor under the payload, not a working feature.
+  var ABOUT_BUDGET = 300;
+
   var UNUSABLE_QUERY =
     'Call searchArticles with words to search for, or call listRecentArticles' +
     ' for the newest articles.';
@@ -65,9 +74,26 @@
   // retries instead of being permanently stuck on a failed fetch.
   var indexPromise = null;
 
-  function getIndex(signal) {
+  // What `execute` is handed as its second argument. Chrome 153.0.8010.47
+  // passes an options object carrying the AbortSignal on a `signal` property,
+  // while the API's documentation describes a bare AbortSignal — so accept
+  // either, since the documented shape is the one the API is heading for.
+  // This is not cosmetic: handing the wrapper to fetch rejects the request
+  // outright ("Failed to convert value to 'AbortSignal'"), which left every
+  // tool answering every call with nothing but its own could-not-load
+  // guidance however healthy the network was.
+  function abortSignalFrom(signalOrOptions) {
+    if (!signalOrOptions || typeof signalOrOptions !== 'object') {
+      return undefined;
+    }
+
+    // A bare signal carries `aborted` on its prototype; the wrapper doesn't.
+    return 'aborted' in signalOrOptions ? signalOrOptions : signalOrOptions.signal;
+  }
+
+  function getIndex(signalOrOptions) {
     if (!indexPromise) {
-      indexPromise = fetch(INDEX_URL, { signal: signal })
+      indexPromise = fetch(INDEX_URL, { signal: abortSignalFrom(signalOrOptions) })
         .then(function (response) {
           return response.json();
         })
@@ -256,6 +282,129 @@
     };
   }
 
+  // Site identity comes from hugo.toml, handed to this script as data
+  // attributes on <body> by baseof.html — the same route search-bar.html uses
+  // to give archive-search.js its index URL. Reading it from the document
+  // keeps hugo.toml the single source of truth without running this asset
+  // through Hugo's template engine, which would leave the file unreadable to
+  // its own unit tests.
+  // Marked with an ellipsis rather than cut silently, so an agent can tell it
+  // is reading a fragment. Only ever applied to prose: a shortened topic name
+  // is a filter that matches nothing and a shortened URL is a dead link, so
+  // neither is ever touched.
+  function shorten(value, limit) {
+    if (value.length <= limit) {
+      return value;
+    }
+
+    return value.slice(0, limit - 1) + '\u2026';
+  }
+
+  function siteDetails() {
+    var data = (document.body && document.body.dataset) || {};
+    var details = {};
+
+    // Each field is omitted rather than emptied when its attribute is missing:
+    // an absent key reads as "not stated", where "" reads as "stated to be
+    // nothing".
+    if (data.rhinoSiteName) {
+      details.name = data.rhinoSiteName;
+    }
+
+    if (data.rhinoSiteDescription) {
+      details.description = data.rhinoSiteDescription;
+    }
+
+    if (data.rhinoSiteAbout) {
+      details.about = shorten(data.rhinoSiteAbout, ABOUT_BUDGET);
+    }
+
+    return details;
+  }
+
+  // The site's machine-readable surface. getSiteOverview is the only tool that
+  // announces these, deliberately: an agent that would rather bulk-read the
+  // corpus than make repeated tool calls learns about them exactly once. Built
+  // fresh per call because the payload is handed to the agent, and a shared
+  // constant would let one caller edit what the next one is told.
+  function feeds() {
+    return {
+      llms: '/llms.txt',
+      llmsFull: '/llms-full.txt',
+      searchIndex: INDEX_URL,
+      rss: '/index.xml',
+      sitemap: '/sitemap.xml'
+    };
+  }
+
+  // Only `primaryTopic`, and only from articles: these are the exact strings
+  // searchArticles filters on, so a name listed here has to be one that works
+  // there. Pages carry two topics of their own with no articles behind them,
+  // and listing those beside an `articleCount` of 0 would advertise a filter
+  // that matches nothing. A handful of pages carry no topic at all, which is
+  // why the empty string is skipped.
+  function topicsFrom(articles) {
+    // Null prototype, so a topic named "constructor" counts like any other.
+    var counts = Object.create(null);
+    var names = [];
+
+    for (var index = 0; index < articles.length; index += 1) {
+      var topic = articles[index].primaryTopic;
+
+      if (!topic) {
+        continue;
+      }
+
+      if (counts[topic] === undefined) {
+        counts[topic] = 0;
+        names.push(topic);
+      }
+
+      counts[topic] += 1;
+    }
+
+    // Most-covered first, so an agent reading only the head of the list sees
+    // what the site is really about, and so the budget trim below gives up the
+    // thinnest topics. Ties break by name, so the order never depends on the
+    // order the index happened to arrive in.
+    names.sort(function (left, right) {
+      if (counts[right] !== counts[left]) {
+        return counts[right] - counts[left];
+      }
+      return compareTitles(left, right);
+    });
+
+    return names.map(function (name) {
+      return { name: name, articleCount: counts[name] };
+    });
+  }
+
+  // Everything getSiteOverview reports about the corpus, measured once per
+  // call rather than baked in at build time, so the figures stay true as posts
+  // publish. `articles` arrives newest-first with undated entries last (see
+  // compareByNewest), so the date range is just the ends of the dated run.
+  // Articles only: pages have dates too, but the fields are named Article.
+  function overviewOf(entries, articles) {
+    var dated = articles.filter(function (article) {
+      return !isNaN(Date.parse(article.date || ''));
+    });
+
+    var snapshot = {
+      articleCount: articles.length,
+      pageCount: entries.filter(function (entry) {
+        return entry.type === 'pages';
+      }).length,
+      topics: topicsFrom(articles)
+    };
+
+    if (dated.length > 0) {
+      snapshot.newestArticle = dated[0].date;
+      snapshot.oldestArticle = dated[dated.length - 1].date;
+    }
+
+    return snapshot;
+  }
+
   // Validate strictly here even though the schema already advertises the range:
   // schema bounds are advisory to an agent, and a tool that rejects a slightly
   // out-of-range number is less useful than one that does the obvious thing.
@@ -369,13 +518,78 @@
     );
   }
 
+  function topicGuidance(returned, wanted) {
+    return (
+      'Only the ' +
+      returned +
+      ' most-covered of ' +
+      wanted +
+      ' topics fit one response. Fetch /index.json for the full list.'
+    );
+  }
+
+  // Key order follows the specified return shape, which is also the order an
+  // agent reads it in: what the site is, then how much of it there is, then
+  // what it covers, then how to bulk-read it.
+  function overviewCandidateFor(snapshot, count, wanted) {
+    var payload = siteDetails();
+
+    payload.articleCount = snapshot.articleCount;
+    payload.pageCount = snapshot.pageCount;
+
+    if (snapshot.newestArticle) {
+      payload.newestArticle = snapshot.newestArticle;
+      payload.oldestArticle = snapshot.oldestArticle;
+    }
+
+    payload.topics = snapshot.topics.slice(0, count);
+    payload.feeds = feeds();
+
+    // Topic names and feed URLs are never shortened — half a topic name is a
+    // filter that silently matches nothing — so the only thing left to give up
+    // is whole topics, thinnest first, and the cut says so.
+    if (count < wanted) {
+      payload.guidance = topicGuidance(count, wanted);
+    }
+
+    return payload;
+  }
+
+  // A failure answer states only what it actually knows. Every measured field
+  // is omitted rather than zeroed: `articleCount: 0` is a claim about the site
+  // that an agent could act on by skipping it, while an absent key says the
+  // measurement failed. searchArticles zeroes `matchCount` on the same path
+  // because that counts results, not articles. The document's own site details
+  // and the feed URLs need no network, so they still stand — and the feeds are
+  // the way out of exactly this failure.
+  function unmeasuredOverview(guidance) {
+    var payload = siteDetails();
+
+    payload.feeds = feeds();
+    payload.guidance = guidance;
+
+    return payload;
+  }
+
   // Each registration gets its own try/catch, so a definition the browser
   // rejects — a schema shape that drifted mid-origin-trial, say — costs only
   // that one tool rather than the whole surface. Failures are swallowed
   // outright: readers came here to read, not to watch our integration fail.
   function register(definition) {
     try {
-      document.modelContext.registerTool(definition);
+      var registration = document.modelContext.registerTool(definition);
+
+      // Measured on Chrome 153.0.8010.47: registerTool never throws. A
+      // definition it dislikes — a missing description, an inputSchema it
+      // cannot convert, a duplicate name — rejects the promise it returns
+      // instead. Left alone, that rejection prints an error in every reader's
+      // console, which is precisely the observable failure this file exists to
+      // avoid. The try/catch stays for a browser that throws outright.
+      if (registration && typeof registration.then === 'function') {
+        registration.catch(function () {
+          // Best-effort by design. See above.
+        });
+      }
     } catch (error) {
       // Best-effort by design. See above.
     }
@@ -403,10 +617,10 @@
     annotations: {
       readOnlyHint: true
     },
-    execute: function (args, signal) {
+    execute: function (args, signalOrOptions) {
       var limit = clampLimit(args && args.limit);
 
-      return getIndex(signal).then(
+      return getIndex(signalOrOptions).then(
         function (index) {
           var articles = articlesFrom(index);
 
@@ -472,7 +686,7 @@
     annotations: {
       readOnlyHint: true
     },
-    execute: function (args, signal) {
+    execute: function (args, signalOrOptions) {
       // Validate strictly in code, loosely in the schema: `query` is marked
       // required but carries no `minLength`, and schema constraints are
       // advisory to an agent in any case.
@@ -487,7 +701,7 @@
         return Promise.resolve(emptySearchResult(query, UNUSABLE_QUERY));
       }
 
-      return getIndex(signal).then(
+      return getIndex(signalOrOptions).then(
         function (index) {
           var entries = entriesFrom(index);
 
@@ -507,6 +721,54 @@
         },
         function () {
           return emptySearchResult(query, INDEX_UNAVAILABLE);
+        }
+      );
+    }
+  });
+
+  register({
+    name: 'getSiteOverview',
+    title: 'Site overview',
+    description:
+      'Describes rhino-inquisitor.com: what it publishes, how many articles it' +
+      ' has, the range of publication dates, the topics it covers with an article' +
+      ' count for each, and the URLs of its machine-readable feeds. Use it first' +
+      ' to judge whether this site covers a subject, and to get valid topic names' +
+      ' for searchArticles.',
+    // Measured rather than assumed, because the tool takes no arguments and
+    // Chrome's own documentation says registration wants "an input schema with
+    // relevant properties" without saying whether none counts: Chrome
+    // 153.0.8010.47 accepts an empty `properties` object and reflects it back
+    // through getTools() as `{"type":"object","properties":{}}`. The recorded
+    // fallback of omitting inputSchema entirely is therefore unnecessary. See
+    // docs/development/webmcp-tools.md.
+    inputSchema: {
+      type: 'object',
+      properties: {}
+    },
+    annotations: {
+      readOnlyHint: true
+    },
+    execute: function (args, signalOrOptions) {
+      return getIndex(signalOrOptions).then(
+        function (index) {
+          var entries = entriesFrom(index);
+          var articles = articlesFrom(index);
+
+          if (entries === null || articles === null) {
+            return unmeasuredOverview(INDEX_UNREADABLE);
+          }
+
+          var snapshot = overviewOf(entries, articles);
+
+          // One topic is the floor rather than zero, so the countdown always
+          // runs at least once and a site with no topics still answers.
+          return fitToBudget(function (count, wanted) {
+            return overviewCandidateFor(snapshot, count, wanted);
+          }, Math.max(snapshot.topics.length, 1));
+        },
+        function () {
+          return unmeasuredOverview(INDEX_UNAVAILABLE);
         }
       );
     }
