@@ -309,7 +309,7 @@ not fit. An agent that needs one has the topic name and can get there through
 
 ### What Chrome actually does, measured
 
-Chrome's WebMCP documentation is silent or wrong on four points that decide how
+Chrome's WebMCP documentation is silent or wrong on five points that decide how
 this file has to be written. Each was measured directly against **Chrome
 153.0.8010.47** (see [Verify in a browser](#verify-in-a-browser) for the
 harness), not inferred:
@@ -352,6 +352,20 @@ requires exactly two arguments, the first a `RegisteredTool` from `getTools()`
 (a name string is rejected), and the second a JSON *string* — passing `{}`
 fails with "Failed to parse input arguments". Only relevant when driving the
 tools from a harness, but it is what a verification script has to do.
+
+**A bare `AbortSignal` handed to `executeTool()` is silently ignored.** Chrome's
+docs say a pending tool execution can be cancelled "with an `AbortSignal`, when
+passed as an optional parameter". That parameter has to be an *options* object —
+`executeTool(tool, json, { signal })` — the same asymmetry `execute` shows on
+the way in. Passed bare as `executeTool(tool, json, signal)`, the abort does
+nothing: against a deliberately stalled `/index.json` the call ran the full five
+seconds and resolved with rows, indistinguishable from never aborting at all.
+Wrapped, aborting at 500 ms rejected the call with `AbortError` at 501 ms and
+failed the in-flight request with `net::ERR_ABORTED`. That failed request is
+also the direct proof that the signal Chrome hands `execute` reaches our
+`fetch()` — the round trip the abort criterion on
+[issue #57](https://github.com/taurgis/rhino-inquisitor-com/issues/57) asked for,
+and one no unit test can stand in for.
 
 One more observation, harmless but worth not being surprised by: `getTools()`
 reflects `annotations` back with `untrustedContentHint: false` filled in
@@ -601,7 +615,8 @@ await browser.close();
 ```
 
 Mind the call shape: `executeTool()` wants the `RegisteredTool` object and a
-JSON **string**, not a tool name and an object. What this proved when
+JSON **string**, not a tool name and an object, and an `AbortSignal` only takes
+effect wrapped as `{ signal }` in a third argument. What this proved when
 `getSiteOverview` landed, on Chrome 153.0.8010.47:
 
 - All three tools register and round-trip through `getTools()`, alphabetized by
@@ -615,6 +630,28 @@ JSON **string**, not a tool name and an object. What this proved when
 - `searchArticles` with `query: "commerce"` and `topic: "Release Notes"` reports
   30 matches, returns 3, and lands at 1,127 characters.
 - Four tool calls produced exactly **one** `/index.json` request.
+
+The same harness closed out the tracer bullet's remaining browser criteria, and
+these are the ones worth re-running after any change to the guard, the fetch, or
+`register()`:
+
+- Launched **without** `--enable-features=WebMCP`, the page logs nothing, sets
+  no guard flag, requests no `/index.json`, and registers nothing — the script
+  is inert rather than half-enabled, exactly as it must be for every reader
+  today.
+- Re-running the fetched asset twice more in the page leaves the tool count at
+  three: `window.__rhinoWebmcpToolsLoaded` stops a re-insert from registering a
+  second copy.
+- With `registerTool` patched to throw, and separately to reject, all three
+  registrations fail, `getTools()` returns `[]`, and the console stays clean —
+  the page carries on rendering. Only the promise `.catch()` makes the second
+  of those two quiet.
+- A first `/index.json` that fails at the network layer answers with the
+  could-not-load guidance, and the very next call fetches again and returns
+  rows: the cached promise clears on rejection rather than latching the
+  failure.
+- `limit` is clamped in code, not rejected: `0` returns one row and `999`
+  behaves as `20`.
 
 `localhost` is a secure context, so this needs no token. Verification against
 the live tokened origin is the only thing that does, and that window closes
