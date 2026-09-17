@@ -1,0 +1,16 @@
+{{/* Deliver a JS asset as a deferred, fingerprinted, SRI-protected <script>.
+
+     Takes an asset path relative to src/assets, e.g.
+       {{ partial "site/deferred-script.html" "scripts/scroll-restore.js" }}
+
+     Fingerprinted URL so a content change busts the long-lived (1y) asset
+     cache — a stable filename would otherwise strand returning visitors on a
+     stale copy. `with` on the lookup means a missing asset renders nothing
+     rather than failing the build.
+
+     Renders nothing for assets under src/static, which are referenced with
+     relURL instead and are not part of the Pipes pipeline. */}}
+{{ with resources.Get . }}
+  {{ $asset := . | minify | fingerprint }}
+  <script src="{{ $asset.RelPermalink }}" integrity="{{ $asset.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{ end }}

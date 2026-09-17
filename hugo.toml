@@ -105,6 +105,16 @@ disableXML = false
 description = "Technical articles, migration notes, and platform guidance from Rhino Inquisitor."
 defaultSocialImage = "/images/social-default.svg"
 
+# WebMCP origin-trial tokens, rendered as <meta http-equiv="origin-trial"> tags
+# by seo/head-meta.html. Empty means no tag is emitted and the WebMCP
+# integration stays inert, which is the correct state whenever a token is
+# missing, expired, or the trial has ended. Chrome and Edge run separate trials
+# with separate signing keys, so each needs its own token; both trials end
+# 2026-11-17. Tokens are public by design — they ship in HTML to every visitor.
+# See docs/development/webmcp-tools.md.
+webmcpOriginTrialTokenChrome = ""
+webmcpOriginTrialTokenEdge = ""
+
 [params.seoDefaults]
 maxSnippet = -1
 maxImagePreview = "large"

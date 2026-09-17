@@ -3,6 +3,21 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* WebMCP origin-trial tokens. Emitted early because the origin-trials
+     framework requires a token to be present before the trial feature is
+     accessed, and gated per browser so an empty param renders no tag at all —
+     which keeps webmcp-tools.js inert rather than half-enabled. Chrome and Edge
+     issue separate tokens; multiple origin-trial tags on one page are legal and
+     the framework takes the first valid one, so each browser skips the other's.
+     Delivered here rather than as a Cloudflare `Origin-Trial` response header:
+     edge header rules on this zone already caused one live regression (see
+     docs/publishing/article-markdown-link-headers.md, Rule 3). */}}
+{{ with site.Params.webmcpOriginTrialTokenChrome }}
+  <meta http-equiv="origin-trial" content="{{ . }}">
+{{ end }}
+{{ with site.Params.webmcpOriginTrialTokenEdge }}
+  <meta http-equiv="origin-trial" content="{{ . }}">
+{{ end }}
 <title>{{ $seo.title }}</title>
 <meta name="description" content="{{ $seo.description }}">
 <meta name="robots" content="{{ $seo.robots }}">

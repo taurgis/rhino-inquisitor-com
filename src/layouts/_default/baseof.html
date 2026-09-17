@@ -19,13 +19,15 @@
 
     {{ partial "site/footer.html" . }}
 
-    {{ with resources.Get "scripts/scroll-restore.js" }}
-      {{ $scrollRestore := . | minify | fingerprint }}
-      {{/* Fingerprinted URL so a content change busts the long-lived (1y) asset
-           cache — a stable filename would otherwise strand returning visitors on
-           a stale copy. */}}
-      <script src="{{ $scrollRestore.RelPermalink }}" integrity="{{ $scrollRestore.Data.Integrity }}" crossorigin="anonymous" defer></script>
-    {{ end }}
+    {{ partial "site/deferred-script.html" "scripts/scroll-restore.js" }}
+    {{/* WebMCP tools are declared unconditionally here rather than through the
+         "scripts" block below: they describe the site, not the current page, so
+         every template wants the same set and only single.html defines that
+         block. Fingerprinting matters more here than for most assets — WebMCP
+         is an origin trial that has already renamed its entry point once, so a
+         stable filename behind the 1y asset cache could strand a returning
+         visitor on a cached copy calling a dead API. */}}
+    {{ partial "site/deferred-script.html" "scripts/webmcp-tools.js" }}
     {{ block "scripts" . }}{{ end }}
   </body>
 </html>
