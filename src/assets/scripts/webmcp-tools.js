@@ -289,9 +289,10 @@
   // through Hugo's template engine, which would leave the file unreadable to
   // its own unit tests.
   // Marked with an ellipsis rather than cut silently, so an agent can tell it
-  // is reading a fragment. Only ever applied to prose: a shortened topic name
-  // is a filter that matches nothing and a shortened URL is a dead link, so
-  // neither is ever touched.
+  // is reading a fragment. Only ever applied to prose, or to the url the caller
+  // asked about when a failure answer quotes it back — a label there, not a
+  // link. Never to a value an agent acts on: a shortened topic name is a filter
+  // that matches nothing, and a shortened URL is a dead link.
   function shorten(value, limit) {
     if (value.length <= limit) {
       return value;
@@ -571,6 +572,370 @@
     return payload;
   }
 
+  // -------------------------------------------------------------------------
+  // getArticle: resolving a url, and reading the Markdown companion.
+  // -------------------------------------------------------------------------
+
+  var UNUSABLE_URL =
+    'Call getArticle with the url of an article on rhino-inquisitor.com, as' +
+    ' returned by searchArticles or listRecentArticles.';
+
+  var NO_ARTICLE_AT_URL =
+    'No article at that URL on rhino-inquisitor.com. Call searchArticles to find' +
+    ' one, or listRecentArticles for the newest.';
+
+  // How much of the url argument a failure answer echoes back. An agent needs
+  // to see which url it asked about; it does not need four kilobytes of it back
+  // out of the same 1.5K the answer has to fit in.
+  var ASKED_URL_BUDGET = 200;
+
+  // First path segments the site builds as listing pages rather than articles,
+  // each one measured against a real build, pagination included (/posts/page/2/
+  // is under `posts`). Sections, taxonomies and terms have no Markdown
+  // companion at all — hugo.toml gives the `markdown` output format to the
+  // `page` kind only — so a url under one of these could only ever 404, and the
+  // answer says it is a browse page instead of pretending the article is
+  // missing.
+  var LISTING_ROOTS = ['posts', 'pages', 'category', 'categories', 'blog', 'archive'];
+
+  var TAKEAWAYS_HEADING = '## Key Takeaways';
+
+  // How far into a companion body the search for the opening paragraph looks.
+  // Measured across 180 built companions: 5 open on something that is not prose
+  // — four on the "Play video" label the rendered player contributes, one on an
+  // image followed by a bare link and a heading — and the deepest real prose
+  // paragraph sits in block four. Bounded, so a body of nothing but fragments
+  // degrades to its first block rather than quoting the middle of the article.
+  var OPENING_SCAN_BLOCKS = 4;
+
+  function originOf(url) {
+    var match = /^[a-z][a-z0-9+.-]*:\/\/[^/]+/i.exec(String(url || ''));
+
+    return match ? match[0].toLowerCase() : '';
+  }
+
+  // Which origins may prefix a url argument. The index's own permalinks carry
+  // whatever baseURL the site was built with, and the document's origin covers
+  // that build being served from somewhere else (a local preview of the
+  // production output). Any other origin is another site's URL, and must not
+  // resolve to one of ours just because the path happens to match.
+  function knownOrigins(entries) {
+    var here = (window.location && window.location.origin) || '';
+    var origins = here ? [here.toLowerCase()] : [];
+
+    for (var index = 0; index < entries.length; index += 1) {
+      var origin = originOf(entries[index].permalink);
+
+      if (origin && origins.indexOf(origin) === -1) {
+        origins.push(origin);
+      }
+    }
+
+    return origins;
+  }
+
+  // Take the url in whichever shape the agent has it: the full permalink or the
+  // bare path both tools already return, with or without a trailing slash, with
+  // the query and fragment a shared link collects, or with the `index.md`
+  // suffix the companion URLs carry. Chrome's best-practices page puts the rule
+  // plainly — "Accept raw user input. Avoid asking the agent to perform math or
+  // transform the input strings" — and the agent is relaying a string it got
+  // verbatim from somewhere else, so normalizing is this tool's job, not its
+  // caller's. An empty return means "no url of ours", which is the same answer
+  // as a path that matches nothing.
+  function sitePathFrom(raw, origins) {
+    var value = String(raw || '').trim();
+
+    if (!value) {
+      return '';
+    }
+
+    value = value.split('#')[0].split('?')[0];
+
+    var origin = originOf(value);
+    if (origin) {
+      if (origins.indexOf(origin) === -1) {
+        return '';
+      }
+
+      value = value.slice(origin.length);
+    }
+
+    value = value.replace(/index\.(?:md|html)$/i, '');
+
+    if (value.charAt(0) !== '/') {
+      value = '/' + value;
+    }
+
+    if (value.charAt(value.length - 1) !== '/') {
+      value += '/';
+    }
+
+    return value.toLowerCase();
+  }
+
+  // `relPermalink` is always a path, never a full URL, so it needs no origin
+  // list to be normalized — the same function reads both sides of the compare.
+  function entryAt(entries, path) {
+    for (var index = 0; index < entries.length; index += 1) {
+      if (sitePathFrom(entries[index].relPermalink, []) === path) {
+        return entries[index];
+      }
+    }
+
+    return null;
+  }
+
+  function isListingPath(path) {
+    return path === '/' || LISTING_ROOTS.indexOf(path.split('/')[1]) !== -1;
+  }
+
+  // Only a `primaryTopic` the index actually carries, because that is the exact
+  // string searchArticles filters on. A term page's own display name is not:
+  // /category/salesforce-commerce-cloud/ reads "Salesforce Commerce Cloud"
+  // while the topic behind it is "Commerce Cloud", so naming the URL's own
+  // words would hand the agent a filter that matches nothing.
+  function topicNameFor(path, entries) {
+    var segments = path.split('/');
+
+    if (segments[1] !== 'category' || !segments[2]) {
+      return '';
+    }
+
+    for (var index = 0; index < entries.length; index += 1) {
+      var entry = entries[index];
+
+      if (entry.primaryTopicSlug === segments[2] && entry.primaryTopic) {
+        return entry.primaryTopic;
+      }
+    }
+
+    return '';
+  }
+
+  // The specified sentence names one topic as its example. Filled in from the
+  // url instead of quoted literally: a fixed topic name would be the wrong one
+  // for every term page but that one, and a browse page like /posts/ names no
+  // topic at all, so those are pointed at getSiteOverview — which is where a
+  // valid topic name comes from. Either way the dead end becomes a next call.
+  function topicIndexGuidance(path, entries) {
+    var topic = topicNameFor(path, entries);
+
+    return (
+      'That URL is a topic index, not an article. Call searchArticles with ' +
+      (topic ? 'topic "' + topic + '"' : 'a topic from getSiteOverview') +
+      ' to get articles on it.'
+    );
+  }
+
+  function withTrailingSlash(value) {
+    var text = String(value || '');
+
+    return text.charAt(text.length - 1) === '/' ? text : text + '/';
+  }
+
+  // Fetched relative, so the request is same-origin whatever host is serving
+  // this build.
+  function companionPathFor(entry) {
+    return withTrailingSlash(entry.relPermalink) + 'index.md';
+  }
+
+  // Reported absolute, because this is the URL an agent goes on to fetch for the
+  // full text and the companion declares it of itself. Measured across all 175
+  // index entries: `markdown_url` in the front matter is `permalink` +
+  // "index.md" every time, so the value is computed rather than parsed back out
+  // of the response — which also sidesteps the folded YAML scalar the longer
+  // URLs are written as.
+  function markdownUrlFor(entry) {
+    return entry.permalink
+      ? withTrailingSlash(entry.permalink) + 'index.md'
+      : companionPathFor(entry);
+  }
+
+  function companionUnreadable(markdownUrl) {
+    return (
+      'Could not read the Markdown for that article on rhino-inquisitor.com.' +
+      ' Fetch ' +
+      markdownUrl +
+      ' directly, or try again.'
+    );
+  }
+
+  function openingDidNotFit(markdownUrl) {
+    return (
+      'The opening paragraph did not fit one response. Fetch ' +
+      markdownUrl +
+      ' for the full article.'
+    );
+  }
+
+  // Does this block of the body carry a sentence? Headings and code fences are
+  // structure rather than prose; an image carries none of its own; a bare link
+  // reads as its own text. What is left has to end a sentence somewhere, which
+  // is what separates "Play video" from an opening paragraph.
+  function carriesProse(block) {
+    if (!block || block.charAt(0) === '#') {
+      return false;
+    }
+
+    if (block.indexOf('~~~') === 0 || block.indexOf('```') === 0) {
+      return false;
+    }
+
+    var text = block
+      .replace(/^>\s?/gm, '')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
+
+    return /[.!?]/.test(text);
+  }
+
+  // Block-level markers go — a blockquote marker in front of an update callout
+  // is the page's layout, not the article's words — while inline markup stays
+  // as written, since an agent reads Markdown perfectly well and a stripped
+  // link loses where it pointed. Newlines collapse so the opening is one line.
+  function tidyOpening(block) {
+    return String(block || '')
+      .replace(/^>\s?/gm, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function openingFrom(body) {
+    var blocks = body.split(/\n\s*\n/);
+    var limit = Math.min(blocks.length, OPENING_SCAN_BLOCKS);
+
+    for (var index = 0; index < limit; index += 1) {
+      if (carriesProse(blocks[index])) {
+        return tidyOpening(blocks[index]);
+      }
+    }
+
+    return tidyOpening(blocks[0]);
+  }
+
+  // The front matter is skipped rather than parsed: /index.json already supplies
+  // the date, topic, categories and reading time, so the only thing the
+  // companion is read for is the part the index does not carry — the
+  // hand-written takeaways and the article's own opening words.
+  //
+  // Null means "this is not one of our companions", which is what a 404 page or
+  // an HTML response looks like from here, and is handled as a read failure
+  // rather than as content.
+  function parseCompanion(text) {
+    var body = String(text || '');
+    var frontMatter = /^---\n[\s\S]*?\n---\n/.exec(body);
+
+    if (!frontMatter) {
+      return null;
+    }
+
+    body = body.slice(frontMatter[0].length).replace(/^\s+/, '');
+
+    if (!body) {
+      return null;
+    }
+
+    var takeaways = [];
+
+    // Present for the 161 articles, absent for the 14 reference pages, which
+    // set no `takeaways` front matter — a normal shape, not a broken one.
+    if (body.indexOf(TAKEAWAYS_HEADING) === 0) {
+      var lines = body.slice(TAKEAWAYS_HEADING.length).split('\n');
+      var index = 0;
+
+      while (index < lines.length && !lines[index].trim()) {
+        index += 1;
+      }
+
+      while (index < lines.length && lines[index].indexOf('- ') === 0) {
+        takeaways.push(lines[index].slice(2).trim());
+        index += 1;
+      }
+
+      body = lines.slice(index).join('\n').replace(/^\s+/, '');
+    }
+
+    if (takeaways.length === 0 && !body) {
+      return null;
+    }
+
+    return { keyTakeaways: takeaways, opening: body ? openingFrom(body) : '' };
+  }
+
+  // Everything about the article the index already knows, in the key order the
+  // specified return shape gives them: what it is, where its full text lives,
+  // then when and what it covers. Both answer shapes below start here, and both
+  // copy `categories` rather than hand the index's own array over, so one caller
+  // cannot edit what the next one is told — the same reason feeds() builds fresh.
+  function articleFactsFor(entry) {
+    return {
+      title: entry.title,
+      url: entry.relPermalink,
+      markdownUrl: markdownUrlFor(entry),
+      date: entry.date,
+      topic: entry.primaryTopic,
+      categories: (entry.categories || []).slice(),
+      readingTime: entry.readingTime
+    };
+  }
+
+  // The full answer: the facts above, then the article's own words.
+  function articleCandidateFor(entry, parsed, openingLimit) {
+    var payload = articleFactsFor(entry);
+
+    payload.keyTakeaways = parsed.keyTakeaways.slice();
+
+    var opening = openingLimit > 0 ? shorten(parsed.opening, openingLimit) : '';
+
+    if (opening) {
+      payload.opening = opening;
+    } else if (parsed.opening) {
+      payload.guidance = openingDidNotFit(payload.markdownUrl);
+    }
+
+    return payload;
+  }
+
+  // A second budget fitter beside fitToBudget, deliberately: that one gives up
+  // whole rows or topics, while this one shrinks a single string, so there is no
+  // shared countdown to extract — only a shared measurement, which is one call.
+  //
+  // Only the opening gives way. The takeaways are the article's own abstract and
+  // everything else is a single measured field, so trimming those would cost the
+  // agent exactly what it called for. Measured across the corpus, the payload
+  // without an opening peaks at 813 characters against the 1500 budget, so there
+  // is always room for some of one; the countdown is by characters rather than
+  // by whole fields because JSON escaping can make a cut smaller than it looks.
+  function fitArticleToBudget(entry, parsed) {
+    var limit = parsed.opening.length;
+
+    while (limit > 0) {
+      var candidate = articleCandidateFor(entry, parsed, limit);
+      var over = JSON.stringify(candidate).length - OUTPUT_BUDGET;
+
+      if (over <= 0) {
+        return candidate;
+      }
+
+      limit -= over;
+    }
+
+    return articleCandidateFor(entry, parsed, 0);
+  }
+
+  // The article is known, its own words are not. Every index-sourced field still
+  // stands — an agent that asked what this article is still learns most of it —
+  // and the two fields that needed the companion are omitted rather than
+  // emptied, the same distinction unmeasuredOverview draws.
+  function unreadArticle(entry, guidance) {
+    var payload = articleFactsFor(entry);
+
+    payload.guidance = guidance;
+
+    return payload;
+  }
+
   // Each registration gets its own try/catch, so a definition the browser
   // rejects — a schema shape that drifted mid-origin-trial, say — costs only
   // that one tool rather than the whole surface. Failures are swallowed
@@ -769,6 +1134,101 @@
         },
         function () {
           return unmeasuredOverview(INDEX_UNAVAILABLE);
+        }
+      );
+    }
+  });
+
+  register({
+    name: 'getArticle',
+    title: 'Get article',
+    description:
+      'Returns a summary of one article on rhino-inquisitor.com: its title,' +
+      ' publication date, topic, hand-written key takeaways, opening paragraph,' +
+      ' and the URL of its full Markdown text. Use it after searchArticles or' +
+      ' listRecentArticles to learn what an article covers. Fetch the returned' +
+      ' markdownUrl for the complete article.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        url: {
+          type: 'string',
+          description:
+            'The article\'s URL or path as returned by searchArticles or' +
+            ' listRecentArticles, for example "/cartridge-path-and-overrides/".'
+        }
+      },
+      required: ['url']
+    },
+    annotations: {
+      readOnlyHint: true
+    },
+    execute: function (args, signalOrOptions) {
+      var raw = args && typeof args.url === 'string' ? args.url : '';
+      var askedUrl = shorten(raw.trim(), ASKED_URL_BUDGET);
+
+      // Nothing to resolve, so nothing to fetch: the answer is the same with or
+      // without the network, as it is for a query that tokenizes to nothing.
+      if (!askedUrl) {
+        return Promise.resolve({ guidance: UNUSABLE_URL });
+      }
+
+      return getIndex(signalOrOptions).then(
+        function (index) {
+          var entries = entriesFrom(index);
+
+          if (entries === null) {
+            return { url: askedUrl, guidance: INDEX_UNREADABLE };
+          }
+
+          var origins = knownOrigins(entries);
+          var path = sitePathFrom(raw, origins);
+          var entry = path ? entryAt(entries, path) : null;
+
+          // Both failures are answered from the index, with no request made
+          // against a url this site does not build: cheaper than a fetch, and
+          // it tells a browse page apart from a url that is simply wrong.
+          if (!entry) {
+            return {
+              url: askedUrl,
+              guidance:
+                path && isListingPath(path)
+                  ? topicIndexGuidance(path, entries)
+                  : NO_ARTICLE_AT_URL
+            };
+          }
+
+          // Per-call and uncached, unlike the index: 175 companions of 11.5 KB
+          // average would either grow a cache without bound or need eviction
+          // logic that a digest tool does not earn.
+          return fetch(companionPathFor(entry), {
+            signal: abortSignalFrom(signalOrOptions)
+          }).then(
+            function (response) {
+              if (!response || !response.ok) {
+                throw new Error('companion unavailable');
+              }
+
+              return response.text();
+            }
+          ).then(
+            function (text) {
+              var parsed = parseCompanion(text);
+
+              if (!parsed) {
+                throw new Error('not a Markdown companion');
+              }
+
+              return fitArticleToBudget(entry, parsed);
+            }
+          ).catch(
+            function () {
+              return unreadArticle(entry, companionUnreadable(markdownUrlFor(entry)));
+            }
+          );
+        },
+        function () {
+          return { url: askedUrl, guidance: INDEX_UNAVAILABLE };
         }
       );
     }

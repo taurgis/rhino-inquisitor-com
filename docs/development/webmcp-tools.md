@@ -12,9 +12,9 @@ This is distinct from the machine-reader surface the site already serves
 `/index.json`). Those serve crawlers and retrieval pipelines that *fetch a URL*.
 WebMCP serves an agent that is *already executing JavaScript in the page*.
 
-The surface is being built in five slices. Three tools are registered so far —
-`listRecentArticles`, `searchArticles` and `getSiteOverview` — with `getArticle`
-to follow, then a verification pass. The full spec and the reasoning behind every
+The surface is being built in five slices. Four tools are registered —
+`listRecentArticles`, `searchArticles`, `getSiteOverview` and `getArticle` —
+with a verification pass still to come. The full spec and the reasoning behind every
 decision below live on the wayfinder map,
 [issue #49](https://github.com/taurgis/rhino-inquisitor-com/issues/49), and its
 closed tickets.
@@ -193,6 +193,161 @@ two tools, which do return `matchCount: 0`-style empty envelopes, and the
 difference is the point: those count *results*, where `articleCount: 0` would be
 a claim about the site that an agent could act on by skipping it. An absent key
 says the measurement failed; a zero says the site is empty.
+
+| | |
+|---|---|
+| `name` | `getArticle` |
+| `title` | Get article |
+| `inputSchema` | required `url` string |
+| `annotations` | `readOnlyHint: true` |
+
+Its description, verbatim:
+
+> Returns a summary of one article on rhino-inquisitor.com: its title,
+> publication date, topic, hand-written key takeaways, opening paragraph, and
+> the URL of its full Markdown text. Use it after searchArticles or
+> listRecentArticles to learn what an article covers. Fetch the returned
+> markdownUrl for the complete article.
+
+It returns `{ title, url, markdownUrl, date, topic, categories, readingTime,
+keyTakeaways, opening }`. Everything but the last two comes from `/index.json`;
+those two are read from the article's own Markdown companion.
+
+**It is a digest, not the body.** Companion Markdown averages 11.5 KB and peaks
+at 39 KB — 8 to 27 times the output budget. The digest is not a truncation of that:
+every one of the 161 articles authors a three-bullet `takeaways` block by hand,
+so each already has a real abstract. An agent that wants the whole text fetches
+`markdownUrl`, which is precisely what the companions exist for.
+
+#### Taking the url in whatever shape the agent has it
+
+`url` is normalised in the tool rather than in the agent, which is Chrome's
+[best-practices](https://developer.chrome.com/docs/ai/webmcp/best-practices?hl=en)
+rule — "Accept raw user input. Avoid asking the agent to perform math or
+transform the input strings" — applied to a string the agent is relaying
+verbatim from a previous tool result. Accepted, all resolving to the same
+article: the bare path `/headless/` the other tools return, the full permalink
+`https://rhino-inquisitor.com/headless/`, no trailing slash, no leading slash,
+a `?utm_source=…` query, a `#fragment`, surrounding whitespace, mixed case, and
+the `index.md` or `index.html` suffix.
+
+An origin is accepted only when it is the document's own or one the index's
+permalinks carry, so `https://example.com/headless/` resolves to nothing rather
+than to our article on a path collision.
+
+#### Two dead ends answered from the index, with no fetch
+
+Neither failure costs a request, which is both cheaper than fetching a URL the
+site does not build and the only way to tell the two apart:
+
+- A browse page answers `That URL is a topic index, not an article. …`. The
+  recognised roots are `/posts/`, `/pages/`, `/category/`, `/categories/`,
+  `/blog/`, `/archive/` and `/` — measured against a build, where all six
+  directories exist, pagination included (`/posts/page/2/`). Sections,
+  taxonomies and terms have no Markdown companion at all, because `hugo.toml`
+  gives the `markdown` output format to the `page` kind only: that is by design,
+  not a build gap, and it is why fetching one of these URLs could only ever
+  404.
+- Anything else unmatched answers `No article at that URL on
+  rhino-inquisitor.com. Call searchArticles to find one, or listRecentArticles
+  for the newest.`
+
+**One deliberate deviation from the specified string.** The topic-index sentence
+was specified with one topic as its example — `topic "AI"` — and the
+implementation fills that slot in from the URL instead of quoting it literally,
+because a fixed name is the wrong name for every term page but one. So
+`/category/architecture/` answers `… with topic "Architecture" …`, while
+`/posts/`, which names no topic at all, answers `… with a topic from
+getSiteOverview …`. The name offered is always a `primaryTopic` value taken from
+the index, because that is the exact string `searchArticles` filters on — a term
+page's own display name is not (`/category/salesforce-commerce-cloud/` reads
+"Salesforce Commerce Cloud" while the topic behind it is "Commerce Cloud").
+
+Also as specified, and worth correcting the next time that text is revised: the
+`url` parameter description offers `"/cartridge-path-and-overrides/"` as its
+example, and no article lives there (the real path is
+`/sfcc-cartridge-path-overrides-explained/`). An agent that calls the example
+instead of a URL from a prior result gets the "No article at that URL" sentence
+and a pointer to `searchArticles`, so it recovers — but it should not have to.
+
+#### Reading the Markdown companion, and what a template change breaks
+
+The companion is **not** what `src/layouts/_default/single.markdown.md` emits.
+`scripts/seo/generate-llm-artifacts.js` rewrites every Hugo-emitted `index.md`
+in place from the *rendered HTML*: front matter, then `## Key Takeaways` with
+one `-` bullet per `.article-summary__list` item, then the body turned down
+from `section.article-body`. That script's output is the shape this tool parses,
+so **a change to either the template or that script can silently change what
+`getArticle` returns.** Re-run the corpus sweep below when you touch either.
+
+The parse rule, and what a full production build measured on 2026-09-17 says
+about it across 180 companions:
+
+- Front matter is skipped, not parsed. `/index.json` already carries the date,
+  topic, categories and reading time, and the one field that would be worth
+  having — `markdown_url` — equals `permalink` + `index.md` for all 175 indexed
+  entries, so it is computed instead. It is also folded onto a second line as a
+  YAML `>-` scalar for the 69 longest URLs, which is more YAML than a browser
+  asset should have to learn.
+- A body starting with `## Key Takeaways` yields the contiguous `-` lines that
+  follow it, with no blank line in between: 161 companions, three bullets every
+  time. Three is not a contract — the block mirrors however many items the
+  post's `takeaways` front matter carries.
+- The 19 companions with no takeaways block at all are a normal path, not an
+  error: the 14 `pages`-type entries set no `takeaways`, and nor do the home,
+  archive and other unindexed pages. They return `keyTakeaways: []`.
+- `opening` is the first blank-line-delimited block that carries a sentence,
+  scanning at most four blocks in. **This is a deliberate deviation**: the tool
+  was specified to take "the first paragraph" flat, and its ticket's Notes
+  flagged the risk that a shortcode replacement could land there instead,
+  "worth spot-checking against a wider sample before shipping". The sweep found
+  the risk is real, so the rule skips rather than quotes. **Five of the 180 open on something that is
+  not prose**: four on `Play video`, a label the rendered player contributes
+  (`/headless/`, `/the-path-to-being-an-architect/` and two more), and
+  `/salesforce-b2c-commerce-cloud-erd/` on an image, then a bare link, then a
+  heading. Skipping those is why the scan exists; bounding it at four is why a
+  body of nothing but fragments falls back to its own first block rather than
+  quoting the middle of the article.
+- A block carries a sentence when, after dropping blockquote markers, images and
+  link targets, what is left still ends a sentence somewhere. Headings and code
+  fences never count.
+- Block-level markers are stripped from the chosen block and inline markup is
+  not, so the four articles that open on an update callout
+  (`> **Updated July 2026:** …`) lose the `>` and keep their bold and links.
+
+#### markdownUrl is absolute, the fetch is not
+
+The companion is fetched at `relPermalink` + `index.md`, so the request is
+same-origin whatever host serves the build — which is what makes the tool work
+in the localhost-served production build the browser verification uses. The
+reported `markdownUrl` is the absolute URL the companion declares for itself,
+because that is the one the agent hands on.
+
+There is one shared cached promise for `/index.json` and **no** cache for
+companions. 175 of them at 11.5 KB average would either grow without bound or need
+eviction logic a digest tool has not earned; each call fetches at most one, and
+only after the URL has already resolved against the index.
+
+#### What gives way when the payload is too big
+
+Only the opening. The takeaways are the article's own abstract and everything
+else is a single measured field, so trimming those would cost the agent exactly
+what it called for. Measured across the corpus, the payload *without* an opening
+peaks at 813 characters against the 1,500 budget, so there is always room for
+some of one. The countdown is by characters rather than by whole fields, and it
+re-measures after each cut because JSON escaping can make a cut smaller than it
+looks; the cut itself is marked with an ellipsis. Across the 175 live entries
+exactly two openings get trimmed, and the largest payload lands on 1,500 —
+*on* the budget, not under it, because the fitter treats 1,500 as a maximum, the
+same way `fitToBudget` does and the same way Chrome's own wording reads
+("1,500 characters" per tool output).
+
+A companion that 404s, fails the network, is aborted, or comes back as something
+other than a companion returns every index-sourced field plus a sentence naming
+the absolute URL to fetch by hand. `keyTakeaways` and `opening` are omitted
+rather than emptied, the same distinction the overview's failure answer draws:
+an absent key says the read failed, where an empty one would be a claim about
+the article.
 
 ### How ranking works
 
@@ -577,6 +732,73 @@ Re-run this sweep when the row shape, the weights, or the summary lengths in
 `/index.json` change — those 29 characters of worst-case headroom are the whole
 safety margin.
 
+### Verify getArticle against the real companions
+
+`getArticle` is the only tool that reads something other than `/index.json`, and
+the shape it reads is generated, not authored — so the fixtures in the unit tests
+prove the parse rule while only a sweep proves the corpus still matches it. Run
+it against a **production** build:
+
+```bash
+SKIP_AVIF_CACHE=1 npm run build:prod
+find public -name index.md | wc -l   # 180; a development build gives 0, see below
+```
+
+```bash
+node --input-type=module -e "
+import fs from 'node:fs';
+import vm from 'node:vm';
+const index = JSON.parse(fs.readFileSync('public/index.json', 'utf8'));
+const registered = [];
+const box = {
+  fetch(url) {
+    if (url === '/index.json') return Promise.resolve({ ok: true, json: () => Promise.resolve(index) });
+    const file = 'public' + url;
+    if (!fs.existsSync(file)) return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve('') });
+    return Promise.resolve({ ok: true, text: () => Promise.resolve(fs.readFileSync(file, 'utf8')) });
+  },
+  document: { modelContext: { registerTool: (d) => registered.push(d) }, body: { dataset: {} } },
+};
+box.window = box; box.globalThis = box;
+vm.createContext(box);
+vm.runInContext(fs.readFileSync('src/assets/scripts/webmcp-tools.js', 'utf8'), box);
+const tool = registered.find((d) => d.name === 'getArticle');
+let worst = 0, trimmed = 0, problems = 0;
+for (const entry of index) {
+  const r = await tool.execute({ url: entry.relPermalink });
+  const chars = JSON.stringify(r).length;
+  const declared = /markdown_url:[ \t]*(?:>-)?[ \t]*\n?[ \t]*'?([^'\"\n]+)'?/
+    .exec(fs.readFileSync('public' + entry.relPermalink + 'index.md', 'utf8'))[1].trim();
+  const bad = r.guidance || chars > 1500 || !r.opening || r.markdownUrl !== declared
+    || (entry.type === 'posts' && r.keyTakeaways.length === 0);
+  if (bad) { problems += 1; console.log('PROBLEM', entry.relPermalink, chars, r.guidance || ''); }
+  if (r.opening.endsWith('…')) trimmed += 1;
+  worst = Math.max(worst, chars);
+}
+console.log('entries', index.length, 'problems', problems, 'largest', worst, 'trimmed', trimmed);
+"
+```
+
+What it established when `getArticle` landed: **175 entries, 0 problems**, the
+largest payload 1,500 characters exactly, two openings trimmed, and takeaway
+counts of three for all 161 articles and zero for all 14 reference pages. Every
+`markdownUrl` matched the value its own companion's front matter declares.
+
+Two traps in that harness, both worth knowing before trusting a clean run:
+
+- **A development build has no companions to read.** `npm run build:local:fast`
+  marks pages `noindex`, and `scripts/seo/generate-llm-artifacts.js` deletes the
+  companion of any `noindex` page — so it leaves zero `index.md` files behind and
+  every sweep entry would "fail" for the wrong reason. Use `build:prod`, or pass
+  `--keep-noindex`.
+- **The resolution paths need their own checks**, since a sweep over the index
+  only ever passes URLs that exist. Worth re-running by hand after any change to
+  the normaliser: `/headless` and `https://rhino-inquisitor.com/headless/` both
+  resolve to the article, `/posts/` `/archive/` `/` answer the topic-index
+  sentence with the `getSiteOverview` pointer, `/category/architecture/` answers
+  it with `topic "Architecture"`, and `/nope/` plus
+  `https://example.com/headless/` both answer "No article at that URL".
+
 ### Verify in a browser
 
 Two of the three routes below need no manual flag toggling, which makes the
@@ -678,9 +900,9 @@ tool gets *chosen* from its name and description.
 
 ## Related files
 
-- `src/assets/scripts/webmcp-tools.js` — the integration: all three tools, the
-  shared index promise, the signal unwrapping, the budget fitter, and the
-  duplicated scorer.
+- `src/assets/scripts/webmcp-tools.js` — the integration: all four tools, the
+  shared index promise, the signal unwrapping, the budget fitter, the companion
+  parser, and the duplicated scorer.
 - `scripts/webmcp-tools.test.js` — its unit tests.
 - `src/static/scripts/archive-search.js` — the human-facing archive search, and
   the other half of the intentionally duplicated scorer.
@@ -695,5 +917,12 @@ tool gets *chosen* from its name and description.
 - `hugo.toml` — `webmcpOriginTrialTokenChrome`, `webmcpOriginTrialTokenEdge`.
 - `docs/development/scroll-restoration.md` — the analogous Hugo Pipes asset this
   delivery pattern copies.
+- `scripts/seo/generate-llm-artifacts.js` — writes the Markdown companions
+  `getArticle` parses, by rewriting each Hugo-emitted `index.md` from the
+  rendered HTML. The `## Key Takeaways` block and the body shape come from
+  here, not from the template.
+- `src/layouts/_default/single.markdown.md` — the companion's front matter and
+  the takeaways block the script above rewrites.
 - `docs/publishing/article-markdown-link-headers.md` — the edge-header
-  regression that argued for a meta tag over a Cloudflare rule.
+  regression that argued for a meta tag over a Cloudflare rule, and the
+  companion `Link` headers `markdownUrl` points into.

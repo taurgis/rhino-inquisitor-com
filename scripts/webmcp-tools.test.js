@@ -47,7 +47,8 @@ function entry(i, { type = 'posts', summaryLength = 133, date, ...overrides } = 
     relPermalink: `/article-${i}/`,
     permalink: `https://rhino-inquisitor.com/article-${i}/`,
     primaryTopic: 'Architecture',
-    primaryTopicUrl: '/topics/architecture/',
+    primaryTopicSlug: 'architecture',
+    primaryTopicUrl: 'https://rhino-inquisitor.com/category/architecture/',
     categories: ['Salesforce Commerce Cloud', 'Technical'],
     date: date || `2026-09-${String(28 - i).padStart(2, '0')}T12:00:00Z`,
     readingTime: 10 + i,
@@ -849,7 +850,7 @@ test('one failing registration does not prevent the others', () => {
   assert.equal(sandbox.__rhinoWebmcpToolsLoaded, true);
   assert.deepEqual(
     registered.map((definition) => definition.name),
-    ['searchArticles', 'getSiteOverview'],
+    ['searchArticles', 'getSiteOverview', 'getArticle'],
     'a rejected tool definition must not take the rest of the surface down',
   );
 });
@@ -1203,6 +1204,731 @@ test('getSiteOverview joins the index fetch shared by the other tools', async ()
   ]);
 
   assert.equal(fetchCalls.length, 1, 'three tools, one request');
+});
+
+// ---------------------------------------------------------------------------
+// getArticle
+// ---------------------------------------------------------------------------
+
+// Markdown companions are not written by src/layouts/_default/single.markdown.md
+// alone: scripts/seo/generate-llm-artifacts.js rewrites every Hugo-emitted
+// index.md from the rendered HTML, so the shape this tool parses is that
+// script's output — front matter, then `## Key Takeaways` with one `- ` bullet
+// per hand-written takeaway (no blank line between), then the body.
+//
+// Measured over a full production build on 2026-09-17: 180 companions, 161 with
+// a three-bullet takeaways block and 19 with none, and 5 of the 180 opening on
+// something that is not prose. Every body excerpt below is copied verbatim from
+// that build, so the parse rule is tested against the shape it actually meets.
+const ARTICLE_TOOL = 'getArticle';
+
+function companion(body, { slug = 'article-0', contentType = 'article' } = {}) {
+  return [
+    '---',
+    "title: 'Article number 0'",
+    `canonical_url: 'https://rhino-inquisitor.com/${slug}/'`,
+    `markdown_url: 'https://rhino-inquisitor.com/${slug}/index.md'`,
+    `content_type: ${contentType}`,
+    'site_name: Rhino Inquisitor',
+    'categories:',
+    '  - Salesforce Commerce Cloud',
+    'tags: []',
+    '---',
+    body,
+    '',
+  ].join('\n');
+}
+
+// public/sfcc-cartridge-path-overrides-explained/index.md. Takeaways and first
+// paragraph verbatim; the two further paragraphs that run before its next
+// heading are stood in for by the short one, which is the thing the
+// first-paragraph-only rule has to stop at.
+const POST_OPENING =
+  'You add a cartridge to the path, put it first, override a template, deploy,' +
+  ' and refresh the storefront. Nothing changes. You start doubting the cartridge' +
+  ' assignment, then the Business Manager path, then your own sanity. Ninety' +
+  ' minutes later you learn the file was fine — the code version wasn’t.';
+
+const POST_TAKEAWAYS = [
+  'Explains cartridge path resolution as one of three separate mechanisms, alongside module.superModule and HookMgr',
+  "Shows why only the last cartridge's hook return value reaches the caller, and where the community 'unhooking' trick actually stops",
+  'Separates the three things called caching in SFCC, and explains why SCSS imports break at build time rather than at runtime',
+];
+
+const POST_BODY = [
+  '## Key Takeaways',
+  ...POST_TAKEAWAYS.map((item) => `- ${item}`),
+  '',
+  POST_OPENING,
+  '',
+  'A second paragraph, before any heading arrives.',
+  '',
+  '## Three Mechanisms, Not One',
+  '',
+  'Body text under the first heading.',
+].join('\n');
+
+/**
+ * Serve `/index.json` from `items` and each path in `companions`; anything else
+ * 404s the way the real host does for a URL with no Markdown companion.
+ */
+function loadArticles({ companions = {}, items, indexFetch } = {}) {
+  const requests = [];
+  const index = items || makeIndex();
+
+  const handles = load({
+    fetchImpl(url, options) {
+      requests.push({ url, options });
+
+      if (url === '/index.json') {
+        return indexFetch
+          ? indexFetch(url, options)
+          : Promise.resolve({ ok: true, json: () => Promise.resolve(index) });
+      }
+
+      if (Object.prototype.hasOwnProperty.call(companions, url)) {
+        const body = companions[url];
+        return typeof body === 'function'
+          ? body(url, options)
+          : Promise.resolve({ ok: true, text: () => Promise.resolve(body) });
+      }
+
+      return Promise.resolve({
+        ok: false,
+        status: 404,
+        text: () => Promise.resolve('<!doctype html><title>404</title>'),
+      });
+    },
+  });
+
+  return { ...handles, requests, index };
+}
+
+function articleWith(options) {
+  const handles = loadArticles(options);
+  return { ...handles, tool: toolFrom(handles.registered, ARTICLE_TOOL) };
+}
+
+function onePost(body = POST_BODY) {
+  return articleWith({ companions: { '/article-0/index.md': companion(body) } });
+}
+
+function markdownRequests(requests) {
+  return requests.filter((request) => request.url !== '/index.json');
+}
+
+test('registers getArticle matching the specified contract', () => {
+  const tool = toolFrom(load().registered, ARTICLE_TOOL);
+
+  assert.equal(tool.name, ARTICLE_TOOL);
+  assert.equal(tool.title, 'Get article');
+  assert.equal(
+    tool.description,
+    'Returns a summary of one article on rhino-inquisitor.com: its title,' +
+      ' publication date, topic, hand-written key takeaways, opening paragraph,' +
+      ' and the URL of its full Markdown text. Use it after searchArticles or' +
+      ' listRecentArticles to learn what an article covers. Fetch the returned' +
+      ' markdownUrl for the complete article.',
+  );
+  assert.deepEqual(Object.keys(tool.annotations), ['readOnlyHint']);
+  assert.equal(tool.annotations.readOnlyHint, true);
+  assert.equal(typeof tool.execute, 'function');
+});
+
+test('getArticle declares the specified input schema as an object', () => {
+  const tool = toolFrom(load().registered, ARTICLE_TOOL);
+
+  assert.equal(typeof tool.inputSchema, 'object');
+  assert.equal(tool.inputSchema.type, 'object');
+  assert.deepEqual(Object.keys(tool.inputSchema.properties), ['url']);
+  assert.equal(tool.inputSchema.properties.url.type, 'string');
+  assert.equal(
+    tool.inputSchema.properties.url.description,
+    "The article's URL or path as returned by searchArticles or" +
+      ' listRecentArticles, for example "/cartridge-path-and-overrides/".',
+  );
+  assert.deepEqual(Array.from(tool.inputSchema.required), ['url']);
+});
+
+test('returns the digest fields sourced from the index, not the companion', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.deepEqual(Object.keys(result), [
+    'title',
+    'url',
+    'markdownUrl',
+    'date',
+    'topic',
+    'categories',
+    'readingTime',
+    'keyTakeaways',
+    'opening',
+  ]);
+  assert.equal(result.title, 'Article number 0');
+  assert.equal(result.url, '/article-0/');
+  assert.equal(result.date, '2026-09-28T12:00:00Z');
+  assert.equal(result.topic, 'Architecture');
+  assert.deepEqual(Array.from(result.categories), [
+    'Salesforce Commerce Cloud',
+    'Technical',
+  ]);
+  assert.equal(result.readingTime, 10);
+});
+
+// Measured over the same production build: `markdown_url` in the front matter
+// equals `permalink` + "index.md" for all 175 index entries, so the tool can
+// report the companion's own declared URL without parsing its front matter —
+// which matters, because gray-matter folds the long ones onto a second line.
+test('reports the markdownUrl the companion declares for itself', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: '/article-0/' });
+  const declared = /markdown_url: '([^']+)'/.exec(companion(POST_BODY))[1];
+
+  assert.equal(result.markdownUrl, declared);
+  assert.equal(result.markdownUrl, 'https://rhino-inquisitor.com/article-0/index.md');
+});
+
+test('fetches the companion same-origin rather than at its absolute URL', async () => {
+  const { tool, requests } = onePost();
+
+  await tool.execute({ url: '/article-0/' });
+
+  assert.deepEqual(
+    markdownRequests(requests).map((request) => request.url),
+    ['/article-0/index.md'],
+  );
+});
+
+test('extracts every takeaway bullet and the first paragraph', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.deepEqual(Array.from(result.keyTakeaways), POST_TAKEAWAYS);
+  assert.equal(result.opening, POST_OPENING);
+});
+
+// The two other companions the ticket names, verbatim: takeaways block and the
+// paragraphs that run before anything else, copied out of the same production
+// build. Both have more than one paragraph before their next heading, which is
+// what the first-paragraph-only rule has to stop at on real prose rather than
+// on a fixture written to be stopped at.
+const SAMPLED_COMPANIONS = [
+  {
+    slug: 'securing-custom-endpoints-in-sfcc',
+    takeaways: [
+      'Explains why a custom endpoint that works for one developer can fail for a teammate for reasons that have nothing to do with the code',
+      'Verifies the exact SFRA CSRF pattern against the official storefront-reference-architecture source, including which checkout routes skip it',
+      'Compares controller auth, SCAPI Custom API scopes, and OCAPI client permissions, with a decision table for the SFRA and SCAPI choices',
+    ],
+    paragraphs: [
+      'Deploy a custom SFRA (Storefront Reference Architecture) controller and it is reachable by anyone who knows the URL. Deploy a custom SCAPI (Salesforce Commerce API) endpoint and it may be reachable by nobody at all, including you, holding a valid token. Those are the two ways to add your own endpoint to SFCC (Salesforce B2C Commerce Cloud), and their default security postures are exact opposites. One trusts every caller until you write the check yourself. The other trusts nobody until the configuration is exactly right.',
+      'So “how do I secure my custom endpoint” is really two questions wearing one sentence. On the SFRA side you are adding gates that don’t exist yet, and the mistake that costs you is forgetting one. On the SCAPI side the gates are already standing, and the mistake that costs you is a typo in a scope name capped at 25 characters, which doesn’t reject your request so much as make the endpoint stop existing.',
+    ],
+  },
+  {
+    slug: 'multi-site-multi-brand-storefronts-on-sfcc',
+    takeaways: [
+      'Frames a decision rubric for sharing one SFCC storefront codebase across sites versus splitting it by brand divergence',
+      "Compares SFRA site preferences and template branching against Storefront Next's Page Designer content and Commerce Apps",
+      'Walks through session and basket continuity across locale-specific site domains, including the dw.order.mergeBasket hook',
+    ],
+    paragraphs: [
+      'Two questions landed in two different Slack channels the same week, wearing different clothes. In `#storefront-next`, someone building a multi-brand rollout wanted to know how far Storefront Next would let their homepages and product detail pages (PDPs) diverge before the “one codebase” pitch stopped making sense. In `#pwa-kit`, someone else was chasing a bug where a shopper’s basket vanished the moment they switched from the US site to the Canadian one, and wanted to know why auth and basket state weren’t just… there. Same underlying question, asked from opposite ends: should our sites share a codebase, or not?',
+      'Somebody answered the PWA Kit thread well, buried three replies deep: split codebases for brands that genuinely diverge, one multi-site codebase for the ones that don’t, and Commerce Apps for the shared-but-exceptional bits in between. That’s the right answer. It just never made it out of the thread.',
+      '## The Part That’s Already Shared, Whatever You Decide',
+    ],
+  },
+];
+
+test('reads the takeaways and opening of each sampled real companion', async () => {
+  for (const sample of SAMPLED_COMPANIONS) {
+    const body = [
+      '## Key Takeaways',
+      ...sample.takeaways.map((item) => `- ${item}`),
+      '',
+      sample.paragraphs.join('\n\n'),
+    ].join('\n');
+
+    const { tool } = articleWith({
+      companions: { '/article-0/index.md': companion(body, { slug: sample.slug }) },
+    });
+
+    const result = await tool.execute({ url: '/article-0/' });
+
+    assert.deepEqual(Array.from(result.keyTakeaways), sample.takeaways, sample.slug);
+    assert.equal(result.opening, sample.paragraphs[0], sample.slug);
+    assert.ok(
+      JSON.stringify(result).length <= OUTPUT_BUDGET,
+      `${sample.slug} payload ${JSON.stringify(result).length} > ${OUTPUT_BUDGET}`,
+    );
+  }
+});
+
+// Not three-by-contract: the block mirrors however many items the post's
+// `takeaways` front matter carries, which is three for all 161 posts today.
+test('takes however many takeaway bullets the companion carries', async () => {
+  const { tool } = onePost(
+    ['## Key Takeaways', '- One', '- Two', '', 'Opening prose here.'].join('\n'),
+  );
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.deepEqual(Array.from(result.keyTakeaways), ['One', 'Two']);
+  assert.equal(result.opening, 'Opening prose here.');
+});
+
+test('stops the opening at the first paragraph break, not at the next heading', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.ok(!result.opening.includes('A second paragraph'));
+  assert.ok(!result.opening.includes('Three Mechanisms'));
+});
+
+// public/headless/index.md and public/ideas/index.md: the 14 `pages`-type
+// entries set no `takeaways`, so their companions have no takeaways block at
+// all. /headless/ also opens on "Play video", a label the rendered player
+// contributes — one of the 4 companions that do.
+test('returns an empty takeaways list for a pages companion that has none', async () => {
+  const { tool } = articleWith({
+    items: [entry(0, { type: 'pages' })],
+    companions: {
+      '/article-0/index.md': companion(
+        'Salesforce allows its clients and partners to guide the internal product' +
+          ' teams to prioritise features in their favourite products.',
+        { contentType: 'page' },
+      ),
+    },
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.deepEqual(Array.from(result.keyTakeaways), []);
+  assert.match(result.opening, /^Salesforce allows its clients/);
+});
+
+test('skips a media label the rendered page contributed to reach the prose', async () => {
+  const { tool } = articleWith({
+    items: [entry(0, { type: 'pages' })],
+    companions: {
+      '/article-0/index.md': companion(
+        [
+          'Play video',
+          '',
+          'If your organisation is looking for a way to improve its online presence' +
+            ' and connect with more customers, Headless may be a good fit.',
+        ].join('\n'),
+        { contentType: 'page' },
+      ),
+    },
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.match(result.opening, /^If your organisation/);
+});
+
+// public/salesforce-b2c-commerce-cloud-erd/index.md opens on an image, then a
+// bare link, then a heading, and only then on prose.
+test('skips a leading image, bare link and heading to reach the prose', async () => {
+  const { tool } = articleWith({
+    items: [entry(0, { type: 'pages' })],
+    companions: {
+      '/article-0/index.md': companion(
+        [
+          '![Full Salesforce B2C Commerce Cloud entity relationship diagram.](/salesforce-b2c-commerce-cloud-erd/erd.webp)',
+          '',
+          '[view on Lucidchart](https://lucid.app/lucidchart/f1c8c33a/edit)',
+          '',
+          '## An unofficial overview of the SFCC data model',
+          '',
+          'Once upon a time, a budding developer wanted to work with' +
+            ' [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/).',
+        ].join('\n'),
+        { contentType: 'page' },
+      ),
+    },
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.match(result.opening, /^Once upon a time/);
+});
+
+// public/creating-custom-ocapi-endpoints/index.md and three others open on an
+// update callout, which turndown renders as a blockquote.
+test('strips the blockquote marker from an opening callout', async () => {
+  const { tool } = onePost(
+    [
+      '## Key Takeaways',
+      '- One takeaway',
+      '',
+      '> **Updated July 2026:** When this article first appeared in 2022, there' +
+        ' was no official way to add your own endpoint.',
+      '',
+      '## For the archives',
+    ].join('\n'),
+  );
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.equal(
+    result.opening,
+    '**Updated July 2026:** When this article first appeared in 2022, there was' +
+      ' no official way to add your own endpoint.',
+  );
+});
+
+test('falls back to the first block when nothing near the top reads as prose', async () => {
+  const { tool } = onePost(
+    ['Play video', '', 'Watch it', '', 'Listen', '', 'Read it', '', 'No sentence here either'].join(
+      '\n',
+    ),
+  );
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.equal(result.opening, 'Play video');
+});
+
+test('collapses a hard-wrapped paragraph onto one line', async () => {
+  const { tool } = onePost(
+    ['First half of the sentence', 'and the second half of it.', '', 'Next.'].join('\n'),
+  );
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.equal(result.opening, 'First half of the sentence and the second half of it.');
+});
+
+// ---------------------------------------------------------------------------
+// Resolving the url argument
+// ---------------------------------------------------------------------------
+
+test('resolves a full permalink and a bare path to the identical result', async () => {
+  const byPath = onePost();
+  const byPermalink = onePost();
+
+  const fromPath = await byPath.tool.execute({ url: '/article-0/' });
+  const fromPermalink = await byPermalink.tool.execute({
+    url: 'https://rhino-inquisitor.com/article-0/',
+  });
+
+  assert.deepEqual(JSON.parse(JSON.stringify(fromPermalink)), JSON.parse(JSON.stringify(fromPath)));
+  // One companion request each: neither shape is distinguished by fetching and
+  // seeing what 404s.
+  assert.equal(markdownRequests(byPath.requests).length, 1);
+  assert.equal(markdownRequests(byPermalink.requests).length, 1);
+});
+
+test('tolerates a missing trailing slash, a query string and a fragment', async () => {
+  for (const url of [
+    '/article-0',
+    'article-0/',
+    '/article-0/?utm_source=agent',
+    '/article-0/#key-takeaways',
+    '/Article-0/',
+    '  /article-0/  ',
+    '/article-0/index.md',
+  ]) {
+    const { tool } = onePost();
+    const result = await tool.execute({ url });
+    assert.equal(result.url, '/article-0/', `${url} did not resolve`);
+  }
+});
+
+test('does not resolve a same-path URL on another origin', async () => {
+  const { tool, requests } = onePost();
+
+  const result = await tool.execute({ url: 'https://example.com/article-0/' });
+
+  assert.match(result.guidance, /^No article at that URL/);
+  assert.equal(markdownRequests(requests).length, 0);
+});
+
+test('reuses the shared index promise instead of fetching the index again', async () => {
+  const { tool, registered, requests } = onePost();
+
+  await tool.execute({ url: '/article-0/' });
+  await toolFrom(registered, LIST_TOOL).execute({});
+  await tool.execute({ url: '/article-0/' });
+
+  assert.equal(
+    requests.filter((request) => request.url === '/index.json').length,
+    1,
+    'getArticle must join the one shared index fetch',
+  );
+});
+
+test('returns the no-article sentence for a URL matching nothing, without fetching', async () => {
+  const { tool, requests } = onePost();
+
+  const result = await tool.execute({ url: '/not-a-real-article/' });
+
+  assert.equal(
+    result.guidance,
+    'No article at that URL on rhino-inquisitor.com. Call searchArticles to find' +
+      ' one, or listRecentArticles for the newest.',
+  );
+  assert.equal(result.url, '/not-a-real-article/');
+  assert.equal(markdownRequests(requests).length, 0, 'no fetch may be attempted');
+});
+
+test('returns the topic-index sentence for a section URL, without fetching', async () => {
+  for (const url of ['/posts/', '/pages/', '/archive/', '/posts/page/3/', '/']) {
+    const { tool, requests } = onePost();
+
+    const result = await tool.execute({ url });
+
+    assert.equal(
+      result.guidance,
+      'That URL is a topic index, not an article. Call searchArticles with a topic' +
+        ' from getSiteOverview to get articles on it.',
+      `${url} did not read as a topic index`,
+    );
+    assert.equal(markdownRequests(requests).length, 0, `${url} was fetched`);
+  }
+});
+
+// The sentence names a topic only when the index proves searchArticles will
+// accept it: `primaryTopic` is what that tool filters on, and it differs from
+// the category display name for half the corpus.
+test('names the topic from the index for a term URL', async () => {
+  const { tool, requests } = onePost();
+
+  const result = await tool.execute({ url: '/category/architecture/' });
+
+  assert.equal(
+    result.guidance,
+    'That URL is a topic index, not an article. Call searchArticles with topic' +
+      ' "Architecture" to get articles on it.',
+  );
+  assert.equal(markdownRequests(requests).length, 0);
+});
+
+test('falls back to getSiteOverview for a term with no searchable topic name', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: '/category/podcasts/' });
+
+  assert.match(result.guidance, /with a topic from getSiteOverview/);
+});
+
+test('asks for a url when called without one, without fetching anything', async () => {
+  for (const args of [undefined, {}, { url: '' }, { url: '   ' }, { url: 42 }]) {
+    const { tool, requests } = onePost();
+
+    const result = await tool.execute(args);
+
+    assert.equal(
+      result.guidance,
+      'Call getArticle with the url of an article on rhino-inquisitor.com, as' +
+        ' returned by searchArticles or listRecentArticles.',
+    );
+    assert.equal(requests.length, 0, 'an empty url needs no network at all');
+  }
+});
+
+test('echoes back a long url argument capped rather than whole', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: `/${'x'.repeat(4000)}/` });
+
+  assert.ok(result.url.length <= 200);
+  assert.ok(result.url.endsWith('…'));
+});
+
+// ---------------------------------------------------------------------------
+// The output budget
+// ---------------------------------------------------------------------------
+
+test('keeps a typical article under the output budget untrimmed', async () => {
+  const { tool } = onePost();
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.ok(JSON.stringify(result).length <= OUTPUT_BUDGET);
+  assert.equal(result.opening, POST_OPENING);
+  assert.ok(!result.opening.endsWith('…'));
+});
+
+test('trims the opening to fit the budget, marking the cut', async () => {
+  const { tool } = onePost(
+    [
+      '## Key Takeaways',
+      ...POST_TAKEAWAYS.map((item) => `- ${item}`),
+      '',
+      `${'A sentence about cartridges. '.repeat(400)}`,
+      '',
+      '## A heading',
+    ].join('\n'),
+  );
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  const serialized = JSON.stringify(result);
+  assert.ok(
+    serialized.length <= OUTPUT_BUDGET,
+    `serialized ${serialized.length} > ${OUTPUT_BUDGET}`,
+  );
+  assert.ok(result.opening.endsWith('…'), 'a trimmed opening must say so');
+  assert.deepEqual(Array.from(result.keyTakeaways), POST_TAKEAWAYS);
+});
+
+test('gives up the opening entirely rather than breaching the budget', async () => {
+  const { tool } = onePost(
+    [
+      '## Key Takeaways',
+      `- ${'t'.repeat(1400)}`,
+      '',
+      'An opening that has no room left to live in.',
+    ].join('\n'),
+  );
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.equal(result.opening, undefined);
+  assert.match(result.guidance, /^The opening paragraph did not fit/);
+});
+
+// ---------------------------------------------------------------------------
+// Failure paths
+// ---------------------------------------------------------------------------
+
+test('passes the execute AbortSignal to the companion fetch as an option', async () => {
+  const { tool, requests } = onePost();
+  const controller = new AbortController();
+
+  await tool.execute({ url: '/article-0/' }, { signal: controller.signal });
+
+  const [companionRequest] = markdownRequests(requests);
+  assert.equal(companionRequest.options.signal, controller.signal);
+});
+
+test('an abort mid-companion-fetch resolves with guidance and leaves no hung state', async () => {
+  const unhandled = [];
+  const record = (reason) => unhandled.push(reason);
+  process.on('unhandledRejection', record);
+
+  let attempt = 0;
+  const { tool } = articleWith({
+    companions: {
+      '/article-0/index.md': (url, options) => {
+        attempt += 1;
+        if (attempt > 1) {
+          return Promise.resolve({ ok: true, text: () => Promise.resolve(companion(POST_BODY)) });
+        }
+        // Rejecting an already-aborted signal outright, as fetch does: by the
+        // time getArticle reaches the companion the index round trip is over,
+        // so an abort called on the tool has usually already fired.
+        return new Promise((resolve, reject) => {
+          const fail = () => reject(new DOMException('Aborted', 'AbortError'));
+
+          if (options.signal.aborted) {
+            fail();
+            return;
+          }
+
+          options.signal.addEventListener('abort', fail);
+        });
+      },
+    },
+  });
+
+  const controller = new AbortController();
+  const pending = tool.execute({ url: '/article-0/' }, { signal: controller.signal });
+  controller.abort();
+
+  const aborted = await pending;
+  assert.match(aborted.guidance, /^Could not read the Markdown/);
+
+  // The next call must still work: the index promise is shared, so an aborted
+  // companion fetch that poisoned it would take every other tool down with it.
+  const recovered = await tool.execute({ url: '/article-0/' });
+  assert.equal(recovered.opening, POST_OPENING);
+
+  await new Promise((resolve) => setImmediate(resolve));
+  process.off('unhandledRejection', record);
+  assert.deepEqual(unhandled, []);
+});
+
+test('reports what the index knows when the companion fetch fails', async () => {
+  const { tool } = articleWith({
+    companions: {
+      '/article-0/index.md': () => Promise.reject(new Error('offline')),
+    },
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.equal(
+    result.guidance,
+    'Could not read the Markdown for that article on rhino-inquisitor.com. Fetch' +
+      ' https://rhino-inquisitor.com/article-0/index.md directly, or try again.',
+  );
+  // Everything the index already supplied still stands; only the two fields
+  // that needed the companion are absent.
+  assert.equal(result.title, 'Article number 0');
+  assert.equal(result.markdownUrl, 'https://rhino-inquisitor.com/article-0/index.md');
+  assert.equal(result.keyTakeaways, undefined);
+  assert.equal(result.opening, undefined);
+});
+
+test('treats a non-OK companion response as a failure, not as content', async () => {
+  const { tool } = articleWith({ companions: {} });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.match(result.guidance, /^Could not read the Markdown/);
+  assert.equal(result.opening, undefined);
+});
+
+test('treats a response that is not a Markdown companion as a failure', async () => {
+  const { tool } = articleWith({
+    companions: { '/article-0/index.md': '<!doctype html><title>Article</title>' },
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.match(result.guidance, /^Could not read the Markdown/);
+});
+
+test('treats a companion with front matter but no body as a failure', async () => {
+  const { tool } = articleWith({ companions: { '/article-0/index.md': companion('') } });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.match(result.guidance, /^Could not read the Markdown/);
+});
+
+test('returns guidance rather than rejecting when the index fetch fails', async () => {
+  const { tool } = articleWith({
+    indexFetch: () => Promise.reject(new Error('offline')),
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.equal(
+    result.guidance,
+    'Could not load the article index for rhino-inquisitor.com. Try again, or' +
+      ' fetch /llms.txt for a plain-text list of its articles.',
+  );
+  assert.equal(result.url, '/article-0/');
+});
+
+test('returns guidance when the index is malformed', async () => {
+  const { tool } = articleWith({
+    indexFetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ nope: true }) }),
+  });
+
+  const result = await tool.execute({ url: '/article-0/' });
+
+  assert.match(result.guidance, /^The article index for rhino-inquisitor.com could not be read/);
 });
 
 // ---------------------------------------------------------------------------

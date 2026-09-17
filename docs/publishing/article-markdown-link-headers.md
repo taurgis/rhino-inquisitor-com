@@ -204,6 +204,24 @@ over Rule 1 for `/`:
   curl -sI https://rhino-inquisitor.com/some-article/index.md | grep -i '^content-type:'
   ```
 
+## Downstream consumer: the getArticle WebMCP tool
+
+The companion body is no longer read only by crawlers. `getArticle`, one of the
+in-page WebMCP tools in `src/assets/scripts/webmcp-tools.js`, fetches
+`<slug>/index.md` at call time and parses two things out of it: the contiguous
+`-` bullets under a leading `## Key Takeaways` heading, and the first body block
+that carries a sentence. Both come from
+`scripts/seo/generate-llm-artifacts.js` — the takeaways from
+`.article-summary__list`, the body from `section.article-body` — rather than from
+`src/layouts/_default/single.markdown.md` directly.
+
+So a change to that script, to the takeaways markup, or to the article body
+wrapper can change what an agent is told an article says, with nothing failing.
+The 14 `pages`-type entries already exercise the no-takeaways variant, and five
+companions open on a line that is not prose. `docs/development/webmcp-tools.md`
+records the parse rule, the measured shape of all 180 companions, and a corpus
+sweep to re-run after any such change.
+
 ## Related files
 
 - `src/layouts/partials/article/footer-actions.html` — visible "View as
