@@ -225,6 +225,18 @@ const DOMAIN_RULES = Object.freeze({
   'sfcc-unofficial.slack.com': { strategy: 'skip', reason: 'Slack workspace requires membership' },
   'trailblazer.me': { strategy: 'skip', reason: 'profile pages require the Trailblazer app shell' },
 
+  // --- Shadow-DOM apps the gate cannot read ---------------------------------
+  // Measured 2026-09-18: /feature/1 and /feature/999999999999999 both answer
+  // 200, so a status check proves nothing, and the page renders entirely into
+  // shadow DOM so `document.body.innerText` (what the render strategy reads)
+  // is empty for live and dead URLs alike — no deadMarkers regex can ever
+  // match. The only signal that distinguishes them is <title>, which the gate
+  // does not inspect. Skipped rather than given a check that always passes.
+  'chromestatus.com': {
+    strategy: 'skip',
+    reason: 'feature IDs answer 200 either way and the page body renders in shadow DOM'
+  },
+
   // --- Placeholder / example hosts used in prose ----------------------------
   '*.demandware.net': { strategy: 'skip', reason: 'illustrative instance hostnames' },
   '*.example.com': { strategy: 'skip', reason: 'reserved example domain' },
@@ -311,6 +323,13 @@ const DOMAIN_RULES = Object.freeze({
   'medium.com': STATUS,
   'meighanrockssf.com': STATUS,
   'mission.org': STATUS,
+  'modelcontextprotocol.io': STATUS,
+  // --- Shopify developer properties ----------------------------------------
+  // Probed 2026-09-18: both hosts answer 404 for an invented path and 200 for
+  // a real one, so a plain status check distinguishes live from dead and the
+  // render strategy would only add a browser launch for nothing.
+  'shopify.dev': STATUS,
+  'hydrogen.shopify.dev': STATUS,
   'mozilla.github.io': STATUS,
   'my-store-5a6a56.creator-spring.com': STATUS,
   'newsroom.fedex.com': STATUS,

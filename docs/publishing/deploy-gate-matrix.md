@@ -1193,3 +1193,51 @@ existing `src/layouts/**/*.md` entry.
 - Related files: `.markdownlint-cli2.jsonc`, `scripts/preflight.sh` (the
   analogous `.bonsai/research/**` exclusion),
   `docs/development/spec-driven-workflow-skills.md`.
+
+## Update: external-link registry gains Shopify hosts and a shadow-DOM skip (2026-09-18)
+
+### Change summary
+
+Three new entries in `scripts/gates/external-link-domains.js`, added while citing
+Shopify and Chrome sources in a WebMCP article: `shopify.dev` and
+`hydrogen.shopify.dev` on the `status` strategy, and `chromestatus.com` on `skip`.
+`modelcontextprotocol.io` was also registered on `status`.
+
+### Old vs new behavior
+
+- **Before:** a link to any of these hosts blocked the commit with the
+  unregistered-domain message, since the registry requires a human classification
+  per domain.
+- **After:** each resolves under a strategy chosen from a probe rather than a guess.
+  - `shopify.dev`, `hydrogen.shopify.dev`, `modelcontextprotocol.io` → `status`.
+    Probed 2026-09-18: each answers 404 for an invented path and 200 for a real
+    one, so a plain status check distinguishes live from dead and the `render`
+    strategy would only add a browser launch for nothing.
+  - `chromestatus.com` → `skip`, with the reasoning recorded inline. Both
+    `/feature/1` and `/feature/999999999999999` answer 200, so a status check
+    proves nothing, and the page renders entirely into shadow DOM, so the
+    `document.body.innerText` the `render` strategy reads is empty for live and
+    dead URLs alike — no `deadMarkers` regex can match. The only distinguishing
+    signal is `<title>`, which the gate does not inspect. Skipped deliberately
+    rather than given a check that always passes.
+
+**Maintainer note:** `skip` means the gate never fetches that host, so a rotted
+`chromestatus.com` feature link will not be caught. Feature IDs are stable once
+assigned, which is why this is an acceptable trade; revisit if the gate gains
+`<title>` inspection.
+
+### Impact and verification
+
+```bash
+node scripts/gates/check-external-links.js src/content/posts/<slug>/index.md
+node --test scripts/gates/check-external-links.test.js
+```
+
+Verified 2026-09-18 on the WebMCP article: 15 links checked, 14 verified, 1 skipped,
+0 warnings; the gate's unit suite passes 27/27. The registry now holds 218 entries.
+
+### Related files
+
+- `scripts/gates/external-link-domains.js` — the registry
+- `scripts/gates/check-external-links.js` — reads `document.body?.innerText` for the `render` strategy (the reason `skip` was chosen for shadow-DOM pages)
+- `scripts/gates/check-external-links.test.js` — unit coverage
