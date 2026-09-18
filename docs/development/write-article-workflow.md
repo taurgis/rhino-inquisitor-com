@@ -45,3 +45,70 @@ This exists because authoring a post already means chaining research, `human-pro
 - `.agents/skills/human-prose-editing/SKILL.md`, `.agents/skills/anti-ai-writing/SKILL.md`, `.agents/skills/beginner-technical-writing/SKILL.md`, `.agents/skills/web-research/SKILL.md`, `.agents/skills/image-caption-writing/SKILL.md`, `.agents/skills/audience-layering/SKILL.md`, `.agents/skills/code-walkthrough-authoring/SKILL.md` — skills it invokes or references
 - `.github/instructions/post-writing-skills.instructions.md` — the skill ordering/routing it follows
 - `.github/instructions/content-quality.instructions.md`, `.github/instructions/seo-compliance.instructions.md`, `.github/instructions/hugo-coding-standards.instructions.md` — the gates it checks against
+
+## Update: `anti-ai-writing` and `human-prose-editing` rebuilt on cited evidence (2026-09-18)
+
+### Change summary
+
+Both prose skills were rewritten after an in-task research pass found that several
+rules they enforced were not supported by the sources they implied. The skills now
+tag every rule **[Evidenced]**, **[Craft]**, or **[Taste]**, and each file's
+`references/REFERENCE.md` carries a per-source table of what that source actually
+supports — replacing a "Source Basis" section that had listed categories of
+guidance ("university writing-center guidance") with no URLs at all.
+
+### Old vs new behavior
+
+- **Before:** `human-prose-editing` framed detection around "low burstiness"
+  (glossed as similar sentence lengths) and "low perplexity". Both skills ran a
+  per-paragraph em-dash count, listed `moreover`/`furthermore` as removable on
+  sight, treated hedges as padding, preferred the active voice as a default, and
+  duplicated the same signal list in both files. Neither skill told a writer what
+  to **add**.
+- **After:**
+  - Burstiness and perplexity are removed as editorial terms. Burstiness
+    technically denotes word recurrence intervals, not sentence-length variance,
+    and GPTZero states it no longer uses either metric as of autumn 2023 (its page
+    also still calls burstiness a key factor, so it is cited as marketing, not
+    method). Rhythm variation is retained as **[Craft]**, sourced to Provost.
+  - The em-dash count is dropped. Merriam-Webster and CMOS treat the mark as
+    taste; the frequency research disclaims per-document use.
+  - `moreover`-class connectives, hedges, and the passive voice each gained an
+    explicit carve-out, because the evidence runs against the folklore: LLM prose
+    carries *fewer* hedges than student prose, and GPT-4o uses agentless passive
+    at about half the human rate, so anti-passive editing moves a draft toward the
+    machine profile.
+  - New **[Evidenced]** markers: nominalisation density, trailing participial
+    clauses, subject `that`-clauses, copula avoidance, document metadiscourse, and
+    marker *co-occurrence* rather than single words (published word lists decay
+    once publicised).
+  - `human-prose-editing` now runs an **additive pass first**, on the finding that
+    most "generated-sounding" prose is missing a causal link rather than carrying
+    padding, and carries Gopen & Swan's topic/stress-position mechanics, Williams's
+    topic and thematic strings, their stress-position sentence-length test, and an
+    explicit **stop condition**.
+  - Ownership is now split: `anti-ai-writing` owns clauses and words,
+    `human-prose-editing` owns paragraphs and above. The shared signal list is gone.
+  - Both carry a restraint rule: cite an authority per change, never edit inside a
+    quotation, code fence, or Mermaid block, and never Americanise (the spelling
+    gate enforces en-GB on content).
+
+### Impact and verification
+
+No runtime or gate behavior changes; these files are agent instructions. Verify by
+running either skill on a post and checking that each proposed change carries a
+tier and a reason. The diagnostic snippet embedded in `anti-ai-writing`'s SKILL.md
+prints per-pattern counts for a single post; it is deliberately a copy-pasteable
+snippet rather than a committed script, so no new tooling surface is introduced.
+Applied to `src/content/posts/webmcp-vs-mcp-shipping-agent-tools/index.md`, the
+scan returned zero participial tails, zero copula-avoidance phrases, zero
+metadiscourse phrases, and zero marker-cluster words; the only nominalisation
+flagged sat inside a quoted source, which the new restraint rule excludes.
+
+### Related files
+
+- `.agents/skills/anti-ai-writing/SKILL.md`, `.agents/skills/anti-ai-writing/references/REFERENCE.md`
+- `.agents/skills/human-prose-editing/SKILL.md`, `.agents/skills/human-prose-editing/references/REFERENCE.md`
+- `.claude/skills/anti-ai-writing`, `.claude/skills/human-prose-editing` — symlinks to the above; there is no second copy to update
+- `.github/instructions/post-writing-skills.instructions.md` — the routing rule that orders these two skills
+- `.bonsai/research/` — cached source pages (CMOS Shop Talk and ACES failed extraction and were read over direct HTTP/Wayback)

@@ -9,152 +9,160 @@ compatibility: 'Markdown post authoring in src/content/posts/**'
 
 Use this skill when a draft is technically acceptable but reads like generated text, a paraphrase of generated text, or an over-smoothed editorial pass.
 
-## Research Base
-
-Public guidance around AI-writing detection repeatedly reacts to the same cluster of problems: predictable wording, low variation in sentence shape, repeated scaffolds, and low-specificity prose. Public sources also repeatedly warn that detectors are unreliable.
-
-Use those signals as editorial warnings, not proof of authorship. The goal is better writing, not gaming detectors.
-
-This skill is grounded in style, concision, and plain-language editing guidance, and tuned against the author's published blog voice. See [the local reference guide](references/REFERENCE.md) for repository-local editing patterns and examples.
+This skill owns paragraphs and above: topic order, cohesion, section shape, voice, and whatever the draft is *missing*. For clauses, verbs, and word choice, use `anti-ai-writing`. The two skills do not share a signal list.
 
 ## Primary Goal
 
 Make the prose feel written by a thoughtful engineer who knows the subject and respects the reader's time.
 
-## What This Skill Owns
+## The Biggest Thing This Skill Does
 
-- Paragraph texture, rhythm, and ordering.
-- Section openings and endings.
-- The balance between clarity, specificity, and voice.
-- The difference between a paragraph that advances the post and a paragraph that only sounds polished.
+**Most prose that reads as generated is missing something, not carrying something extra.** A delete-only checklist cannot find a missing causal link, because the defect is an absence.
 
-Use `anti-ai-writing` for sentence-level cleanup once this pass reveals the local weak spots.
+Gopen and Swan reached this conclusion directly: of their four worked examples, only one could be fixed by rearrangement. "In all the other examples, revision revealed existing conceptual gaps… Filling the gaps required the addition of extra material" ([The Science of Scientific Writing](https://www.americanscientist.org/blog/the-long-view/the-science-of-scientific-writing)). One of their examples needed two entirely new sentences supplying logic the author had assumed was obvious.
 
-## Detection Reality
+So run the additive pass **first**, before any cutting:
 
-- Humans and automated systems tend to react to predictability more than to any single forbidden word or punctuation mark.
-- Low burstiness in editorial terms means too many sentences with similar length, cadence, or structure.
-- Low perplexity in editorial terms means wording that sounds safe, expected, and interchangeable.
-- Dash overuse, adjective padding, and transition spam matter when they reinforce that broader predictability.
-- Do not add randomness, mistakes, or fake personality to compensate. Fix the actual weakness in the prose.
+1. Ask of each section: what does the reader have to already believe for this to land? Is that on the page?
+2. Where the draft asserts a cause, is the mechanism stated, or only implied?
+3. Where the draft reports a number, is the reader told what it means?
+4. Where you wrote "obviously", "of course", or "it turns out", you have probably skipped a step. Williams' diagnostic: ask the writer for the point, and if the answer is "it's obvious", the point is missing from the page.
 
-## Signals To Investigate
+Klinkenborg: "It's true that the simplest revision is deletion. But there's often a fine sentence lurking within a bad sentence… Don't try to fix an existing sentence with minimal effort, without reimagining it" ([Craft Literary](https://www.craftliterary.com/2017/09/26/several-short-klinkenborg/)).
 
-- Repetitive sentence openings.
-- Three or more consecutive sentences built on the same scaffold.
-- Empty emphasis such as robust, seamless, powerful, important, crucial, or comprehensive.
-- Dash-heavy paragraphs where clauses are stapled together instead of shaped.
-- Paragraphs that restate the same point with slightly different wording.
-- Generic transitions such as in today's world, when it comes to, or it is worth noting that.
-- Flat rhythm across a full paragraph or section.
-- Abstract nouns such as solution, functionality, capability, process, aspect, or context where a concrete SFCC object exists.
-- Repeated contrast formulas such as not just X but Y or this is not A it is B.
-- Conclusions that summarize without adding sharper understanding.
-- Synonym swaps that sound technically legal but wrong for the domain.
+## Cohesion Mechanics (the checkable part)
 
-## Rewrite Strategy
+This is the most teachable material in the skill, and the part to reach for when a paragraph "flows" but does not land.
 
-1. Cut any sentence that does not add information, contrast, explanation, or judgment.
-2. Replace vague praise with observable facts, risks, or consequences.
-3. Swap generic nouns like solution, functionality, and capability for the actual SFCC concept.
-4. Break repeated scaffolds before you polish wording.
-5. Vary rhythm by mixing short verdict sentences with longer explanatory ones.
-6. Prefer one precise example, tradeoff, or failure mode over three abstract claims.
+**Topic and stress positions** ([Gopen & Swan](https://www.americanscientist.org/blog/the-long-view/the-science-of-scientific-writing)):
+
+- Put **old information that links backward** in the topic position, at the start of the sentence.
+- Put the **new information you want emphasised** in the stress position, at the point of syntactic closure — usually just before a full stop, colon, or semicolon.
+- Follow a subject promptly with its verb.
+- Put the person or thing whose story it is first.
+- Provide context before asking the reader to consider anything new.
+
+**The diagnostic, which is theirs and not a heuristic:** extract the topic position of every sentence in a paragraph into a list. If most entries are appearing for the first time, the paragraph is broken regardless of how smooth it sounds.
+
+**Their length test, which replaces any word count:** "A sentence is too long when it has more viable candidates for stress positions than there are stress positions available." A semicolon or colon creates a second stress position, which is what legitimises a genuinely long sentence.
+
+**Topic strings and thematic strings** (Williams, *Style: Toward Clarity and Grace*, [chapter scan](https://marcuse.faculty.history.ucsb.edu/classes/204writingworkshop/pdfs/Williams1995CoherenceConcisionOCR.pdf)):
+
+- A paragraph needs a consistent **topic string** (the subjects of its sentences) *and* a **thematic string** (a set of conceptually related words running through it — related, not repeated).
+- Every section needs one **POINT sentence** that exists on the page. Williams places it at the end of the opening issue, and explicitly rejects the handbook rule that a paragraph must open with a topic sentence. Either position is defensible; the point being absent is not.
+- Readers remember the **ending first, the beginning second, the middle least** ([Duke WRP](https://wrp.duke.edu/sites/twp.duke.edu/files/documents/updated-Cohesion-and-Coherence-Handout-Feb2023.pdf)). Put the load-bearing sentence accordingly.
+- Cohesion is not coherence. Prose can link perfectly sentence to sentence and still be about nothing; the Duke handout demonstrates it with a passage that slides from lecture notes to poodles to birdseed.
+
+Williams' line that matters most for this blog: "Since we ordinarily write for readers who know much less than we do about a subject, it is always prudent to underestimate a reader's knowledge and make themes explicit."
+
+## What The Research Actually Supports
+
+Tag findings honestly, the same way `anti-ai-writing` does.
+
+**[Evidenced]**
+
+- **Uniform distribution of rhetorical devices.** Human experts *cluster* their devices at argumentative stress points; LLM text spreads them evenly across the document. Measured as a distribution-evenness score in [arXiv 2604.19768](https://arxiv.org/abs/2604.19768). Actionable: put your sharpest turn of phrase where the argument turns, and leave the connective tissue plain. Even excellence is a marker when it is evenly spread.
+- **Missing reader engagement.** LLM prose carries fewer rhetorical questions and personal asides than human writing — measured in essays ([Jiang & Hyland](https://ueaeprints.uea.ac.uk/id/eprint/97952/)) and again in expert prose. This makes engagement an *additive* fix: one real question, one first-person judgement, one admission of uncertainty per section is corrective, not decoration.
+- **Structural reuse across documents.** LLMs reuse discourse structures between posts even when the content differs ([QUDsim, arXiv 2504.09373](https://arxiv.org/abs/2504.09373)). So audit **several posts side by side**, not one paragraph in isolation. If three posts open with a scene, pivot at the same point, and close on a caution, the template is the problem even though each post reads well alone.
+
+**[Craft]**
+
+- Sentence-length variation as prosody. Gary Provost's demonstration passage is the canonical case ([passage](https://www.aerogrammestudio.com/2014/08/05/this-sentence-has-five-words/)). Note honestly that **no major style guide prescribes variance as a goal**; Google gives only negative guidance (avoid choppy, avoid long-winded, do not open consecutive sentences identically) plus a read-aloud test ([Google tone](https://developers.google.com/style/tone)).
+- Every paragraph answers what, why, and how ([Google](https://developers.google.com/tech-writing/one/paragraphs)).
+- Open a document with scope, assumed prior knowledge, and explicit exclusions ([Google](https://developers.google.com/tech-writing/two/large-docs)).
+- Audience gap as arithmetic: what the reader needs to know minus what they already know ([Google](https://developers.google.com/tech-writing/one/audience)).
+- A worked example after every complex concept ([digital.gov](https://digital.gov/guides/plain-language/writing/style)).
+- Clark's tools, especially "get the name of the dog", the ladder of abstraction, and strong words at the beginning and end ([Poynter](https://www.poynter.org/reporting-editing/2006/fifty-writing-tools-quick-list/)).
+
+**Dropped — do not reintroduce**
+
+- **"Burstiness" and "perplexity" as editorial terms.** Both were imported from detector marketing and neither means what this skill used to claim. Burstiness' technical origin is word *recurrence intervals*, not sentence-length variance, and GPTZero — whose tool popularised it — states "as of autumn 2023, GPTZero no longer uses perplexity and burstiness" ([GPTZero](https://gptzero.me/news/perplexity-and-burstiness-what-is-it/)). That same page still calls burstiness "a key factor unique to GPTZero", so it contradicts itself; treat it as marketing, not method. No peer-reviewed work validates sentence-length variance as a human/LLM signal. Keep varying rhythm because it reads better, and say that is why.
+- **Detector scores as a target.** See the list in `anti-ai-writing`. Editing to move a score is editing toward a broken instrument.
+- **Counting em dashes per paragraph.** Owned and dropped in `anti-ai-writing`; do not re-add it here as a "structure" rule.
+
+## Signals Worth Investigating
+
+- A paragraph whose sentences all begin with a first-time subject (run the topic-position list).
+- Three or more consecutive sentences on the same scaffold.
+- A section that restates its own opening at the end and calls it a conclusion.
+- Sections of suspiciously equal length, each with a tidy thesis and a tidy moral.
+- Prose that is evenly good — no plain stretches, no peaks.
+- Paragraphs that assert consequence without stating mechanism.
+- Abstract nouns where a real object exists; hand these to `anti-ai-writing`.
+- Repeated contrast formulas — "not just X but Y", "this is not A, it is B". **[Taste]**: no corpus study measures these, so treat them as a personal tic to thin out, not a violation.
 
 ## Paragraph-Level Method
 
-1. Identify the one point the paragraph should make.
-2. Cut any sentence that only repeats that point.
-3. Move the sharpest sentence earlier if the paragraph starts slowly.
-4. Replace general claims with one concrete behavior, file, API, risk, or consequence.
-5. Check the rhythm. If every sentence lands the same way, rewrite at least one of them.
-6. End on an insight, implication, or caution that moves the post forward.
-
-## Dash And Structure Audit
-
-- Count the dashes in the paragraph. One sharp interruption can help. Several usually signal loose thinking or fake texture.
-- If the dash clause could stand on its own, split it into a sentence or cut it.
-- If every paragraph opens with a tidy thesis sentence and closes with a tidy moral, loosen the pattern.
-- Keep transitions only when they mark a real contrast, cause, condition, or sequence.
-- When a paragraph feels detector bait because it is too smooth, add specificity and consequence, not quirks.
-
-## Style Rules
-
-- Use concrete subject nouns early in the sentence.
-- Let verbs carry meaning; avoid adjective piles.
-- Keep metaphors rare and only where they clarify behavior.
-- Preserve the author's point of view, but remove self-conscious narration.
-- End sections on insight, implication, or a useful caution.
+1. Identify the one point the paragraph makes, and confirm a sentence on the page says it.
+2. Add what is missing: the mechanism, the stake, the number's meaning.
+3. Cut sentences that only restate the point.
+4. Fix the topic positions so each sentence starts from something the reader already has.
+5. Move the sentence you most want remembered to the end.
+6. Check rhythm last. If every sentence lands the same way, rewrite one.
 
 ## Thomas Style Cues
 
-Based on sampled posts from the author's published blog, prefer this posture:
+Sampled from the author's published posts. Prefer this posture:
 
-- Open important sections with a concrete scenario, tension point, or sharp question when it helps orientation.
-- State the operational stake early: what breaks, what slows down, what gets blocked, or what decision the team is facing.
-- Allow occasional conversational turns or light wit, but only when they improve clarity or memory.
-- Mix a short verdict sentence with longer explanatory sentences instead of keeping the whole paragraph at one speed.
-- Use metaphor sparingly and keep it anchored to the technical point.
-- Name the tradeoff instead of pretending every pattern is universally good.
+- Open important sections with a concrete scenario, tension point, or sharp question.
+- State the operational stake early: what breaks, what slows down, what gets blocked, what decision the team faces.
+- Mix a short verdict sentence with longer explanatory ones.
+- Keep metaphor rare and anchored to the technical point.
+- Name the tradeoff instead of pretending a pattern is universally good.
+- Keep first-person uncertainty. "I have no numbers on this" is a feature of this blog, not a hedge to strip.
 - End on implication, caution, or next action rather than a neat recap.
 
-Do not imitate these cues mechanically. One rhetorical question or one metaphor can help. Repeating them on every page will sound just as synthetic.
+Do not apply these mechanically. One rhetorical question per section helps; one per paragraph is its own template.
 
-## Preferred Rewrites
+## First-Person Technical Narrative
 
-Instead of broad phrasing like "SFCC provides a powerful way to handle this," write what the platform actually does.
+This blog runs a lot of "here is the week I got this wrong" posts. What makes the form land, from the practitioners who set the conventions:
 
-Instead of "This is important because performance matters," say what slows down, where it happens, and why the reader should care.
+- Give timestamps a stated timezone on every state change, and express impact as a number rather than a duration ([Cloudflare](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)).
+- Name two or more contributing conditions rather than one root cause: "getting to a single root cause, while satisfying, may obscure the reality" (same source).
+- Ask **how**, not why, or the narrative flattens into blame ([Allspaw](https://www.kitchensoap.com/2014/11/14/the-infinite-hows-or-the-dangers-of-the-five-whys/)).
+- No animated phrasing and no person in the causal position ([SRE Workbook](https://sre.google/workbook/postmortem-culture/)); the "what went well / what went wrong / where we got lucky" split is a good section skeleton ([SRE book](https://sre.google/sre-book/example-postmortem/)).
+- Print the actual artifact — the config diff, the regex, the error string.
+- Label a mistake as a mistake where you introduce it, and give any claim the reader would otherwise take on faith a check they can run ([Evans](https://jvns.ca/blog/confusing-explanations/)).
+- Over-supply examples; they "pin ideas down" ([Luu](https://danluu.com/writing-non-advice/)).
 
-Instead of adding another dash clause to rescue a weak sentence, decide whether the second idea deserves its own sentence, a sharper verb, or deletion.
+## Voice Preservation
 
-## Example Rewrite
+A defensible edit can still erase the author. ACES demonstrates it: "As far as I'm concerned, there are no true human couch potatoes" edited to "One could say that…" is grammatical, preserves the meaning, and loses the writer ([ACES](https://aceseditors.org/news/2019/three-steps-to-protecting-the-authors-voice)).
 
-Before:
+Saller's warning applies to structure as much as to sentences: "Repetition, alliteration, long sentences, comma splices — almost any writing foible that we tend to see as problematic can work brilliantly in the right place" ([CMOS Shop Talk](https://cmosshoptalk.com/2019/09/17/do-you-overstep-when-editing-fiction-three-easy-cures/)).
 
-"When it comes to promotions, SFCC offers a powerful and flexible mechanism that is important for modern ecommerce experiences."
+Counter-evidence, held deliberately: ACES has also argued the opposite, that "not every writer has a terrific voice" and the real question is whether you are editing *enough* ([archived](https://web.archive.org/web/20231129181014/https://aceseditors.org/news/2018/how-much-editing-is-too-much-heres-the-answer-with-a-twist)). Both are true at different times. On this blog the author's voice is established and the default is restraint.
 
-After:
+## When To Stop
 
-"SFCC promotions let merchandisers change pricing behavior without editing storefront code for each campaign. That separation matters because pricing rules usually change faster than a deployment cycle."
+State a stop condition before starting, and honour it.
 
-Before:
+- Stop when the additive questions above are all answered on the page.
+- Stop when a pass produces only [Taste] changes.
+- Stop when a section is shorter but tells the reader less — and revert that change.
+- Stop counting anything once the count is in a defensible range; a number is a prompt to look, never a target to hit.
 
-"Caching can improve performance - but it is important to understand the nuances - because mistakes here can create real issues."
-
-After:
-
-"Caching helps only when the response can be safely shared. If a template mixes shopper-specific data into cached output, one shopper can see another shopper's state."
-
-Before:
-
-"This architecture is not just flexible, but also powerful, because it gives teams a way to handle many different scenarios in a seamless way."
-
-After:
-
-"This architecture gives teams one extension point for storefront behavior and another for back-office processing. That split keeps request-time logic separate from batch work, which makes failures easier to isolate."
+Do not run this skill twice in a row on the same text. A second consecutive pass reliably trades specificity for smoothness, which is the defect it exists to fix.
 
 ## Editing Checklist
 
-- Every paragraph contains one main idea.
-- Repeated wording and repeated scaffolds have been collapsed.
-- The prose names concrete objects, APIs, files, behaviors, or risks.
-- Sentence rhythm varies where the thought benefits from it.
-- Dash use is restrained and intentional.
-- The reader can hear a human judgment, not a template.
-- The ending leaves the reader with a sharper model of the system.
+- Each paragraph makes one point, and a sentence on the page states it.
+- Nothing the argument depends on is left implicit.
+- Topic positions start from information the reader already has.
+- The most memorable sentence sits at the end of its section.
+- Sharp phrasing is clustered where the argument turns, not spread evenly.
+- The reader can hear a specific person's judgement.
+- Quotations, code, and diagrams are untouched.
 
 ## Best Practice References
 
-- See [references/REFERENCE.md](references/REFERENCE.md) for repository-local guidance and examples.
-
-## Local Examples
-
-- See [examples/EXAMPLES.md](examples/EXAMPLES.md) for paragraph-level rewrite examples.
+- [references/REFERENCE.md](references/REFERENCE.md) — sources, with what each supports and what it does not.
+- [examples/EXAMPLES.md](examples/EXAMPLES.md) — paragraph-level rewrite examples.
 
 ## When Not To Use
 
-- Early rough outlines where structure matters more than voice.
-- Factual verification. Use the fact checker.
+- Early rough outlines, where structure matters more than voice.
+- Factual verification — use the fact checker.
 - Large post-outline reordering before the argument is settled.
-- Attempts to mimic human writing by adding mistakes, randomness, or fake eccentricity.
+- Any attempt to mimic human writing by adding mistakes, randomness, or fake eccentricity.
