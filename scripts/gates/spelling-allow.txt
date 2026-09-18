@@ -228,6 +228,7 @@ eps
 eval
 eventing
 excalidraw
+explainer
 eyeconic
 eyewear
 fabrizio
@@ -477,6 +478,7 @@ pnpm
 poc
 pocs
 pok
+polyfill
 postgres
 postles
 pre
@@ -554,6 +556,7 @@ runbook
 runtimes
 sachin
 safe harbor
+safelist
 sailblazer
 salesforce
 sandboxed
@@ -615,6 +618,7 @@ steptypes
 stg
 str
 strikethrough
+stringified
 stylesheet
 stylesheets
 subagent
@@ -717,6 +721,8 @@ webdav
 webfont
 webhook
 webhooks
+webmachinelearning
+webmcp
 webpack
 webpage
 webstorm
