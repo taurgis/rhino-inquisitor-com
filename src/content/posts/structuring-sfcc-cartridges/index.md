@@ -8,10 +8,10 @@ date: "2026-09-24T09:00:00.000Z"
 lastmod: "2026-09-24T09:00:00.000Z"
 url: "/structuring-sfcc-cartridges/"
 draft: true
-heroImage: structuring-sfcc-cartridges-hero.png
+heroImage: structuring-sfcc-cartridges-hero.jpg
 heroImageAlt: >-
-  A cartoon rhino architect stacks labelled cartridge blocks on a shelf,
-  careful not to touch the solid base block underneath.
+  A cartoon rhino in a work apron stacks wooden blocks on a glowing stone
+  foundation block, keeping its hand off the stone.
 categories:
   - Salesforce Commerce Cloud
   - Technical

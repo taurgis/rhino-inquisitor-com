@@ -1,4 +1,4 @@
-# Image prompt: structuring-sfcc-cartridges-hero.png
+# Image prompt: structuring-sfcc-cartridges-hero.jpg
 
 ## What this image is for
 
@@ -27,7 +27,7 @@ This is the **hero image** for the post "Extend, Replace, or Copy: Structuring S
 `index.md` currently declares this hero image and alt text:
 
 ```yaml
-heroImage: structuring-sfcc-cartridges-hero.png
+heroImage: structuring-sfcc-cartridges-hero.jpg
 heroImageAlt: >-
   A cartoon rhino architect stacks labelled cartridge blocks on a shelf,
   careful not to touch the solid base block underneath.
