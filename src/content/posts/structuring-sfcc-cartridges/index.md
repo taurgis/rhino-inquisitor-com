@@ -5,7 +5,7 @@ description: >-
   cartridge logic, plus how to structure a repo with more than one custom
   cartridge.
 date: "2026-09-24T09:06:11.000Z"
-lastmod: "2026-09-24T09:06:11.000Z"
+lastmod: "2026-09-25T08:14:29.000Z"
 url: "/structuring-sfcc-cartridges/"
 draft: false
 heroImage: structuring-sfcc-cartridges-hero.jpg
@@ -65,16 +65,16 @@ In my experience, team size isn't what decides it. What matters is whether the c
 
 ```mermaid
 flowchart TB
+    subgraph "Option B: one repo per cartridge"
+        B1["app_custom_core repo"] --> B4["own package.json\nown pipeline, own version tag"]
+        B2["app_custom_checkout repo"] --> B5["own package.json\nown pipeline, own version tag"]
+        B3["int_loyalty repo"] --> B6["own package.json\nown pipeline, own version tag"]
+    end
     subgraph "Option A: one repo, several cartridges"
         R1["storefront-cartridges repo"] --> A1["cartridges/app_custom_core"]
         R1 --> A2["cartridges/app_custom_checkout"]
         R1 --> A3["cartridges/int_loyalty"]
         R1 --> A4["one package.json\nshared lint + build scripts"]
-    end
-    subgraph "Option B: one repo per cartridge"
-        B1["app_custom_core repo"] --> B4["own package.json\nown pipeline, own version tag"]
-        B2["app_custom_checkout repo"] --> B5["own package.json\nown pipeline, own version tag"]
-        B3["int_loyalty repo"] --> B6["own package.json\nown pipeline, own version tag"]
     end
 ```
 
