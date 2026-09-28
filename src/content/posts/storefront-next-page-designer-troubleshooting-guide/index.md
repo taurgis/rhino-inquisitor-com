@@ -3,10 +3,10 @@ title: "Storefront Next + Page Designer: A Troubleshooting Guide"
 description: >-
   Trace the 403s, 404s, missing menus, and version bugs blocking Page Designer
   on Storefront Next to the role, scope, or version fix that clears them.
-date: '2026-09-28T09:00:00.000Z'
-lastmod: '2026-09-28T09:00:00.000Z'
+date: '2026-09-28T07:00:00.000Z'
+lastmod: '2026-09-28T07:00:00.000Z'
 url: /storefront-next-page-designer-troubleshooting-guide/
-draft: true
+draft: false
 heroImage: storefront-next-page-designer-troubleshooting-guide-hero.jpg
 heroImageAlt: >-
   Cartoon rhino developer with a magnifying glass following a glowing trail
