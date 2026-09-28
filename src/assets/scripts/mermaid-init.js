@@ -10,7 +10,7 @@
     if (typeof mermaid === 'undefined') return;
 
     mermaid.initialize({
-      startOnLoad: true,
+      startOnLoad: false,
       securityLevel: 'strict',
       fontFamily: cssVar('--font-body', 'sans-serif'),
       theme: 'base',
@@ -44,6 +44,13 @@
         activationBkgColor: cssVar('--canvas', '#eeeae2'),
         activationBorderColor: cssVar('--field', '#d8cfbd')
       }
+    });
+
+    // Render explicitly instead of via startOnLoad (which waits for window
+    // "load") so the diagram zoom in article-image-zoom.js can attach its
+    // trigger the moment the SVGs exist.
+    mermaid.run({ querySelector: '.mermaid', suppressErrors: true }).finally(function () {
+      document.dispatchEvent(new CustomEvent('rhino:diagrams-rendered'));
     });
   }
 

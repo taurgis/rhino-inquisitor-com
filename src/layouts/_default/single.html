@@ -112,9 +112,12 @@
 
     <dialog class="article-image-zoom" data-rhino-image-zoom-dialog aria-label="Expanded article image">
       <div class="article-image-zoom__surface">
-        <button type="button" class="article-image-zoom__close" data-rhino-image-zoom-close autofocus aria-label="Close enlarged image">Close</button>
+        <div class="article-image-zoom__toolbar">
+          <button type="button" class="article-image-zoom__action" data-rhino-image-zoom-toggle hidden>Zoom in</button>
+          <button type="button" class="article-image-zoom__close" data-rhino-image-zoom-close autofocus aria-label="Close enlarged image">Close</button>
+        </div>
         <figure class="article-image-zoom__figure">
-           <div class="article-image-zoom__media" data-rhino-image-zoom-media></div>
+          <div class="article-image-zoom__media" data-rhino-image-zoom-media></div>
           <figcaption class="article-image-zoom__caption" data-rhino-image-zoom-caption hidden></figcaption>
         </figure>
       </div>

@@ -2136,12 +2136,23 @@ summary {
 }
 
 .article-body .mermaid-wrap {
+  position: relative;
   margin: 0 0 1.75rem;
-  padding: 1.25rem;
-  overflow-x: auto;
   background: var(--surface-bg);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-md);
+}
+
+.article-body .mermaid-wrap__scroll {
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+/* Set by article-image-zoom.js once the diagram has rendered: room for the
+   Zoom button so it never covers the top of the diagram. */
+.article-body .rhino-diagram-zoom-target .mermaid-wrap__scroll {
+  padding-top: 2.75rem;
+  cursor: zoom-in;
 }
 
 .article-body .mermaid-wrap .mermaid {
@@ -2404,7 +2415,55 @@ a.rhino-image-zoom-trigger:focus-visible {
   outline-offset: 0.3rem;
 }
 
+/* Diagrams have no hover-only affordance on touch screens, so the trigger is
+   a real, always-visible button styled like the image badge. */
+.rhino-diagram-zoom-button {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(33, 29, 24, 0.76);
+  color: var(--ink-inverse);
+  box-shadow: var(--shadow-edge);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: zoom-in;
+  transition: background 180ms ease;
+}
+
+.rhino-diagram-zoom-button::before {
+  content: "+";
+  display: inline-grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.rhino-diagram-zoom-target:hover .rhino-diagram-zoom-button,
+.rhino-diagram-zoom-button:focus-visible {
+  background: rgba(0, 63, 138, 0.9);
+}
+
+.rhino-diagram-zoom-button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 0.2rem;
+}
+
 .article-image-zoom {
+  --diagram-zoom-max-height: 78dvh;
   width: min(94vw, 96rem);
   max-width: none;
   padding: 0;
@@ -2428,8 +2487,14 @@ a.rhino-image-zoom-trigger:focus-visible {
   box-shadow: var(--shadow-soft);
 }
 
+.article-image-zoom__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.article-image-zoom__action,
 .article-image-zoom__close {
-  justify-self: end;
   padding: 0.55rem 0.9rem;
   border: 0;
   border-radius: var(--radius-sm);
@@ -2440,6 +2505,8 @@ a.rhino-image-zoom-trigger:focus-visible {
   cursor: pointer;
 }
 
+.article-image-zoom__action:hover,
+.article-image-zoom__action:focus-visible,
 .article-image-zoom__close:hover,
 .article-image-zoom__close:focus-visible {
   background: var(--accent-strong);
@@ -2472,6 +2539,32 @@ a.rhino-image-zoom-trigger:focus-visible {
   border-radius: var(--radius-md);
 }
 
+/* Enlarged Mermaid diagram: fill the dialog width without exceeding the
+   viewport height (unless that would shrink it below --diagram-min-width, in
+   which case the media area scrolls). "Zoom in" doubles it. Auto margins (not
+   flex centering) keep the magnified diagram's left edge reachable. */
+.article-image-zoom[data-rhino-diagram-open] .article-image-zoom__media {
+  display: block;
+  max-height: var(--diagram-zoom-max-height);
+  border-radius: var(--radius-md);
+  background: var(--surface-bg);
+}
+
+.article-image-zoom__diagram svg {
+  display: block;
+  width: min(100%, max(calc(var(--diagram-zoom-max-height) * var(--diagram-ratio, 1)), var(--diagram-min-width, 0px)));
+  max-width: none;
+  height: auto;
+  aspect-ratio: var(--diagram-ratio, 1);
+  margin: 0 auto;
+  cursor: zoom-in;
+}
+
+.article-image-zoom__diagram.is-magnified svg {
+  width: calc(2 * min(100%, max(calc(var(--diagram-zoom-max-height) * var(--diagram-ratio, 1)), var(--diagram-min-width, 0px))));
+  cursor: zoom-out;
+}
+
 .article-image-zoom__caption {
   margin: 0;
   font-size: 0.95rem;
@@ -2482,6 +2575,7 @@ a.rhino-image-zoom-trigger:focus-visible {
 @media (max-width: 47.5rem) {
   .article-image-zoom {
     width: 96vw;
+    --diagram-zoom-max-height: 74dvh;
   }
 
   .article-image-zoom__surface {
@@ -2499,6 +2593,10 @@ a.rhino-image-zoom-trigger:focus-visible {
     right: 0.7rem;
     padding: 0.3rem 0.6rem;
     font-size: 0.75rem;
+  }
+
+  .rhino-diagram-zoom-button {
+    padding: 0.3rem 0.6rem;
   }
 }
 
