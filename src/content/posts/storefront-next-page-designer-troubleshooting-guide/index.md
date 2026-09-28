@@ -7,10 +7,10 @@ date: '2026-09-28T09:00:00.000Z'
 lastmod: '2026-09-28T09:00:00.000Z'
 url: /storefront-next-page-designer-troubleshooting-guide/
 draft: true
-heroImage: storefront-next-page-designer-troubleshooting-guide-hero.png
+heroImage: storefront-next-page-designer-troubleshooting-guide-hero.jpg
 heroImageAlt: >-
-  Cartoon rhino developer following a troubleshooting flowchart through
-  Storefront Next error codes to a working Page Designer page.
+  Cartoon rhino developer with a magnifying glass following a glowing trail
+  along forking walkways, past padlock and loading-spinner signs, to a lit doorway.
 categories:
   - Salesforce Commerce Cloud
   - Technical
