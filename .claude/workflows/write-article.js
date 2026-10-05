@@ -1,11 +1,11 @@
 export const meta = {
   name: 'write-article',
   description: 'Research, draft, verify, and gate-check a new rhino-inquisitor.com blog post from a topic brief',
-  whenToUse: 'When the user gives a topic/goal for a brand-new post under src/content/posts/** and wants a full first-draft pass: research, drafting, image prompts, prose/fact verification, and quality gates — stopping short of publish. Stops early after Research if the topic looks like a near-duplicate of an existing post. Pass args.depth: "thorough" for an adversarial 3-reviewer fact-check on higher-stakes posts (default "quick" is a single fact-check pass).',
+  whenToUse: 'When the user gives a topic/goal for a brand-new post under src/content/posts/** and wants a full first-draft pass: research, drafting, image prompts, prose/fact verification, and quality gates — stopping short of publish. Stops early after Research if the topic looks like a near-duplicate of an existing post. The fact-check runs one read-only Sonnet (high effort) reviewer per chapter, then one agent applies the merged corrections; pass args.depth: "thorough" on higher-stakes posts to add a second, adversarial reviewer per chapter (default "quick" is one reviewer per chapter).',
   phases: [
     { title: 'Research', detail: 'grounded web research + style/skills/duplicate-topic review (Haiku); early-exits on near-duplicate topics' },
     { title: 'Draft', detail: 'write the post + generate image/screenshot prompt files (Sonnet)' },
-    { title: 'Verify', detail: 'sequential human-prose-editing, anti-ai-writing, beginner-technical-writing, fact-check (single or 3-reviewer, by depth), holistic read (Sonnet)' },
+    { title: 'Verify', detail: 'sequential human-prose-editing, anti-ai-writing, beginner-technical-writing, per-chapter fact-check (1 or 2 reviewers per chapter, by depth), holistic read (Sonnet)' },
     { title: 'Gate', detail: 'run repo quality gates, independently verify word count, and report pass/fail (Sonnet)' },
   ],
 }
@@ -129,25 +129,46 @@ const FACT_CHECK_SCHEMA = {
   required: ['correctionsMade'],
 }
 
-const FACT_REVIEW_SCHEMA = {
+const CHAPTERS_SCHEMA = {
   type: 'object',
-  description: 'Read-only independent fact review — no file edits.',
   properties: {
-    suspectedIssues: {
+    chapters: {
+      type: 'array',
+      items: { type: 'string', description: 'Verbatim `## ` heading line, or the literal intro label for the first entry' },
+    },
+  },
+  required: ['chapters'],
+}
+
+const CHAPTER_FACT_REVIEW_SCHEMA = {
+  type: 'object',
+  description: 'Read-only fact review of one chapter — no file edits.',
+  properties: {
+    chapter: { type: 'string' },
+    chapterVerdict: { type: 'string', description: 'One or two sentences: is this chapter safe to publish as-is?' },
+    claims: {
       type: 'array',
       items: {
         type: 'object',
         properties: {
-          claim: { type: 'string' },
-          whyDoubtful: { type: 'string' },
-          suggestedFix: { type: 'string' },
+          quote: { type: 'string', description: 'Short verbatim text from the post' },
+          verdict: {
+            type: 'string',
+            enum: ['verified', 'incorrect', 'partially_correct', 'unverifiable_but_framed_ok', 'unverifiable_and_overstated', 'author_observation'],
+          },
+          severity: { type: 'string', enum: ['high', 'medium', 'low', 'none'] },
+          evidence: { type: 'string', description: 'What the official source actually says, or why it cannot be verified' },
+          sourceUrls: { type: 'array', items: { type: 'string' } },
+          oldText: { type: 'string', description: 'Exact verbatim substring of the post to replace, if a fix is needed' },
+          newText: { type: 'string', description: 'Replacement text, if a fix is needed' },
         },
-        required: ['claim', 'whyDoubtful'],
+        required: ['quote', 'verdict', 'severity', 'evidence'],
       },
     },
-    sourcesRecheckedUrls: { type: 'array', items: { type: 'string' } },
+    codeAndCommandIssues: { type: 'array', items: { type: 'string' }, description: 'Problems in code blocks, commands, URLs, paths, or Mermaid diagrams in this chapter' },
+    linkIssues: { type: 'array', items: { type: 'string' }, description: 'Broken, wrong, or mis-attributed links in this chapter' },
   },
-  required: ['suspectedIssues'],
+  required: ['chapter', 'chapterVerdict', 'claims'],
 }
 
 const HOLISTIC_SCHEMA = {
@@ -315,53 +336,92 @@ Return changesSummary, issuesFixed, issuesFlaggedNotFixed.`,
   log('Skipping beginner-technical-writing pass — style review classified this as a non-teaching post.')
 }
 
-let factCheckResult
-if (depth === 'thorough') {
-  log('Thorough mode: 3 independent read-only fact reviewers, then one agent applies the merged corrections.')
+const INTRO_CHAPTER = 'Front matter + intro (everything before the first `## ` heading, including title, description, heroImageAlt, and takeaways)'
 
-  const reviews = await parallel(
-    [1, 2, 3].map((n) => () =>
-      agent(
-        `Independently re-verify every factual claim in \`${draft.filePath}\` against the research below. This is a READ-ONLY review — do not edit the file. Where you doubt a claim, re-check with fresh Bonsai fetches (\`npx @taurgis/bonsai <url> --format detailed\`) rather than trusting memory.
+const chapterList = await agent(
+  `List the chapters of \`${draft.filePath}\` for a per-chapter fact-check. Read the file; do not edit it.
+
+Return \`chapters\` in document order. The first entry is exactly this literal string: "${INTRO_CHAPTER}". After it, one entry per \`## \` heading line in the body, copied verbatim including the \`## \` prefix. Ignore \`#\` lines inside fenced code blocks (shell comments are not headings) and do not list \`###\` subheadings separately; they belong to their \`## \` chapter.`,
+  { label: 'fact-check-chapters', phase: 'Verify', model: 'haiku', effort: 'low', schema: CHAPTERS_SCHEMA }
+)
+const chapters = chapterList && chapterList.chapters && chapterList.chapters.length > 1 ? chapterList.chapters : null
+if (!chapters) {
+  log('Could not split the post into chapters; falling back to one reviewer for the whole post.')
+}
+const chapterTargets = chapters || ['The whole post (front matter and every section)']
+
+const reviewersPerChapter = depth === 'thorough' ? 2 : 1
+log(`Fact-checking ${chapterTargets.length} chapter(s) with ${reviewersPerChapter} read-only Sonnet reviewer(s) each (high effort), then one agent applies the merged corrections.`)
+
+const reviewerLens = (n) =>
+  n === 1
+    ? 'Default to doubting: "plausible" is not "verified".'
+    : 'You are the adversarial second reviewer for this chapter. Assume the first reviewer missed something: try to refute each claim, and hunt hardest for subtle drift (a number, a menu path, a flag, a cause-and-effect claim stated more strongly than its source).'
+
+const chapterReviewPrompt = (chapter, n) => `You are doing a DEEP fact-check of ONE chapter of a draft blog post on rhino-inquisitor.com (an SFCC / Salesforce B2C Commerce technical blog).
+
+File: \`${draft.filePath}\`
+Your chapter: ${chapter}
+
+Read the whole post for context, but fact-check ONLY your chapter. This is READ-ONLY: do not edit the post or any other repo file. Return proposed fixes in the schema instead; \`oldText\` must be an exact verbatim substring of the post so the fix can be applied mechanically.
+
+How to check:
+- Extract every factual or technical claim in your chapter: platform behaviour, limits, timeouts, retention numbers, version numbers, API/class names, Business Manager menu paths, URLs and paths, HTTP methods and status codes, CLI commands and flags, language/runtime semantics, CI syntax, shell behaviour in code blocks, dates and conversions, link targets and what each link is cited for.
+- Verify each against CURRENT official documentation fetched in this task. Use the web-research skill / Bonsai (\`npx @taurgis/bonsai <url> --format detailed\`) for Salesforce Help and Developer pages; discover URLs with web search if needed. Check \`npx @taurgis/bonsai list\` for already-cached pages first, but re-fetch anything critical. Training-data knowledge does not count as verification.
+- For each link in your chapter, confirm the page exists and actually supports the sentence it is attached to.
+- For code blocks and diagrams: reason carefully about whether they work and match the prose (flags, quoting, exit codes, regex, loop logic, diagram branches). Run harmless local checks (e.g. \`bash -n\`, a date conversion, a tiny local experiment) where that settles a question.
+- ${reviewerLens(n)}
+
+Claims taken from the author's own notes in the brief (observed logs, stack traces, incidents) are not publicly documented: mark them \`author_observation\` and do not call them wrong for being undocumented, but DO flag (\`unverifiable_and_overstated\`) any place where the post states an inference about them as established platform fact, and propose hedged wording.
+
+Author's brief and notes, for telling author observations apart from claims the post should be able to source: ${JSON.stringify({ brief, notes })}
 
 Research already gathered: ${JSON.stringify(research)}
 
-Check specifically: version numbers, API/class names, Business Manager paths, limits/quotas, dates, and anything that reads as reworded from the earlier prose passes in a way that may have drifted from the source facts. You are reviewer #${n} of 3 — do not assume the others already caught something; check the whole post yourself.
+Keep the author's voice (British English, first person, dry, practitioner tone) in any \`newText\`, and keep fixes minimal. Flag any \`<!-- TODO verify -->\` comment in your chapter and propose how to resolve it. Include verified claims too (severity \`none\`) so the report shows coverage.`
 
-Return suspectedIssues (each: claim, whyDoubtful, and a suggestedFix if you have one) and sourcesRecheckedUrls.`,
-        { label: `fact-review-${n}`, phase: 'Verify', model: 'sonnet', schema: FACT_REVIEW_SCHEMA }
+const chapterReviews = (
+  await parallel(
+    chapterTargets.flatMap((chapter, i) =>
+      Array.from({ length: reviewersPerChapter }, (_, k) => () =>
+        agent(chapterReviewPrompt(chapter, k + 1), {
+          label: `fact-review:${i}${reviewersPerChapter > 1 ? `.${k + 1}` : ''}:${chapter.replace(/^## /, '').slice(0, 40)}`,
+          phase: 'Verify',
+          model: 'sonnet',
+          effort: 'high',
+          schema: CHAPTER_FACT_REVIEW_SCHEMA,
+        })
       )
     )
   )
+).filter(Boolean)
 
-  const mergedIssues = reviews.filter(Boolean).flatMap((r) => r.suspectedIssues || [])
-  const mergedSources = [...new Set(reviews.filter(Boolean).flatMap((r) => r.sourcesRecheckedUrls || []))]
-  log(`Fact reviewers surfaced ${mergedIssues.length} suspected issue(s) across 3 independent passes.`)
-
-  factCheckResult = await agent(
-    `Three independent reviewers just re-checked the factual claims in \`${draft.filePath}\` against the research below and surfaced the issues listed. A claim raised by more than one reviewer is corroborated — weigh it accordingly; a claim only one reviewer raised may still be real, so use the original research to judge each one rather than dismissing by vote count alone.
-
-Suspected issues: ${JSON.stringify(mergedIssues)}
-Research already gathered: ${JSON.stringify(research)}
-
-For each real issue, correct it directly in the file. For anything you genuinely cannot resolve, leave an inline \`<!-- TODO verify: ... -->\` comment rather than guessing.
-
-Return verifiedClaims (count of claims you evaluated, including ones you confirmed fine), correctionsMade (each naming the wrong claim and the fix), unverifiableClaims, and sourcesRecheckedUrls.`,
-    { label: 'fact-check-apply', phase: 'Verify', model: 'sonnet', schema: FACT_CHECK_SCHEMA }
-  )
-  factCheckResult.sourcesRecheckedUrls = [...new Set([...(factCheckResult.sourcesRecheckedUrls || []), ...mergedSources])]
-} else {
-  factCheckResult = await agent(
-    `Re-verify every factual claim in \`${draft.filePath}\` against the research below, and where you have doubts, re-check with fresh Bonsai fetches (\`npx @taurgis/bonsai <url> --format detailed\`) rather than trusting memory or the earlier draft.
-
-Research already gathered: ${JSON.stringify(research)}
-
-Check specifically: version numbers, API/class names, Business Manager paths, limits/quotas, dates, and anything the earlier editing passes may have reworded in a way that changed its meaning. Correct any mistake directly in the file. For anything you genuinely cannot verify, leave an inline \`<!-- TODO verify: ... -->\` comment rather than guessing.
-
-Return verifiedClaims (count), correctionsMade (each naming the wrong claim and the fix), unverifiableClaims, and sourcesRecheckedUrls.`,
-    { label: 'verify-facts', phase: 'Verify', model: 'sonnet', schema: FACT_CHECK_SCHEMA }
-  )
+const expectedReviews = chapterTargets.length * reviewersPerChapter
+if (chapterReviews.length < expectedReviews) {
+  log(`${expectedReviews - chapterReviews.length} of ${expectedReviews} chapter review(s) returned nothing; those chapters are only covered by the apply agent's own check.`)
 }
+const flaggedClaims = chapterReviews.flatMap((r) => (r.claims || []).filter((c) => c.severity !== 'none'))
+const reviewSources = [...new Set(chapterReviews.flatMap((r) => (r.claims || []).flatMap((c) => c.sourceUrls || [])))]
+log(`Chapter reviewers checked ${chapterReviews.reduce((n, r) => n + (r.claims || []).length, 0)} claim(s) and flagged ${flaggedClaims.length}.`)
+
+const factCheckResult = await agent(
+  `Read-only reviewers just fact-checked \`${draft.filePath}\` chapter by chapter (${reviewersPerChapter} reviewer(s) per chapter). Their reports are below. Apply the corrections to the file.
+
+Chapter reviews: ${JSON.stringify(chapterReviews)}
+Research already gathered: ${JSON.stringify(research)}
+
+How to apply:
+- Apply every fix marked \`incorrect\`, \`partially_correct\`, or \`unverifiable_and_overstated\`, plus the code, command, and link issues. Where two reviewers of the same chapter disagree, or a fix looks wrong, re-check the source with a fresh Bonsai fetch before deciding; do not settle it by vote count.
+- \`oldText\` was quoted from the file before any fix landed, so an earlier fix may have changed the text: apply by meaning when the exact string no longer matches.
+- Per-chapter reviewers cannot see contradictions BETWEEN chapters. Read the post once more after applying and fix any you find (for example a diagram or script in one chapter that contradicts the advice in another, or the same number stated differently twice).
+- Resolve existing \`<!-- TODO verify -->\` comments where the reviews settle them. For anything you genuinely cannot resolve, leave or add an inline \`<!-- TODO verify: ... -->\` comment rather than guessing.
+
+Return verifiedClaims (count of claims evaluated across all chapters, including ones confirmed fine), correctionsMade (each naming the chapter, the wrong claim, and the fix), unverifiableClaims, and sourcesRecheckedUrls.`,
+  { label: 'fact-check-apply', phase: 'Verify', model: 'sonnet', schema: FACT_CHECK_SCHEMA }
+)
+factCheckResult.sourcesRecheckedUrls = [...new Set([...(factCheckResult.sourcesRecheckedUrls || []), ...reviewSources])]
+factCheckResult.chaptersChecked = chapterTargets
+factCheckResult.chapterVerdicts = chapterReviews.map((r) => ({ chapter: r.chapter, verdict: r.chapterVerdict }))
 
 const holisticReview = await agent(
   `Read \`${draft.filePath}\` start to finish as a fresh reader with no memory of the editing history — this is a READ-ONLY pass, do not edit the file. Judge only the whole: does it read as one coherent voice throughout, or do the sequential edit passes show seams (a paragraph that reads differently from its neighbors, a fix that undid an earlier rhythm choice, a spot where the tone whiplashes)? Read \`src/content/posts/AGENTS.md\` first so you know the target voice, then ask: would Thomas actually publish this as-is?

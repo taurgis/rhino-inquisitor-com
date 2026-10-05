@@ -15,14 +15,14 @@ This exists because authoring a post already means chaining research, `human-pro
 - **New:** illustration prompt files are now fully self-contained image-generation prompts, not references to the house style. Old behavior pointed the reader at "match this site's house style — see past hero images and `AGENTS.md`'s Images section," which only works if whoever executes the prompt can open this repository. New behavior has the image-prompt agent open one real existing hero/illustration file itself, translate what it sees into labeled sections (Subject, Scene, Setting, Color palette, Line and rendering style, Composition, No-text constraint, Aspect ratio/output), and write those out in full prose in the prompt file — so a separate image-generation agent with zero repository access can execute the prompt verbatim and still match the site's mascot design and "Paper & Ink" palette. Screenshot prompts are unaffected — they still just specify the exact Business Manager path/UI/state to capture. Every illustration prompt also gets a ready-to-paste front matter/shortcode snippet appended below it.
 - If the Research phase's style/duplicate review classifies the topic as a near-duplicate of an existing post, the workflow stops right there and returns the finding instead of spending the Draft/Verify/Gate phases on a likely-redundant article.
 - The three prose/fact edits in Verify run sequentially against the same file, not in parallel — `human-prose-editing` must run before `anti-ai-writing` (`post-writing-skills.instructions.md`), and parallel edits to one file would race. A holistic read-through closes the phase: a fresh-eyes agent with no edit history checks whether the sequential passes left seams (inconsistent voice, a fix undoing an earlier rhythm choice) — it flags issues in the report rather than editing further.
-- Fact-checking has two modes via `args.depth`: `"quick"` (default) is a single re-verify-and-fix pass; `"thorough"` runs 3 independent read-only fact reviewers in parallel, then a single agent applies the merged, judgment-weighted corrections — avoiding both the blind-spot risk of one reviewer and the file-write races that running edits in parallel would cause.
+- Fact-checking runs per chapter (see the 2026-10-05 update below): a cheap Haiku agent lists the post's chapters, one read-only Sonnet reviewer at high effort checks each chapter against freshly fetched official docs, and a single agent applies the merged corrections and checks for contradictions between chapters. `args.depth` sets reviewers per chapter: `"quick"` (default) is one, `"thorough"` adds a second, adversarial reviewer to each chapter.
 - The Gate phase independently counts the post's body word count rather than trusting the drafting agent's self-reported number, and re-runs any check it patches before deciding pass/fail — a fix it doesn't verify isn't a fix. It also checks that any link to another `draft: true` post is wrapped in `when-published`, since a bare link to an unpublished draft fails the deploy's internal-link gate.
 
 ## How to run it
 
 - From Claude Code: `Workflow({ name: 'write-article', args: '<topic brief>' })`, or pass `{ brief, notes, slugHint, depth }` for extra context (`depth: 'thorough'` for higher-stakes posts; default is `'quick'`).
-- Model assignment: research and the style/skills/duplicate-topic review run on Haiku; drafting, image-prompt generation, all verification passes, and the gate-check phase run on Sonnet.
-- Phases: `Research` (parallel: grounded web research + style/voice/duplicate review; early-exits on a near-duplicate topic) → `Draft` (write the post, then generate image prompt files) → `Verify` (sequential: `human-prose-editing`, `anti-ai-writing`, conditionally `beginner-technical-writing`, fact-check per `depth`, then a holistic read) → `Gate` (frontmatter/spelling/markdownlint/callout/when-published/preflight checks, an independent word-count check, and a manual SEO/content-quality checklist).
+- Model assignment: research and the style/skills/duplicate-topic review run on Haiku; drafting, image-prompt generation, all verification passes, and the gate-check phase run on Sonnet. The per-chapter fact reviewers run on Sonnet at `high` effort; the chapter-listing step runs on Haiku at `low` effort.
+- Phases: `Research` (parallel: grounded web research + style/voice/duplicate review; early-exits on a near-duplicate topic) → `Draft` (write the post, then generate image prompt files) → `Verify` (sequential: `human-prose-editing`, `anti-ai-writing`, conditionally `beginner-technical-writing`, per-chapter fact-check (reviewers per chapter set by `depth`), then a holistic read) → `Gate` (frontmatter/spelling/markdownlint/callout/when-published/preflight checks, an independent word-count check, and a manual SEO/content-quality checklist).
 
 ## Impact and verification
 
@@ -45,6 +45,66 @@ This exists because authoring a post already means chaining research, `human-pro
 - `.agents/skills/human-prose-editing/SKILL.md`, `.agents/skills/anti-ai-writing/SKILL.md`, `.agents/skills/beginner-technical-writing/SKILL.md`, `.agents/skills/web-research/SKILL.md`, `.agents/skills/image-caption-writing/SKILL.md`, `.agents/skills/audience-layering/SKILL.md`, `.agents/skills/code-walkthrough-authoring/SKILL.md` — skills it invokes or references
 - `.github/instructions/post-writing-skills.instructions.md` — the skill ordering/routing it follows
 - `.github/instructions/content-quality.instructions.md`, `.github/instructions/seo-compliance.instructions.md`, `.github/instructions/hugo-coding-standards.instructions.md` — the gates it checks against
+
+## Update: fact-check split per chapter (2026-10-05)
+
+### Change summary
+
+The Verify phase's fact-check now runs one reviewer per chapter instead of one
+reviewer (or three) for the whole post. A single agent checking a
+2,000-plus-word post has to spread its attention across every claim, link, and
+code block at once. On the WebDAV deployment failures draft, the whole-post
+pass verified 34 claims, but it left a retry script that contradicted the
+diagnosis flowchart, which only the holistic read caught. Giving each chapter
+its own high-effort reviewer narrows each agent's scope so it can check links,
+commands, and code in depth.
+
+### Old vs new behavior
+
+- **Before:** `quick` (default) ran one Sonnet agent that re-verified the whole
+  post and edited it directly. `thorough` ran three independent read-only
+  whole-post reviewers, then one agent applied the merged fixes.
+- **After:**
+  1. `fact-check-chapters` (Haiku, low effort) lists the chapters: front matter
+     plus intro as the first chapter, then one per level-two (`##`) heading. `###`
+     subheadings stay with their parent, and `#` comments inside code fences
+     are ignored. If it cannot split the post, the workflow logs that and falls
+     back to one whole-post reviewer.
+  2. `fact-review:<n>:<chapter>` (Sonnet, `effort: 'high'`) runs in parallel,
+     one per chapter. Each reviewer is read-only, fetches current official
+     docs through Bonsai, checks every link, command, code block, and diagram
+     in its chapter, and returns per-claim verdicts with exact
+     `oldText`/`newText` fixes. Claims sourced from the author's own notes are
+     marked `author_observation`, not wrong. The reviewer is still told to flag
+     any inference that the post states as platform fact.
+  3. `fact-check-apply` (Sonnet) applies the fixes. It re-checks sources where
+     reviewers disagree, resolves `TODO verify` comments the reviews settle,
+     and reads the post again for contradictions between chapters, which
+     per-chapter reviewers cannot see.
+- `depth: 'thorough'` now means two reviewers per chapter (the second prompted
+  to refute) rather than three whole-post reviewers.
+- The returned `verification.factCheck` adds `chaptersChecked` and
+  `chapterVerdicts`, and logs how many claims were checked and flagged. A
+  chapter whose reviewer returns nothing is logged, not silently skipped.
+
+### Impact and verification
+
+Only the write-article workflow's Verify phase changes. The prose passes,
+holistic read, and Gate phase are untouched, and no site runtime or deploy gate
+is affected. The fact-check now spawns one agent per chapter (two in thorough
+mode) plus two small coordinating agents, so expect more tokens and a shorter
+wall-clock than the old sequential thorough run. To verify, run the workflow on
+any brief and confirm the Verify phase shows one `fact-review:` agent per `##`
+heading plus the intro, followed by `fact-check-apply`. The script was also
+exercised with mocked agents in both depths: quick produced one reviewer per
+chapter, thorough two, all Sonnet at high effort.
+
+### Related files
+
+- `.claude/workflows/write-article.js` — `CHAPTERS_SCHEMA`,
+  `CHAPTER_FACT_REVIEW_SCHEMA`, and the fact-check block in the Verify phase
+  (replaces `FACT_REVIEW_SCHEMA` and the old quick/thorough branches)
+- `.agents/skills/web-research/SKILL.md` — the Bonsai fetch workflow reviewers follow
 
 ## Update: `anti-ai-writing` and `human-prose-editing` rebuilt on cited evidence (2026-09-18)
 
