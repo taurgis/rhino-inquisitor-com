@@ -1,4 +1,4 @@
-# Image prompt: sfcc-webdav-deployment-failures-hero.png
+# Image prompt: sfcc-webdav-deployment-failures-hero.jpg
 
 ## What this image is for
 
@@ -20,14 +20,14 @@ This is the **hero image** for the post "SFCC WebDAV Deployment Failures: Locked
 
 **No-text constraint**: Do not render any legible text, numbers, labels, letters, icons that read as letters, logos, or watermarks anywhere in the image: not on the crates, tags, machine, signs, walls, or clothing. The crates are identified purely by the zipper-teeth strip, the machine purely by its shape. Anything that needs to be exact (file names, error messages) belongs in the article's prose and code blocks, never in generated artwork.
 
-**Aspect ratio / output**: 16:9 landscape, approximately 1672x941 pixels (matching this site's existing hero images, for example `how-sfcc-price-books-actually-work-hero.jpg` at 1672x941; some older heroes are 2000x1091 or 1280x720, all roughly 16:9). One single cohesive illustrated scene, high detail, no panel splits or collage. Save as PNG with the filename `sfcc-webdav-deployment-failures-hero.png` and place it in the post's own folder, next to `index.md`.
+**Aspect ratio / output**: 16:9 landscape, approximately 1672x941 pixels (matching this site's existing hero images, for example `how-sfcc-price-books-actually-work-hero.jpg` at 1672x941; some older heroes are 2000x1091 or 1280x720, all roughly 16:9). One single cohesive illustrated scene, high detail, no panel splits or collage. Save as PNG with the filename `sfcc-webdav-deployment-failures-hero.jpg` and place it in the post's own folder, next to `index.md`.
 
 ## Front matter snippet
 
 `index.md` already declares this hero image and an alt text:
 
 ```yaml
-heroImage: sfcc-webdav-deployment-failures-hero.png
+heroImage: sfcc-webdav-deployment-failures-hero.jpg
 heroImageAlt: >-
   A cartoon rhino courier at a loading dock holds two ZIP crates while a red padlock blocks the door of the unzip machine
 ```
@@ -35,7 +35,7 @@ heroImageAlt: >-
 **Note for whoever generates the final image**: the existing `heroImageAlt` mentions a *red* padlock. The prompt above deliberately uses an amber/gold padlock to stay inside the site's palette (no red). Once the image is generated, replace the alt text with this one (under 125 characters), adjusting it if the rendered scene differs:
 
 ```yaml
-heroImage: sfcc-webdav-deployment-failures-hero.png
+heroImage: sfcc-webdav-deployment-failures-hero.jpg
 heroImageAlt: >-
   A cartoon rhino courier holds two stacked crates in front of a machine whose hatch is shut by a golden padlock
 ```

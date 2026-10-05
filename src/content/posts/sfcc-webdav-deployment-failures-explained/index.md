@@ -6,9 +6,9 @@ date: "2026-10-05T08:00:00.000Z"
 lastmod: "2026-10-05T08:00:00.000Z"
 url: "/sfcc-webdav-deployment-failures-explained/"
 draft: true
-heroImage: sfcc-webdav-deployment-failures-hero.png
+heroImage: sfcc-webdav-deployment-failures-hero.jpg
 heroImageAlt: >-
-  A cartoon rhino courier at a loading dock holds two ZIP crates while a red padlock blocks the door of the unzip machine
+  A cartoon rhino courier holds two stacked crates in front of a machine whose hatch is shut by a golden padlock
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -67,7 +67,7 @@ The filenames are *different*, so this is not two files fighting over the same n
 
 The stack trace backs this up. The failure runs through `FileServlet.doUnzip`, `WebdavServlet.doUnzip`, `LockMgrImpl.runWithLock`, `ZipUtils.unzip`, and finally `MultithreadingZipFileProcessor.processWithValidation`. In plain words: the server takes a lock, then starts unzipping with multiple threads. The lock is taken *on the server*, during extraction. Your local ZIP creation is not involved, so rebuilding the archive on your side fixes nothing.
 
-A lock error might sound odd for WebDAV, because, as I covered in the [beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/#where-sfcc-parts-ways-with-the-standard), SFCC does not offer client-side `LOCK` and `UNLOCK`. The platform still has an internal locking framework for concurrent access, which Salesforce mentions in its [import and export transaction handling documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_import_export_transaction_handling_and_feed_size.htm). You cannot take those locks. You can only run into them.
+A lock error might sound odd for WebDAV, because, as I covered in the [beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/#where-sfcc-parts-ways-with-the-standard), SFCC does not offer client-side `LOCK` and `UNLOCK`. The error text shows the platform locks something internally during extraction anyway. You cannot take those locks. You can only run into them. <!-- TODO verify: Salesforce's public docs do not describe a server-side locking mechanism for WebDAV unzip; the lock behaviour here is inferred from log output only. -->
 
 ```mermaid
 sequenceDiagram
@@ -85,7 +85,7 @@ sequenceDiagram
 ```
 
 > [!NOTE]
-> Salesforce's replication troubleshooting page describes `ErrorAcquiringEditingLocks` and `ErrorLiveStagingProcessKilled` as hung states from concurrent deployments or restarts. That is data replication, not WebDAV code upload, so the mechanics differ. The lesson carries over, though: overlapping operations leave locks behind.
+> Salesforce's [replication troubleshooting page](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_troubleshooting_replication.htm) describes `ErrorAcquiringEditingLocks` and `ErrorAcquiringLivelocks` as signs that resource locks from a previous replication were not released, and `ErrorLiveStagingProcessKilled` as a probable hang from a concurrent deployment or instance restart. That is replication, not WebDAV code upload, so the mechanics differ. The lesson carries over, though: overlapping operations can leave locks behind.
 
 Two unanswered questions remain, and Salesforce has not answered them publicly either. First, whether concurrent uploads to the same code version are queued, rejected, or processed in parallel. Second, how a half-finished upload gets cleaned up. Treat any `_upload-*.zip` that sits on the instance long after a failed deploy as your problem to remove.
 
@@ -185,9 +185,9 @@ done
 exit 1
 ```
 
-**Deploy into a fresh code version every time.** If a `FileAlreadyExistsException` comes from files left behind by an earlier, half-finished extraction, a new version name sidesteps the whole collision. Use the build number: `build-1482`, not `v1`. Unique ZIP names are not the lever here, since the temp ZIP name is generated for you, but the destination is yours to choose. Production rejects WebDAV uploads to the active code version anyway, so uploads there must target an inactive one.
+**Deploy into a fresh code version every time.** If a `FileAlreadyExistsException` comes from files left behind by an earlier, half-finished extraction, a new version name sidesteps the whole collision. Use the build number: `build-1482`, not `v1`. Unique ZIP names are not the lever here, but the destination is yours to choose. Production rejects WebDAV uploads to the active code version anyway, so uploads there must target an inactive one. As far as I can tell the temporary ZIP name is generated for you.
 
-Fresh names pile up, so watch the retention setting: automatic deletion removes only older versions, and the configurable range is [3 to 20, default 10](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html).
+Fresh names pile up, so watch the retention setting: automatic deletion removes only the oldest versions (never the active or previously active one), and the configurable range is [3 to 20, default 10](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html). On older instances the setting may still be 0, which means the feature is off.
 
 **Shrink the archive.** If you ship 140 cartridges and only three changed, a timeout is the bill for that habit.
 
@@ -195,7 +195,7 @@ Fresh names pile up, so watch the retention setting: automatic deletion removes 
 
 ## Preventing It in Automated Pipelines
 
-Every cause in this post gets worse when two deploys run at once, and Salesforce's own [continuous integration guidance](https://trailhead.salesforce.com/content/learn/modules/b2c-build-processes-and-tests-for-technical-architects/b2c-explore-continuous-integration) warns against running concurrent tasks and jobs in parallel. A pipeline guard is therefore the first fix I would put in place. In GitHub Actions, a concurrency group per target instance does it:
+Every cause in this post gets worse when two deploys run at once, and the overlap theory above is the one I would rule out first. A pipeline guard is therefore the first fix I would put in place. <!-- TODO verify: an earlier draft attributed a warning against concurrent tasks/jobs to Salesforce's CI Trailhead module; the fetched page does not contain it. --> In GitHub Actions, a concurrency group per target instance does it:
 
 ```yaml
 concurrency:
@@ -207,7 +207,7 @@ With `cancel-in-progress: false`, a running deploy finishes before the next star
 
 Three more guards belong in the same pipeline:
 
-- **Split deploy from activation.** Activation switches the instance over to the new code version. Build the ZIP, run `b2c code deploy`, confirm success, then run `b2c code activate` as a separate step. When something fails, you know whether it was transport, extraction, or activation. Salesforce's [developer tooling documentation](https://developer.salesforce.com/docs/commerce/commerce-solutions/guide/b2c-developer-tooling.html) recommends the B2C CLI for CI/CD over manual WebDAV uploads.
+- **Split deploy from activation.** Activation switches the instance over to the new code version. Build the ZIP, run `b2c code deploy`, confirm success, then run `b2c code activate` as a separate step. When something fails, you know whether it was transport, extraction, or activation. Salesforce's [code deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) calls the B2C CLI the recommended method for GitHub Actions or Jenkins pipelines, instead of manual uploads.
 - **Verify before activating.** Run the `PROPFIND` check above against the new code version folder. A missing folder should fail the job, not an activation a minute later.
 - **Hunt for the second trigger.** A concurrency group only protects your pipeline. A colleague with a WebDAV client, a second repository deploying to the same instance, or someone running `b2c code watch` (the CLI's file watcher) against a shared sandbox bypasses it entirely. When locks keep appearing despite a guard, ask who else is writing to that instance.
 
