@@ -287,6 +287,7 @@ const DOMAIN_RULES = Object.freeze({
   'docs.commercetools.com': STATUS,
   'docs.github.com': STATUS,
   'docs.netapp.com': STATUS,
+  'docs.oracle.com': STATUS,
   'dora.dev': STATUS,
   'dreamole.es': STATUS,
   'dwithease.com': STATUS,
