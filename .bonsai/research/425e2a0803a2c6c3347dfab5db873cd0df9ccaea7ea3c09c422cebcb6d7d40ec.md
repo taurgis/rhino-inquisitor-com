@@ -1,0 +1,71 @@
+---
+schema_version: 1
+artifact_type: section
+source_url: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjobidsecrets
+source_urls:
+  - https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjobidsecrets
+normalized_url: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+cache_key: 425e2a0803a2c6c3347dfab5db873cd0df9ccaea7ea3c09c422cebcb6d7d40ec
+topic: 
+tags:
+  - workflow
+  - actions
+  - job
+  - run
+  - github
+format_available:
+  - compressed
+  - detailed
+tier: standard
+ttl: 
+fetched_at: 2026-10-05T08:43:02.972Z
+validated_at: 2026-10-05T08:43:02.972Z
+stale_after: 2026-11-04T08:43:02.972Z
+capture_method: route_markdown
+extraction_status: extracted
+extraction_confidence: high
+quality_notes:
+  - captured from public Markdown/MDX source: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax.md
+  - auto-generated tags via keyword extraction
+supplied_at: 
+supplied_by: 
+etag: 
+last_modified: 
+content_hash: 2f4870ba037bf9e26c9e5df7376a32be7451937a7a60419eca21c96bc2d66399
+token_estimate:
+  compressed: 62
+  detailed: 62
+status: active
+site_module_id: 
+docs_engine: next
+docs_framework: 
+source_doc_url: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax.md
+search_provider: 
+parent_cache_key: ce43d72df653a2218ac18b5f8e1adbd0de69863245c6434cb4d5f410d0c24e04
+section_anchor: jobsjobidsecrets
+section_heading_path: Workflow syntax for GitHub Actions > jobs.<jobid>.secrets
+---
+
+## Summary
+
+Workflow syntax for GitHub Actions > jobs.<jobid>.secrets
+
+## Compressed
+
+## `jobs.<job_id>.secrets`
+
+When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+
+Any secrets that you pass must match the names defined in the called workflow.
+
+## Detailed
+
+## `jobs.<job_id>.secrets`
+
+When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+
+Any secrets that you pass must match the names defined in the called workflow.
+
+## Provenance
+
+Section "Workflow syntax for GitHub Actions > jobs.<jobid>.secrets" of https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax (parent ce43d72df653a2218ac18b5f8e1adbd0de69863245c6434cb4d5f410d0c24e04)
