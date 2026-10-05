@@ -2,10 +2,10 @@
 title: "SFCC WebDAV Deploy Failures: Locked ZIPs, Unzip Errors, 504s"
 description: >-
   Diagnose locked _upload ZIPs, "Could not unzip" errors, and FileAlreadyExistsException on B2C Commerce, then guard your CI pipeline against them.
-date: "2026-10-05T08:00:00.000Z"
-lastmod: "2026-10-05T08:00:00.000Z"
+date: "2026-10-05T06:00:00.000Z"
+lastmod: "2026-10-05T06:00:00.000Z"
 url: "/sfcc-webdav-deployment-failures-explained/"
-draft: true
+draft: false
 heroImage: sfcc-webdav-deployment-failures-hero.jpg
 heroImageAlt: >-
   A cartoon rhino courier holds two stacked crates in front of a machine whose hatch is shut by a golden padlock
@@ -33,7 +33,9 @@ Salesforce does not document the internals of the server-side unzip. This post s
 
 Some vocabulary first. A *code version* is a folder on the instance that holds your cartridges, the packages of storefront code. Only one code version is *active* at a time. The others wait there for activation or a rollback.
 
-To deploy, your tool zips the cartridges, uploads the ZIP over WebDAV under a temporary name, and then asks the server to unzip it into the code version folder with a second request (the WebDAV `UNZIP` method). The temporary name is the tool's choice. In my logs it was `_upload-<timestamp>.zip`, the pattern the B2C CLI's `b2c code watch` [used until September 2026](https://github.com/SalesforceCommerceCloud/b2c-developer-tooling/blob/main/packages/b2c-tooling-sdk/src/operations/code/upload-files.ts). Today `b2c code watch` uses `_upload-` plus a random ID, `b2c code deploy` uses `_sync-<timestamp>.zip`, and sfcc-ci keeps your ZIP's own filename. Whatever yours is called, that is the file to look for on the server. That is two steps, upload and extraction, and they fail in different ways. Keep that split in mind, because the rest of this post hangs on it.
+To deploy, your tool zips the cartridges, uploads the ZIP over WebDAV under a temporary name, and then asks the server to unzip it into the code version folder with a second request (the WebDAV `UNZIP` method). That is two steps, upload and extraction, and they fail in different ways. Keep that split in mind, because the rest of this post hangs on it.
+
+The temporary name is the tool's choice, not the server's. In my logs it was `_upload-<timestamp>.zip`, the pattern that `b2c code watch` [used until September 2026](https://github.com/SalesforceCommerceCloud/b2c-developer-tooling/blob/main/packages/b2c-tooling-sdk/src/operations/code/upload-files.ts). That command belongs to the B2C CLI (`b2c`), Salesforce's command-line tool for B2C Commerce. Today `b2c code watch` uses `_upload-` plus a random ID, and `b2c code deploy` uses `_sync-<timestamp>.zip`. sfcc-ci, the Commerce Cloud CLI that came before it, keeps your ZIP's own filename. Whatever yours is called, that is the file to look for on the server.
 
 ## Three Failure Classes, Not One
 
@@ -46,7 +48,7 @@ To deploy, your tool zips the cartridges, uploads the ZIP over WebDAV under a te
 | `504 (Gateway Time-out)` | `sfcc-ci` output | Upload (`PUT`) | Does the archive exist, but not the code version folder? |
 | `WebDAV authentication failed` | `sfcc-ci` output | Any WebDAV request (401) | Do the WebDAV Client Permissions cover the folder? |
 
-The first three tend to get lumped together because they all end as a failed deploy or a "Could not unzip file" message. The last one is not a deployment failure at all, and it is worth ruling out early.
+The first three tend to get lumped together because they all end as a failed deploy, and the first two as a "Could not unzip file" message. The last one is not a deployment failure at all, and it is worth ruling out early.
 
 ## Locked Upload ZIPs
 
@@ -60,7 +62,7 @@ Could not unzip file [_upload-<timestamp>.zip]: File is locked.
   -> same failure
 ```
 
-The names in these logs included `_upload-1775813917618.zip`, `_upload-1775813918323.zip`, and `_upload-1775814996365.zip`. Read as Unix epoch milliseconds, which is what `Date.now()` returns in the B2C CLI source linked above, the first two are 705 milliseconds apart, and the third is about 18 minutes later. Every name is different, so the failure is not two uploads writing to the same filename.
+The names in these logs included `_upload-1775813917618.zip`, `_upload-1775813918323.zip`, and `_upload-1775814996365.zip`. In the B2C CLI source linked above, the number comes from `Date.now()`, which returns Unix epoch milliseconds: the time in milliseconds since 1 January 1970 UTC. Read that way, the first two names are 705 milliseconds apart, and the third is about 18 minutes later. Every name is different, so the failure is not two uploads writing to the same filename.
 
 The stack trace shows where the lock sits. The failure runs through `FileServlet.doUnzip`, `WebdavServlet.doUnzip`, `LockMgrImpl.runWithLock`, `ZipUtils.unzip`, and finally `MultithreadingZipFileProcessor.processWithValidation`. All of that is server code, inside the unzip request. The lock is taken on the instance, after your ZIP has arrived, not while your machine builds the archive.
 
@@ -72,7 +74,7 @@ The question to ask is the one the timestamps raise: were two ZIPs being unzippe
 
 The generic version of this error ends in `java.io.IOException: Failed to process zip file [_upload-<timestamp>.zip]`, thrown from `MultithreadingZipFileProcessor.processWithValidation`. By itself it says nothing. The exception *underneath* it tells you the class: a lock message, a `FileAlreadyExistsException`, or something else entirely.
 
-One case in my notes shows how much the tool's wording tells you. A roughly 90 MB ZIP with about 140 cartridges failed with `Error: Deploy code NODE18.zip failed (upload step): 504 (Gateway Time-out)`. A 504 means a gateway did not get a timely answer from the server behind it. The archive was visible on WebDAV afterwards, but the expected code version folder never appeared. That message comes from sfcc-ci, and its [source](https://github.com/SalesforceCommerceCloud/sfcc-ci/blob/master/lib/code.js) settles the rest: "upload step" errors come from the `PUT` of the ZIP, and sfcc-ci only sends the unzip request after that `PUT` succeeds. So in this case the unzip was never requested, which is why no code version folder was created. A visible archive is not proof of a complete one, though, so compare its size with your local ZIP.
+One case in my notes shows how much the tool's wording tells you. A roughly 90 MB ZIP with about 140 cartridges failed with `Error: Deploy code NODE18.zip failed (upload step): 504 (Gateway Time-out)`. A 504 means a gateway did not get a timely answer from the server behind it. The archive was visible on WebDAV afterwards, but the expected code version folder never appeared. That message comes from sfcc-ci, and its [source](https://github.com/SalesforceCommerceCloud/sfcc-ci/blob/master/lib/code.js) settles the rest: "upload step" errors come from the `PUT` of the ZIP, and sfcc-ci only sends the unzip request after that `PUT` succeeds. So in this case the unzip was never requested. That is why no code version folder was created. A visible archive is not proof of a complete one, though, so compare its size with your local ZIP.
 
 That gives you a two-question test after any reported failure:
 
@@ -105,7 +107,7 @@ If the command prints nothing, the archive has no duplicate paths, which leaves 
 
 ## Ruling Out the Authentication Red Herring
 
-The fourth row of the table is the odd one out. `WebDAV authentication failed. Please (re-)authenticate first...` is what sfcc-ci prints for any 401 from a WebDAV request, and a comment in its source notes that the server answers with a 401 when the WebDAV Client Permission is not set. So the token request can succeed while the WebDAV request after it fails. The message's closing line, about checking the WebDAV Client Permissions, is the part worth reading. The fix lives in Business Manager (the admin tool of an instance) under `Administration > Organization > WebDAV Client Permissions`, where the client needs access to the resources your deploy touches, including `/cartridges` with `read_write`, which is what the [B2C CLI authentication guide](https://salesforcecommercecloud.github.io/b2c-developer-tooling/guide/authentication.html#webdav-access) lists for code deployment. I walked through that screen in the [WebDAV beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/).
+The fourth row of the table is the odd one out. `WebDAV authentication failed. Please (re-)authenticate first...` is what sfcc-ci prints for any 401 from a WebDAV request, and a comment in its source notes that the server answers with a 401 when the WebDAV Client Permission is not set. So the token request can succeed while the WebDAV request after it fails. The message's closing line, about checking the WebDAV Client Permissions, is the part worth reading. The fix lives in Business Manager (the admin tool of an instance) under `Administration > Organization > WebDAV Client Permissions`. There, the client needs access to the resources your deploy touches. For code deployment, the [B2C CLI authentication guide](https://salesforcecommercecloud.github.io/b2c-developer-tooling/guide/authentication.html#webdav-access) lists `/cartridges` with `read_write`. I walked through that screen in the [WebDAV beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/).
 
 If you deploy to a staging instance, Salesforce requires a client certificate for code uploads there, so check that too. If you cannot get a token at all and your pipeline still logs in with a username and password, read [the MFA post](/account-manager-mfa-broke-sfcc-cicd/) first.
 
@@ -141,11 +143,11 @@ curl -sS -w '\nHTTP %{http_code}\n' -X PROPFIND -H "Depth: 1" \
 
 Then read the logs. Business Manager exposes them through the Folder Browser tab under `Administration > Site Development > Development Setup`, and over WebDAV at `/on/demandware.servlet/webdav/Sites/Logs/`. Salesforce keeps [production and staging logs for 30 days](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html), moving them to a compressed `log_archive` folder after three days. That retention is not promised for sandboxes, so do not count on old logs there.
 
-I cannot tell you which file your realm writes the unzip lines to, so grep every log from the deploy window for `_upload-` (or for `.zip`, if your tool names its archive differently). Line up the timestamps against your pipeline runs, and look for two runs within seconds of each other.
+I cannot tell you which log file your instance writes the unzip lines to, so grep every log from the deploy window for `_upload-` (or for `.zip`, if your tool names its archive differently). Line up the timestamps against your pipeline runs, and look for two runs within seconds of each other.
 
-## Fixes That Work
+## Fixes and Workarounds
 
-**Retry only the right error, and slowly.** Retry lock errors with exponential backoff plus jitter, which means waiting longer after each failure and adding a little randomness so retries do not line up. Fail immediately on everything else, a 504 included, and look at which step failed before you run it again. The `b2c` command is the B2C CLI, Salesforce's command-line tool for code deployment. A sketch:
+**Retry only the right error, and slowly.** Retry lock errors with exponential backoff plus jitter, which means waiting longer after each failure and adding a little randomness so retries do not line up. Fail immediately on everything else, a 504 included, and look at which step failed before you run it again. A sketch:
 
 ```bash
 #!/usr/bin/env bash
@@ -171,7 +173,7 @@ Fresh names pile up, so watch the retention setting: automatic deletion removes 
 
 ## Preventing It in Automated Pipelines
 
-Two deploys running at once is the one possible cause that appears under both the lock errors and `FileAlreadyExistsException`, and it is the easiest to take off the table for your own pipeline. In GitHub Actions, a concurrency group per target instance does it:
+Concurrent deploys come up under both the lock errors and `FileAlreadyExistsException`. They are also the easiest cause to rule out, at least for your own pipeline. In GitHub Actions, a concurrency group per target instance does it:
 
 ```yaml
 concurrency:
