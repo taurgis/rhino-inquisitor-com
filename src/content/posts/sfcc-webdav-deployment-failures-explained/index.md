@@ -1,5 +1,5 @@
 ---
-title: "SFCC WebDAV Deployment Failures: Locked ZIPs and Unzip Errors"
+title: "SFCC WebDAV Deploy Failures: Locked ZIPs, Unzip Errors, 504s"
 description: >-
   Diagnose locked _upload ZIPs, "Could not unzip" errors, and FileAlreadyExistsException on B2C Commerce, then guard your CI pipeline against them.
 date: "2026-10-05T08:00:00.000Z"
@@ -23,7 +23,7 @@ takeaways:
   - "Shows how to diagnose these failures from the logs and by checking whether the archive and the code version directory exist on WebDAV"
   - "Covers retry limits, unique code version names, manual cleanup, and pipeline guards that keep two deploys from overlapping"
 ---
-Your pipeline pushes a cartridge build, and the log says `Resource [_upload-1775813917618.zip] is locked`. Less than a second later there is a second upload, `_upload-1775813918323.zip`, and the answer is the same. Eighteen minutes later there is a third timestamp, a third ZIP, and the same sentence. Nothing in the archive looks wrong, and the cartridges build fine on your laptop.
+Your pipeline pushes a cartridge build, and the log says `Resource [_upload-1775813909286.zip] is locked`. Eight seconds later a second upload, `_upload-1775813917618.zip`, fails with `Could not unzip file`, and the reason given is the same: `File is locked.` Nothing in the archive looks wrong, and the cartridges build fine on your laptop.
 
 If you have landed here by pasting an error string into a search engine, you are in the right place. This post sorts the recurring [WebDAV](/a-beginners-guide-to-webdav-in-sfcc/) deployment failures on B2C Commerce into the classes they belong to and ends with the pipeline guards that make them much less likely to come back.
 
@@ -33,7 +33,7 @@ Salesforce does not document the internals of the server-side unzip. Everything 
 
 Some vocabulary first. A *code version* is a folder on the instance that holds your cartridges, the packages of storefront code. Only one code version is *active* at a time. The others wait there for activation or a rollback.
 
-To deploy, your tool zips the cartridges, uploads the ZIP over WebDAV under a temporary name, and then asks the server to unzip it into the code version folder with a second request (the WebDAV `UNZIP` method). The temporary name is the tool's choice. In my logs it was `_upload-<timestamp>.zip`. The current B2C CLI uses `_sync-<timestamp>.zip` for `b2c code deploy` and `_upload-` plus a random ID for `b2c code watch`, and sfcc-ci keeps your ZIP's own filename. Whatever yours is called, that is the file to look for on the server. That is two steps, upload and extraction, and they fail in different ways. Keep that split in mind, because the rest of this post hangs on it.
+To deploy, your tool zips the cartridges, uploads the ZIP over WebDAV under a temporary name, and then asks the server to unzip it into the code version folder with a second request (the WebDAV `UNZIP` method). The temporary name is the tool's choice. In my logs it was `_upload-<timestamp>.zip`, the pattern the B2C CLI's `b2c code watch` [used until September 2026](https://github.com/SalesforceCommerceCloud/b2c-developer-tooling/blob/main/packages/b2c-tooling-sdk/src/operations/code/upload-files.ts). Today `b2c code watch` uses `_upload-` plus a random ID, `b2c code deploy` uses `_sync-<timestamp>.zip`, and sfcc-ci keeps your ZIP's own filename. Whatever yours is called, that is the file to look for on the server. That is two steps, upload and extraction, and they fail in different ways. Keep that split in mind, because the rest of this post hangs on it.
 
 ## Three Failure Classes, Not One
 
@@ -53,15 +53,13 @@ The first three tend to get lumped together because they all end as a failed upl
 Here is the pattern from the logs, boiled down:
 
 ```text
-Resource [_upload-1775813917618.zip] is locked
+Resource [_upload-1775813909286.zip] is locked
   -> processing cancelled
 Could not unzip file [_upload-1775813917618.zip]: File is locked.
-  -> new upload: _upload-1775813918323.zip
-Resource [_upload-1775813918323.zip] is locked
   ...
 ```
 
-Those long numbers look like epoch milliseconds (the time in milliseconds since 1 January 1970 UTC), and if they are, the first two ZIPs were created at 09:38:37 and 09:38:38 UTC on 10 April 2026, about 700 milliseconds apart. A third, `_upload-1775814996365.zip`, followed roughly 18 minutes later. Nobody uploads a cartridge archive twice in under a second by hand. Something retried, or something else started a second upload while the first was still being processed.
+Those long numbers look like epoch milliseconds (the time in milliseconds since 1 January 1970 UTC), and if they are, the two ZIPs were created at 09:38:29 and 09:38:37 UTC on 10 April 2026, about eight seconds apart. More `_upload-` names show up in the same logs, one about 18 minutes later, but my excerpt does not tie them to an outcome, so I leave them out. Two cartridge uploads eight seconds apart are rarely a person at a keyboard. Something retried, or something else started a second upload while the first was still being processed.
 
 The filenames are *different*, so this is not two files fighting over the same name. The names only tell you that a fresh upload started each time: the client picks the name, so a new name means a client tried again. My reading is that the thing being contended is the extraction, not the filename, but I cannot see inside the platform to prove it.
 
@@ -69,7 +67,7 @@ The stack trace backs this up. The failure runs through `FileServlet.doUnzip`, `
 
 A lock error might sound odd for WebDAV, because, as I covered in the [beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/#where-sfcc-parts-ways-with-the-standard), SFCC does not offer client-side `LOCK` and `UNLOCK`. The error text suggests the platform locks something internally during extraction anyway, though Salesforce's public documentation does not describe that mechanism. You cannot take those locks. You can only run into them.
 
-The diagram below shows the overlap I suspect, not one I have confirmed. One wrinkle: in my logs even the first ZIP reported itself locked, so the lock may have been held by something that never appears in the excerpt. A third ZIP still hitting the same error 18 minutes later also hints at a lock that stayed put, not a brief collision.
+The diagram below shows the overlap I suspect, not one I have confirmed. The log lines fit it: the lock message names the earlier ZIP, and the unzip that failed was the newer one, eight seconds later. Whether the earlier ZIP was still being extracted at that point, or had left a lock behind, the excerpt cannot tell me.
 
 ```mermaid
 sequenceDiagram
@@ -77,13 +75,11 @@ sequenceDiagram
     participant S as WebDAV server
     participant B as Deploy B
 
-    A->>S: PUT and UNZIP _upload-...917618.zip
+    A->>S: PUT and UNZIP _upload-...909286.zip
     S->>S: Lock, start unzip
-    B->>S: PUT and UNZIP _upload-...918323.zip
-    S-->>B: Resource is locked
-    B->>S: Retry with a new ZIP
-    S-->>B: Resource is locked
-    S-->>A: Unzip finished
+    B->>S: PUT and UNZIP _upload-...917618.zip
+    S-->>B: Could not unzip: File is locked
+    S-->>A: Unzip finished or stuck
 ```
 
 > [!NOTE]
@@ -114,7 +110,7 @@ This is a standard Java exception: something tried to create a file at a path wh
 
 The conflicting paths in the reports were ordinary cartridge assets. One was an icon PNG under `cartridge/static/default/icons/standard/`, another a page script such as `cartridge/client/default/.../pages/Overview.js`. The same destination kept showing up, so the server probably believed a file was already there when it tried to write it.
 
-Three explanations fit, and Salesforce support has confirmed none of them:
+Three explanations fit, and none of them is confirmed:
 
 - **Duplicate entries inside the ZIP.** The archive itself lists the same path twice, so the second write hits the first.
 - **Two extractions writing the same destination.** If `MultithreadingZipFileProcessor` is as parallel as its name suggests, two overlapping deploys could race to create the same file.
