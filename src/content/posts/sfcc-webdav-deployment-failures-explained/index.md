@@ -3,7 +3,7 @@ title: "SFCC WebDAV Deploy Failures: Locked ZIPs, Unzip Errors, 504s"
 description: >-
   Diagnose locked _upload ZIPs, "Could not unzip" errors, and FileAlreadyExistsException on B2C Commerce, then guard your CI pipeline against them.
 date: "2026-10-05T06:00:00.000Z"
-lastmod: "2026-10-05T06:00:00.000Z"
+lastmod: "2026-10-05T10:28:00.000Z"
 url: "/sfcc-webdav-deployment-failures-explained/"
 draft: false
 heroImage: sfcc-webdav-deployment-failures-hero.jpg
@@ -64,6 +64,14 @@ Could not unzip file [_upload-<timestamp>.zip]: File is locked.
 
 The names in these logs included `_upload-1775813917618.zip`, `_upload-1775813918323.zip`, and `_upload-1775814996365.zip`. In the B2C CLI source linked above, the number comes from `Date.now()`, which returns Unix epoch milliseconds: the time in milliseconds since 1 January 1970 UTC. Read that way, the first two names are 705 milliseconds apart, and the third is about 18 minutes later. Every name is different, so the failure is not two uploads writing to the same filename.
 
+To turn one of those numbers into a time you can line up against your pipeline runs:
+
+```bash
+# Both print the UTC time encoded in _upload-1775813917618.zip
+date -u -d @1775813917.618                                    # GNU date (Linux)
+node -e 'console.log(new Date(1775813917618).toISOString())'  # anywhere Node.js runs
+```
+
 The stack trace shows where the lock sits. The failure runs through `FileServlet.doUnzip`, `WebdavServlet.doUnzip`, `LockMgrImpl.runWithLock`, `ZipUtils.unzip`, and finally `MultithreadingZipFileProcessor.processWithValidation`. All of that is server code, inside the unzip request. The lock is taken on the instance, after your ZIP has arrived, not while your machine builds the archive.
 
 That lock is the platform's own. As I covered in the [beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/#where-sfcc-parts-ways-with-the-standard), SFCC does not offer client-side `LOCK` and `UNLOCK`, and Salesforce's public documentation does not describe the lock manager in this stack trace. You cannot take or release it from a client.
@@ -99,7 +107,9 @@ Two causes have been raised for this, and neither is confirmed:
 The first is quick to test locally, before you look at the platform:
 
 ```bash
-# Any output here means the same path appears more than once in the archive
+# unzip -Z1 lists every path in the archive, one per line, without extracting it.
+# uniq -d prints repeated lines, but only adjacent ones, which is why sort comes first.
+# Any output means the same path appears more than once in the archive.
 unzip -Z1 code.zip | sort | uniq -d
 ```
 
@@ -109,7 +119,7 @@ If the command prints nothing, the archive has no duplicate paths, which leaves 
 
 The fourth row of the table is the odd one out. `WebDAV authentication failed. Please (re-)authenticate first...` is what sfcc-ci prints for any 401 from a WebDAV request, and a comment in its source notes that the server answers with a 401 when the WebDAV Client Permission is not set. So the token request can succeed while the WebDAV request after it fails. The message's closing line, about checking the WebDAV Client Permissions, is the part worth reading. The fix lives in Business Manager (the admin tool of an instance) under `Administration > Organization > WebDAV Client Permissions`. There, the client needs access to the resources your deploy touches. For code deployment, the [B2C CLI authentication guide](https://salesforcecommercecloud.github.io/b2c-developer-tooling/guide/authentication.html#webdav-access) lists `/cartridges` with `read_write`. I walked through that screen in the [WebDAV beginner's guide](/a-beginners-guide-to-webdav-in-sfcc/).
 
-If you deploy to a staging instance, Salesforce requires a client certificate for code uploads there, so check that too. If you cannot get a token at all and your pipeline still logs in with a username and password, read [the MFA post](/account-manager-mfa-broke-sfcc-cicd/) first.
+If you deploy to a staging instance, Salesforce requires a client certificate for code uploads there, so check that too. With the B2C CLI, that is a PKCS12 (`.p12`) file passed through `SFCC_CERTIFICATE` and `SFCC_CERTIFICATE_PASSPHRASE`, or the `--certificate` and `--passphrase` flags. On Hyperforce, code uploads go to the `staging-<realm>-<customer>.demandware.net` hostname, and the separate `cert.staging.*` WebDAV hostname applies only until your realm is migrated. The CLI's [CI/CD guide](https://salesforcecommercecloud.github.io/b2c-developer-tooling/guide/ci-cd.html#staging-environments-two-factor-mtls) covers both setups, including how to store the certificate as a GitHub secret. If you cannot get a token at all and your pipeline still logs in with a username and password, read [the MFA post](/account-manager-mfa-broke-sfcc-cicd/) first.
 
 One rule follows from the upload step: if your upload ZIP is on the server, the client was allowed to write it, so the failure came after the upload.
 
@@ -141,9 +151,11 @@ curl -sS -w '\nHTTP %{http_code}\n' -X PROPFIND -H "Depth: 1" \
   "https://$HOST/on/demandware.servlet/webdav/Sites/Cartridges/" | grep -oE '<([A-Za-z]+:)?href>[^<]*|^HTTP [0-9]+'
 ```
 
+The response is XML, with one `href` element per file or folder. The `grep` keeps those paths and the status line, so leftover ZIPs and code version folders come out one per line.
+
 Then read the logs. Business Manager exposes them through the Folder Browser tab under `Administration > Site Development > Development Setup`, and over WebDAV at `/on/demandware.servlet/webdav/Sites/Logs/`. Salesforce keeps [production and staging logs for 30 days](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html), moving them to a compressed `log_archive` folder after three days. That retention is not promised for sandboxes, so do not count on old logs there.
 
-I cannot tell you which log file your instance writes the unzip lines to, so grep every log from the deploy window for `_upload-` (or for `.zip`, if your tool names its archive differently). Line up the timestamps against your pipeline runs, and look for two runs within seconds of each other.
+I cannot tell you which log file your instance writes the unzip lines to, so grep every log from the deploy window for `_upload-` (or for `.zip`, if your tool names its archive differently). Line up the timestamps against your pipeline runs, and look for two runs within seconds of each other. Files in `log_archive` are gzipped, so search those with `zgrep` instead of `grep`.
 
 ## Fixes and Workarounds
 
@@ -153,7 +165,8 @@ I cannot tell you which log file your instance writes the unzip lines to, so gre
 #!/usr/bin/env bash
 # Retries only lock errors. Add your own flags to the deploy command.
 # Check that your tool really prints the lock message, or the match never fires.
-# Waits: about 80s, 160s, then 320s.
+# Each wait is 2^attempt x 40 seconds, plus 0-14 seconds of jitter from $RANDOM % 15:
+# about 80s, 160s, then 320s.
 for attempt in 1 2 3 4; do
   if out=$(b2c code deploy --code-version "build-$BUILD_NUMBER" 2>&1); then echo "$out"; exit 0; fi
   echo "$out"
@@ -185,7 +198,7 @@ With `cancel-in-progress: false`, a running deploy finishes before the next star
 
 Three more guards belong in the same pipeline:
 
-- **Split deploy from activation.** Activation switches the instance over to the new code version. Build the ZIP, run `b2c code deploy`, confirm success, then run `b2c code activate` as a separate step. When something fails, you at least know whether it broke in the deploy (upload and extraction) or in the activation. Salesforce's [code deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) calls the B2C CLI the recommended method for GitHub Actions or Jenkins pipelines, instead of manual uploads. Its own example pushes and activates in one step; keeping them apart is my preference, not a Salesforce rule.
+- **Split deploy from activation.** Activation switches the instance over to the new code version. Build the ZIP, run `b2c code deploy`, confirm success, then run `b2c code activate` as a separate step. When something fails, you at least know whether it broke in the deploy (upload and extraction) or in the activation. Salesforce's [code deployment guide](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html) calls the B2C CLI the recommended method for GitHub Actions or Jenkins pipelines, instead of manual uploads. Its own example pushes and activates in one step, so keeping them apart is my preference, not a Salesforce rule. Salesforce's [code replication](https://help.salesforce.com/s/articleView?id=cc.b2c_code_replication_processes.htm&language=en_US), which moves a code version from staging to production, makes the same split: transfer and activation can run as one process or two, and Salesforce notes that running them separately can help identify the source of failures.
 - **Verify before activating.** Run the `PROPFIND` check above against the new code version folder. A missing folder should fail the job, not an activation a minute later. A folder that exists is no proof of a complete extraction, so also look for a file you know should be inside it.
 - **Hunt for the second trigger.** A concurrency group only protects your pipeline. A colleague with a WebDAV client, a second repository deploying to the same instance, or someone running `b2c code watch` (the CLI's file watcher) against a shared sandbox bypasses it entirely. When locks keep appearing despite a guard, ask who else is writing to that instance.
 
