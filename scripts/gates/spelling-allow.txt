@@ -324,6 +324,7 @@ javed
 jem
 jetbrains
 jetlag
+jitter
 jonze
 jordane
 jsdoc
