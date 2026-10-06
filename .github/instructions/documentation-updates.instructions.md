@@ -7,7 +7,7 @@ applyTo: '**'
 
 ## Mandatory Pre-Step
 
-When this gate is triggered, consult and apply `.github/skills/documentation/SKILL.md` before finalizing implementation changes.
+When this gate is triggered, consult and apply `.agents/skills/documentation/SKILL.md` before finalizing implementation changes.
 
 ## Trigger Conditions
 

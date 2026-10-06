@@ -68,7 +68,7 @@ You are a Hugo design and implementation specialist for content-driven websites,
 
 ## Key reference files
 
-- `.github/skills/hugo-development/SKILL.md`
+- `.agents/skills/hugo-development/SKILL.md`
 - `.github/instructions/hugo-coding-standards.instructions.md`
 - `.github/instructions/seo-compliance.instructions.md`
 - `.github/instructions/ci-workflow-standards.instructions.md`

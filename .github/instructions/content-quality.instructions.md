@@ -53,6 +53,6 @@ Before committing or approving any file matched by `applyTo`, run the Content Bo
 
 ## References
 
-- `.github/skills/hugo-development/SKILL.md` — Front matter fields and content authoring rules
+- `.agents/skills/hugo-development/SKILL.md` — Front matter fields and content authoring rules
 - [WCAG 2.2 — Image alt text](https://www.w3.org/TR/WCAG22/#non-text-content) — Accessibility requirement for image descriptions
 - [Google image best practices](https://developers.google.com/search/docs/appearance/google-images) — Alt text and image SEO guidance
