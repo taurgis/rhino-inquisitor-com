@@ -29,3 +29,14 @@ This concludes our discussion of session handling.
 ### After
 
 The key design point is that session bridging is a transition strategy, not a permanent architecture target, in mixed OCAPI and SCAPI storefronts.
+## Example 4: Fill the logic gap, flag the specifics gap
+
+### Before
+
+The pre-commit hook rejected the post. Teams often struggle with this gate, and it is important to understand why it fails.
+
+### After
+
+The pre-commit hook rejected the post because it linked to a domain that is not on the external-link allowlist. A new domain has to be registered in `scripts/gates/external-link-domains.js` before the commit goes through. <!-- TODO author: which link tripped it? -->
+
+Context: the repo's publishing docs state the allowlist rule, so the mechanism is filled in from them. Which link tripped it is not on the page, so the editor marks the gap instead of inventing a domain.

@@ -477,7 +477,7 @@ This is READ-ONLY: do not edit the post or any other repo file. Propose each fix
 
 Hard limits on every \`newText\`:
 - Keep every claim, qualification, number, version, API or class name, menu path, link, and technical term exactly as the post states it. The fact-check just verified this text; a style fix must not re-open it. The corrections it made are listed below — leave their facts intact.
-- Never invent a specific to replace a vague phrase. If a sentence needs a fact the post, brief, or research does not contain, propose no rewrite and say so in \`reason\` instead.
+- Never invent a specific to replace a vague phrase. If a sentence needs a fact the post, brief, or research does not contain, either keep it general or append a \`<!-- TODO author: ... -->\` comment naming the missing fact, as the skill describes.
 - Never edit inside a quotation, code fence, inline code, Mermaid block, or front matter.
 - Keep British English and the author's first-person, dry practitioner voice. Do not strip motivated hedges such as "I think" or "as far as I can tell".
 
@@ -573,6 +573,7 @@ Also manually confirm against \`.agents/skills/hugo-development/SKILL.md\` and t
 - all internal links are relative paths — no absolute rhino-inquisitor.com URLs
 - any internal link that points to another \`draft: true\` post is wrapped in the \`{{< when-published >}}\` shortcode (see \`docs/publishing/when-published-shortcode.md\`) — a direct link to an unpublished draft fails the deploy's internal-link gate
 - body starts headings at \`##\`, fenced code blocks carry a language tag
+- list every remaining \`<!-- TODO ... -->\` comment (\`TODO verify\` from the fact-check, \`TODO author\` from the prose passes) in remainingManualSteps. Hugo does not render raw HTML in Markdown (\`markup.goldmark.renderer.unsafe\` defaults to false and this repo does not set it), so a comment left behind never shows on the page and no gate catches it; leave them in the file for the author
 - if the post links to a new external domain, it must be registered in \`scripts/gates/external-link-domains.js\` before it can be committed — flag this, don't edit that file yourself
 
 Independently count the words in the post's body (excluding front matter) yourself — do not copy the draft agent's self-reported word count — and confirm it meets the 800-word minimum from \`src/content/posts/AGENTS.md\`. If it falls short, note it in failures/remainingManualSteps rather than padding the post yourself.

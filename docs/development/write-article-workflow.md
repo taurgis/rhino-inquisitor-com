@@ -88,6 +88,13 @@ named sections, so a future skill edit cannot leave them stale again.
   `chapterVerdicts`, instead of `issuesFixed`/`issuesFlaggedNotFixed`.
 - `depth` does not change the anti-ai-writing pass: it is always one reviewer
   per chapter.
+- The Gate phase now lists every remaining `<!-- TODO verify -->` and
+  `<!-- TODO author -->` comment in `remainingManualSteps`. Both prose skills
+  now tell editors to flag a missing fact with `TODO author` instead of
+  inventing one. Hugo does not render raw HTML in Markdown
+  (`markup.goldmark.renderer.unsafe` defaults to `false`, per
+  <https://gohugo.io/configuration/markup/>), so a forgotten comment would
+  never show on the page and no deploy gate would catch it.
 
 ### Impact and verification
 
@@ -107,6 +114,87 @@ chapter after the fact-check, and an all-clean review skipped the apply agent.
   `verify-human-prose-editing` prompt
 - `.agents/skills/anti-ai-writing/SKILL.md` — the rules reviewers apply
 - `.github/instructions/post-writing-skills.instructions.md` — the ordering rule
+
+## Update: prose skills extended with 2025–2026 evidence (2026-10-06)
+
+### Change summary
+
+A second research pass on `anti-ai-writing` and `human-prose-editing` looked
+for evidence published since the 2026-09-18 rebuild, and for evidence on how
+LLM *editors* fail, since this workflow runs both skills through agents. Three
+findings drove the changes. LLM editors are poor at adding specifics and tend
+to invent or swap in stock phrases (Chakrabarty et al., CHI 2025). LLM
+revision moves every author's voice the same way, and a "preserve the voice"
+instruction only cut the effect by a third (van Nuenen, 2026). Corrective
+framing ("this isn't A, it's B"), which the skills had filed as [Taste]
+because nothing measured it, now has corpus measurements (Antislop; Graphite
+2026). Every source was fetched through Bonsai, and the quoted figures were
+checked against the cached text.
+
+### Old vs new behavior
+
+- **`anti-ai-writing`, before:** no rule against inventing specifics; its
+  "prefer" table replaced vague phrases with facts that might not exist. No
+  guidance on corrective framing, mannered prose, vague attribution, or edit
+  history left in the text. The diagnostic snippet ran on a hard-coded
+  `index.md` and counted inline code.
+- **`anti-ai-writing`, after:**
+  - The restraint rule now requires keeping every claim and using only
+    specifics the post, notes, or a source supply. A missing fact gets a
+    `<!-- TODO author: ... -->` comment.
+  - New [Evidenced] markers: corrective framing and self-narrating adverbs
+    ("is genuinely": 1,021 against 4 in Graphite's corpus).
+  - New [Craft] moves, sourced to Wikipedia's AI Cleanup project and
+    Anthropic's style docs: mannered prose, significance inflation and vague
+    attribution, and draft/chat residue.
+  - A new "When an Agent Applies This Skill" section covers the measured
+    failure modes of LLM editors: cliché swapping, meaning drift, and voice
+    flattening.
+  - `In order to` is reclassified as a concision edit, not an AI tell:
+    Wikipedia lists it among the signs of *human* writing.
+  - The diagnostic snippet takes the post path as an argument, strips inline
+    code, and counts five more patterns.
+  - Every example now uses only facts its context supplies. One example shows
+    the correct output being no edit.
+- **`human-prose-editing`, before:** the additive pass filled any gap,
+  including examples and first-person judgements. Repeated contrast formulas
+  were [Taste]. Voice preservation relied on judgement alone.
+- **`human-prose-editing`, after:**
+  - The additive pass separates missing *logic* (fill it from sources) from
+    missing *specifics* (author only; flag it). Redundant exposition is named
+    as the inverse defect.
+  - Moves that recur across sections are [Evidenced] and owned by this skill;
+    a single instance belongs to `anti-ai-writing`.
+  - Voice preservation adds a check an editor can run: count first-person
+    pronouns, contractions, and `because`/`so` links before and after the
+    pass, and justify any drop.
+  - The "do not run twice" rule now cites evidence that repeated LLM edits
+    compound damage, and warns that an LLM editor's sense that a revision
+    "reads better" is biased toward its own and longer text.
+  - Its own uses of "load-bearing" were replaced.
+
+### Impact and verification
+
+No runtime, build, or deploy gate changes; these are agent instructions used by
+`write-article` and by anyone running the skills directly. To verify, run the
+`anti-ai-writing` diagnostic snippet on any post:
+`src/content/posts/sfcc-webdav-deployment-failures-explained/index.md` returns
+2 which-tails, 1 marker word, and 0 for every new pattern. A synthetic sample
+containing each new pattern made each counter fire, with inline code ignored.
+Then run either skill on a draft and check that each proposed change names a
+tier and a pattern, and that no change adds a fact.
+
+### Related files
+
+- `.agents/skills/anti-ai-writing/SKILL.md`,
+  `.agents/skills/anti-ai-writing/references/REFERENCE.md`,
+  `.agents/skills/anti-ai-writing/examples/EXAMPLES.md`
+- `.agents/skills/human-prose-editing/SKILL.md`,
+  `.agents/skills/human-prose-editing/references/REFERENCE.md`,
+  `.agents/skills/human-prose-editing/examples/EXAMPLES.md`
+- `.claude/workflows/write-article.js` — the per-chapter reviewer prompt and
+  the Gate phase TODO listing
+- `.bonsai/research/` — cached sources for this pass
 
 ## Update: fact-check split per chapter (2026-10-05)
 

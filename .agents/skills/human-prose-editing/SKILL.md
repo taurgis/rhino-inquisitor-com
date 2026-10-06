@@ -28,6 +28,13 @@ So run the additive pass **first**, before any cutting:
 3. Where the draft reports a number, is the reader told what it means?
 4. Where you wrote "obviously", "of course", or "it turns out", you have probably skipped a step. Williams' diagnostic: ask the writer for the point, and if the answer is "it's obvious", the point is missing from the page.
 
+The additive pass has two kinds of gap, and they need different fills:
+
+- **Missing logic** — an unstated mechanism, a number with no meaning attached, a step the argument skips. Fill it from what the post, its sources, or a fetched document already establish.
+- **Missing specifics** — a real example, an incident, a measurement, a first-person judgement. These come from the author's notes or a cited source, never from the editor. Flag the gap (`<!-- TODO author: an example of a deploy that hit this? -->`) instead of writing one. When professional writers edited LLM prose, the need to add specificity did not shrink as the LLM paragraphs got better, and LLM editors were "mostly ineffective" at supplying it ([Chakrabarty et al., CHI 2025](https://arxiv.org/abs/2409.14509)); an editor that invents the example produces a confident falsehood in the author's voice.
+
+The inverse defect is real too. Redundant exposition — a sentence that explains what the previous one already showed, often as a `[point], [explanation of the point]` tail — was 18% of the writers' edits in the same study. Adding the missing step and cutting the restated one are both this skill's job.
+
 Klinkenborg: "It's true that the simplest revision is deletion. But there's often a fine sentence lurking within a bad sentence… Don't try to fix an existing sentence with minimal effort, without reimagining it" ([Craft Literary](https://www.craftliterary.com/2017/09/26/several-short-klinkenborg/)).
 
 ## Cohesion Mechanics (the checkable part)
@@ -50,7 +57,7 @@ This is the most teachable material in the skill, and the part to reach for when
 
 - A paragraph needs a consistent **topic string** (the subjects of its sentences) *and* a **thematic string** (a set of conceptually related words running through it — related, not repeated).
 - Every section needs one **POINT sentence** that exists on the page. Williams places it at the end of the opening issue, and explicitly rejects the handbook rule that a paragraph must open with a topic sentence. Either position is defensible; the point being absent is not.
-- Readers remember the **ending first, the beginning second, the middle least** ([Duke WRP](https://wrp.duke.edu/sites/twp.duke.edu/files/documents/updated-Cohesion-and-Coherence-Handout-Feb2023.pdf)). Put the load-bearing sentence accordingly.
+- Readers remember the **ending first, the beginning second, the middle least** ([Duke WRP](https://wrp.duke.edu/sites/twp.duke.edu/files/documents/updated-Cohesion-and-Coherence-Handout-Feb2023.pdf)). Put the sentence the section depends on accordingly.
 - Cohesion is not coherence. Prose can link perfectly sentence to sentence and still be about nothing; the Duke handout demonstrates it with a passage that slides from lecture notes to poodles to birdseed.
 
 Williams' line that matters most for this blog: "Since we ordinarily write for readers who know much less than we do about a subject, it is always prudent to underestimate a reader's knowledge and make themes explicit."
@@ -62,7 +69,8 @@ Tag findings honestly, the same way `anti-ai-writing` does.
 **[Evidenced]**
 
 - **Uniform distribution of rhetorical devices.** Human experts *cluster* their devices at argumentative stress points; LLM text spreads them evenly across the document. Measured as a distribution-evenness score in [arXiv 2604.19768](https://arxiv.org/abs/2604.19768). Actionable: put your sharpest turn of phrase where the argument turns, and leave the connective tissue plain. Even excellence is a marker when it is evenly spread.
-- **Missing reader engagement.** LLM prose carries fewer rhetorical questions and personal asides than human writing — measured in essays ([Jiang & Hyland](https://ueaeprints.uea.ac.uk/id/eprint/97952/)) and again in expert prose. This makes engagement an *additive* fix: one real question, one first-person judgement, one admission of uncertainty per section is corrective, not decoration.
+- **Missing reader engagement.** LLM prose carries fewer rhetorical questions and personal asides than human writing — measured in essays ([Jiang & Hyland](https://ueaeprints.uea.ac.uk/id/eprint/97952/)) and again in expert prose. This makes engagement an *additive* fix: one real question, one first-person judgement, one admission of uncertainty per section is corrective, not decoration. The judgement and the uncertainty must be the author's — taken from their notes or already in the draft, never composed for them.
+- **Moves that recur across sections.** Corrective framing ("this isn't A, it's B") is measured at 6.3× the human rate in some models ([Antislop](https://arxiv.org/abs/2510.15061)) and named by expert detectors as a structural tell ([Russell et al.](https://arxiv.org/abs/2501.15654)). One instance is a sentence problem for `anti-ai-writing`. The same pivot, the same closing verdict, or the same opener in every section is a document problem, and it is yours: keep the instance that does real work and rewrite the others.
 - **Structural reuse across documents.** LLMs reuse discourse structures between posts even when the content differs ([QUDsim, arXiv 2504.09373](https://arxiv.org/abs/2504.09373)). So audit **several posts side by side**, not one paragraph in isolation. If three posts open with a scene, pivot at the same point, and close on a caution, the template is the problem even though each post reads well alone.
 
 **[Craft]**
@@ -89,7 +97,7 @@ Tag findings honestly, the same way `anti-ai-writing` does.
 - Prose that is evenly good — no plain stretches, no peaks.
 - Paragraphs that assert consequence without stating mechanism.
 - Abstract nouns where a real object exists; hand these to `anti-ai-writing`.
-- Repeated contrast formulas — "not just X but Y", "this is not A, it is B". **[Taste]**: no corpus study measures these, so treat them as a personal tic to thin out, not a violation.
+- The same contrast formula, closer, or opener in several sections (see "Moves that recur across sections" above).
 
 ## Paragraph-Level Method
 
@@ -132,6 +140,8 @@ A defensible edit can still erase the author. ACES demonstrates it: "As far as I
 
 Saller's warning applies to structure as much as to sentences: "Repetition, alliteration, long sentences, comma splices — almost any writing foible that we tend to see as problematic can work brilliantly in the right place" ([CMOS Shop Talk](https://cmosshoptalk.com/2019/09/17/do-you-overstep-when-editing-fiction-three-easy-cures/)).
 
+LLM editors erase voice in a measurable, consistent direction. Revisions by GPT-5.4, Claude Sonnet 4.6, and Gemini 3.1 Pro all cut function words and first-person pronouns, lengthened words, and compressed explicit causal reasoning into abstraction; a voice-preserving instruction cut the effect by 32% and left its direction unchanged ([van Nuenen, arXiv 2604.22142](https://arxiv.org/abs/2604.22142)). Writers who post-edited LLM drafts kept text closer to LLM style than to their own, while perceiving it as their own ([arXiv 2604.24444](https://arxiv.org/abs/2604.24444)). So "it still sounds like the author" is not a check an editor can run by feel. Run this one instead: count first-person pronouns, contractions, and `because`/`so` links in each section before and after your pass. If any count dropped, each removal needs its own reason, or it goes back.
+
 Counter-evidence, held deliberately: ACES has also argued the opposite, that "not every writer has a terrific voice" and the real question is whether you are editing *enough* ([archived](https://web.archive.org/web/20231129181014/https://aceseditors.org/news/2018/how-much-editing-is-too-much-heres-the-answer-with-a-twist)). Both are true at different times. On this blog the author's voice is established and the default is restraint.
 
 ## When To Stop
@@ -143,7 +153,9 @@ State a stop condition before starting, and honour it.
 - Stop when a section is shorter but tells the reader less — and revert that change.
 - Stop counting anything once the count is in a defensible range; a number is a prompt to look, never a target to hit.
 
-Do not run this skill twice in a row on the same text. A second consecutive pass reliably trades specificity for smoothness, which is the defect it exists to fix.
+Do not run this skill twice in a row on the same text. A second consecutive pass trades specificity for smoothness, which is the defect it exists to fix. The evidence for compounding is direct: frontier models relaying edits through long workflows corrupted an average of 25% of document content, worse on longer documents and in natural-language domains than programmatic ones ([DELEGATE-52, arXiv 2604.15597](https://arxiv.org/abs/2604.15597)); repeated LLM paraphrasing settles into stable repeating cycles that limit linguistic diversity ([arXiv 2502.15208](https://arxiv.org/abs/2502.15208)); and less constrained instructions ("improve this") pull text toward stronger attractors than constrained ones ([Perez et al., arXiv 2407.04503](https://arxiv.org/abs/2407.04503)). Make each change for a named reason, as small as that reason allows.
+
+Your own sense that a revision is better is also biased: LLM judges rate their own outputs higher than humans do ([Panickssery et al.](https://arxiv.org/abs/2404.13076)) and prefer longer answers more than humans do ([Saito et al.](https://arxiv.org/abs/2310.10076)). "Reads better to me" is not a reason; a named signal from this skill is.
 
 ## Editing Checklist
 
@@ -154,6 +166,8 @@ Do not run this skill twice in a row on the same text. A second consecutive pass
 - Sharp phrasing is clustered where the argument turns, not spread evenly.
 - The reader can hear a specific person's judgement.
 - Quotations, code, and diagrams are untouched.
+- Every example, number, and first-person statement came from the author or a source, not from you.
+- First-person pronouns, contractions, and causal links did not drop without a reason.
 
 ## Best Practice References
 
