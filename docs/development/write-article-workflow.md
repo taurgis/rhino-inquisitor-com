@@ -21,8 +21,8 @@ This exists because authoring a post already means chaining research, `human-pro
 ## How to run it
 
 - From Claude Code: `Workflow({ name: 'write-article', args: '<topic brief>' })`, or pass `{ brief, notes, slugHint, depth }` for extra context (`depth: 'thorough'` for higher-stakes posts; default is `'quick'`).
-- Model assignment: research and the style/skills/duplicate-topic review run on Haiku; drafting, image-prompt generation, all verification passes, and the gate-check phase run on Sonnet. The per-chapter fact reviewers run on Sonnet at `high` effort; the chapter-listing step runs on Haiku at `low` effort.
-- Phases: `Research` (parallel: grounded web research + style/voice/duplicate review; early-exits on a near-duplicate topic) → `Draft` (write the post, then generate image prompt files) → `Verify` (sequential: `human-prose-editing`, `anti-ai-writing`, conditionally `beginner-technical-writing`, per-chapter fact-check (reviewers per chapter set by `depth`), then a holistic read) → `Gate` (frontmatter/spelling/markdownlint/callout/when-published/preflight checks, an independent word-count check, and a manual SEO/content-quality checklist).
+- Model assignment: research and the style/skills/duplicate-topic review run on Haiku; drafting, image-prompt generation, all verification passes, and the gate-check phase run on Sonnet. The per-chapter fact reviewers run on Sonnet at `high` effort, the per-chapter anti-ai-writing reviewers on Sonnet at `medium` effort; the chapter-listing step runs on Haiku at `low` effort.
+- Phases: `Research` (parallel: grounded web research + style/voice/duplicate review; early-exits on a near-duplicate topic) → `Draft` (write the post, then generate image prompt files) → `Verify` (in order: `human-prose-editing`, conditionally `beginner-technical-writing`, per-chapter fact-check (reviewers per chapter set by `depth`), per-chapter `anti-ai-writing` review, then a holistic read) → `Gate` (frontmatter/spelling/markdownlint/callout/when-published/preflight checks, an independent word-count check, and a manual SEO/content-quality checklist).
 
 ## Impact and verification
 
@@ -45,6 +45,68 @@ This exists because authoring a post already means chaining research, `human-pro
 - `.agents/skills/human-prose-editing/SKILL.md`, `.agents/skills/anti-ai-writing/SKILL.md`, `.agents/skills/beginner-technical-writing/SKILL.md`, `.agents/skills/web-research/SKILL.md`, `.agents/skills/image-caption-writing/SKILL.md`, `.agents/skills/audience-layering/SKILL.md`, `.agents/skills/code-walkthrough-authoring/SKILL.md` — skills it invokes or references
 - `.github/instructions/post-writing-skills.instructions.md` — the skill ordering/routing it follows
 - `.github/instructions/content-quality.instructions.md`, `.github/instructions/seo-compliance.instructions.md`, `.github/instructions/hugo-coding-standards.instructions.md` — the gates it checks against
+
+## Update: anti-ai-writing runs per chapter, after the fact-check (2026-10-06)
+
+### Change summary
+
+The `anti-ai-writing` pass now runs one read-only Sonnet reviewer per chapter,
+after the fact-check, instead of one whole-post editing pass before it. Two
+problems prompted this. First, the old pass ran before `beginner-technical-writing`
+and before the fact-check, and both of those write new sentences, so their text
+never got a sentence-level review. Second, the workflow prompts for both prose
+passes named skill sections ("Detection Reality warning", "Sentence-Level
+Signals To Remove", "Quick Pass Checklist") that the 2026-09-18 skill rebuild
+removed. The new prompts tell agents to read and follow the whole skill, not
+named sections, so a future skill edit cannot leave them stale again.
+
+### Old vs new behavior
+
+- **Before:** `human-prose-editing` → `anti-ai-writing` (one Sonnet agent, whole
+  post, editing directly) → `beginner-technical-writing` (if teaching post) →
+  per-chapter fact-check → holistic read.
+- **After:** `human-prose-editing` → `beginner-technical-writing` (if teaching
+  post) → per-chapter fact-check → per-chapter `anti-ai-writing` review →
+  holistic read. `human-prose-editing` still runs before `anti-ai-writing`, as
+  `post-writing-skills.instructions.md` requires.
+  1. `anti-ai-review:<n>:<chapter>` (Sonnet, `effort: 'medium'`) runs in
+     parallel, one per chapter from the fact-check's chapter list. Each reviewer
+     reads the full skill, is read-only, and returns findings with exact
+     `oldText`/`newText`, the skill rule, and its evidence tier. Reviewers must
+     keep every claim, number, name, link, and term (the fact-check has just
+     verified them), must not invent specifics, must not touch quotations, code,
+     Mermaid, or front matter, and may return no findings.
+  2. `anti-ai-apply` (Sonnet) applies the [Evidenced] and [Craft] findings,
+     rejects any that change a claim or blur a fact-check correction, and fixes
+     moves that reviewers saw recurring across chapters (which no single
+     per-chapter reviewer can judge). [Taste] findings are returned to the
+     author unapplied, as the skill requires.
+  3. If no chapter returns an [Evidenced] or [Craft] finding and nothing
+     recurs, the apply agent is skipped and the file is left unchanged.
+- `verification.antiAiWriting` now holds `applied`, `rejected`,
+  `tasteSuggestionsForAuthor`, `recurringPatternsFixed`, and per-chapter
+  `chapterVerdicts`, instead of `issuesFixed`/`issuesFlaggedNotFixed`.
+- `depth` does not change the anti-ai-writing pass: it is always one reviewer
+  per chapter.
+
+### Impact and verification
+
+Only the write-article workflow's Verify phase changes. No site runtime or
+deploy gate is affected. A run now spawns one more agent per chapter plus one
+apply agent, and the whole-post anti-ai agent is gone. To verify, run the
+workflow and confirm the Verify phase shows `fact-check-apply`, then one
+`anti-ai-review:` agent per chapter, then `anti-ai-apply` (or a log line saying
+no fixes were proposed), then `holistic-read`. The script was exercised with
+mocked agents: quick and thorough both produced one anti-ai reviewer per
+chapter after the fact-check, and an all-clean review skipped the apply agent.
+
+### Related files
+
+- `.claude/workflows/write-article.js` — `CHAPTER_PROSE_REVIEW_SCHEMA`,
+  `PROSE_APPLY_SCHEMA`, the reordered Verify phase, and the rewritten
+  `verify-human-prose-editing` prompt
+- `.agents/skills/anti-ai-writing/SKILL.md` — the rules reviewers apply
+- `.github/instructions/post-writing-skills.instructions.md` — the ordering rule
 
 ## Update: fact-check split per chapter (2026-10-05)
 

@@ -1,11 +1,11 @@
 export const meta = {
   name: 'write-article',
   description: 'Research, draft, verify, and gate-check a new rhino-inquisitor.com blog post from a topic brief',
-  whenToUse: 'When the user gives a topic/goal for a brand-new post under src/content/posts/** and wants a full first-draft pass: research, drafting, image prompts, prose/fact verification, and quality gates — stopping short of publish. Stops early after Research if the topic looks like a near-duplicate of an existing post. The fact-check runs one read-only Sonnet (high effort) reviewer per chapter, then one agent applies the merged corrections; pass args.depth: "thorough" on higher-stakes posts to add a second, adversarial reviewer per chapter (default "quick" is one reviewer per chapter).',
+  whenToUse: 'When the user gives a topic/goal for a brand-new post under src/content/posts/** and wants a full first-draft pass: research, drafting, image prompts, prose/fact verification, and quality gates — stopping short of publish. Stops early after Research if the topic looks like a near-duplicate of an existing post. The fact-check runs one read-only Sonnet (high effort) reviewer per chapter, then one agent applies the merged corrections; pass args.depth: "thorough" on higher-stakes posts to add a second, adversarial reviewer per chapter (default "quick" is one reviewer per chapter). The anti-ai-writing pass also runs per chapter (one read-only Sonnet reviewer each), after the fact-check, so text written by the beginner and fact-check passes gets the same sentence-level review.',
   phases: [
     { title: 'Research', detail: 'grounded web research + style/skills/duplicate-topic review (Haiku); early-exits on near-duplicate topics' },
     { title: 'Draft', detail: 'write the post + generate image/screenshot prompt files (Sonnet)' },
-    { title: 'Verify', detail: 'sequential human-prose-editing, anti-ai-writing, beginner-technical-writing, per-chapter fact-check (1 or 2 reviewers per chapter, by depth), holistic read (Sonnet)' },
+    { title: 'Verify', detail: 'human-prose-editing, beginner-technical-writing, per-chapter fact-check (1 or 2 reviewers per chapter, by depth), per-chapter anti-ai-writing review, holistic read (Sonnet)' },
     { title: 'Gate', detail: 'run repo quality gates, independently verify word count, and report pass/fail (Sonnet)' },
   ],
 }
@@ -171,6 +171,47 @@ const CHAPTER_FACT_REVIEW_SCHEMA = {
   required: ['chapter', 'chapterVerdict', 'claims'],
 }
 
+const CHAPTER_PROSE_REVIEW_SCHEMA = {
+  type: 'object',
+  description: 'Read-only anti-ai-writing review of one chapter — no file edits.',
+  properties: {
+    chapter: { type: 'string' },
+    findings: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          pattern: { type: 'string', description: 'The skill rule this change applies, by name (e.g. "trailing participial clause", "invented-specific risk")' },
+          tier: { type: 'string', enum: ['Evidenced', 'Craft', 'Taste'] },
+          reason: { type: 'string', description: 'One sentence: why this sentence is worse than the rewrite' },
+          oldText: { type: 'string', description: 'Exact verbatim substring of the post (prose only — never inside a quotation, code fence, or Mermaid block)' },
+          newText: { type: 'string', description: 'Replacement text. Same claims, same facts, same technical terms, same links' },
+        },
+        required: ['pattern', 'tier', 'reason', 'oldText', 'newText'],
+      },
+    },
+    recurringAcrossPost: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Moves you saw repeated in other chapters too (same pivot, same closer, same opener). Report them; do not fix outside your chapter',
+    },
+    chapterVerdict: { type: 'string', description: 'One sentence: does this chapter read as written by the author, or does generated phrasing remain?' },
+  },
+  required: ['chapter', 'findings', 'chapterVerdict'],
+}
+
+const PROSE_APPLY_SCHEMA = {
+  type: 'object',
+  properties: {
+    changesSummary: { type: 'string' },
+    applied: { type: 'array', items: { type: 'string' }, description: 'Chapter, pattern, and a short before/after for each applied fix' },
+    rejected: { type: 'array', items: { type: 'string' }, description: 'Proposed fixes not applied, each with why (changed a claim, touched a quote/code, overlapped a fact correction, made the sentence worse)' },
+    tasteSuggestionsForAuthor: { type: 'array', items: { type: 'string' }, description: '[Taste] proposals, left unapplied for the author to decide' },
+    recurringPatternsFixed: { type: 'array', items: { type: 'string' } },
+  },
+  required: ['changesSummary', 'applied', 'rejected'],
+}
+
 const HOLISTIC_SCHEMA = {
   type: 'object',
   properties: {
@@ -308,26 +349,21 @@ Return promptFiles (path + forImage for each file written).`,
 )
 
 phase('Verify')
-log(`Running human-prose-editing, anti-ai-writing, fact verification (${depth} mode), and a holistic read in sequence (same file — no parallel edits).`)
+log(`Running human-prose-editing, beginner-technical-writing, a per-chapter fact-check (${depth} mode), a per-chapter anti-ai-writing review, and a holistic read in that order. Edits to the post never run in parallel; per-chapter reviewers are read-only and one agent applies their fixes.`)
 
 const humanProseResult = await agent(
-  `Apply the \`human-prose-editing\` skill (\`.agents/skills/human-prose-editing/SKILL.md\`) to the draft at \`${draft.filePath}\`. Edit paragraph rhythm, section openings/endings, and voice per its "Thomas Style Cues" and "Paragraph-Level Method" sections and its Detection Reality warning. Do not touch front matter. Leave sentence-level wording cleanup to the next pass — focus on structure, flow, and voice. Edit the file directly.
+  `Apply the \`human-prose-editing\` skill (\`.agents/skills/human-prose-editing/SKILL.md\`) to the draft at \`${draft.filePath}\`. Read the whole skill first and follow it as written: the additive pass before any cutting, the cohesion mechanics, the voice-preservation rules, and its stop condition. This pass owns paragraphs and above (section openings and endings, topic order, cohesion, voice, moves repeated across sections). Leave word- and clause-level cleanup to the later \`anti-ai-writing\` pass. Do not touch front matter, quotations, code fences, or Mermaid blocks, and never invent a fact, number, or first-person experience the brief and research do not support. Edit the file directly.
+
+Author's brief and notes (the only first-person material you may draw on): ${JSON.stringify({ brief, notes })}
 
 Return changesSummary, issuesFixed, issuesFlaggedNotFixed.`,
   { label: 'verify-human-prose-editing', phase: 'Verify', model: 'sonnet', schema: EDIT_REPORT_SCHEMA }
 )
 
-const antiAiResult = await agent(
-  `Apply the \`anti-ai-writing\` skill (\`.agents/skills/anti-ai-writing/SKILL.md\`) to \`${draft.filePath}\` — sentence-level cleanup only, now that the structure/voice pass is in place. Follow its "Sentence-Level Signals To Remove", "Rewrite Method", and "Quick Pass Checklist". Edit the file directly.
-
-Return changesSummary, issuesFixed, issuesFlaggedNotFixed.`,
-  { label: 'verify-anti-ai-writing', phase: 'Verify', model: 'sonnet', schema: EDIT_REPORT_SCHEMA }
-)
-
 let beginnerResult = null
 if (styleGuide.isTeachingPost) {
   beginnerResult = await agent(
-    `Apply the \`beginner-technical-writing\` skill (\`.agents/skills/beginner-technical-writing/SKILL.md\`) to \`${draft.filePath}\` — this post teaches a technical/platform concept, so verify every explanation stays correct while remaining readable to a reader still learning SFCC, per its Reader Model and Writing Defaults. Edit the file directly where needed.
+    `Apply the \`beginner-technical-writing\` skill (\`.agents/skills/beginner-technical-writing/SKILL.md\`) to \`${draft.filePath}\`. This post teaches a technical/platform concept, so verify every explanation stays correct while remaining readable to a reader still learning SFCC, per the skill's reader model and writing defaults. Edit the file directly where needed. A per-chapter anti-ai-writing review runs after you, so focus on what the reader needs explained, not on polishing wording.
 
 Return changesSummary, issuesFixed, issuesFlaggedNotFixed.`,
     { label: 'verify-beginner-technical-writing', phase: 'Verify', model: 'sonnet', schema: EDIT_REPORT_SCHEMA }
@@ -422,6 +458,85 @@ Return verifiedClaims (count of claims evaluated across all chapters, including 
 factCheckResult.sourcesRecheckedUrls = [...new Set([...(factCheckResult.sourcesRecheckedUrls || []), ...reviewSources])]
 factCheckResult.chaptersChecked = chapterTargets
 factCheckResult.chapterVerdicts = chapterReviews.map((r) => ({ chapter: r.chapter, verdict: r.chapterVerdict }))
+
+// anti-ai-writing runs per chapter AFTER the fact-check: the beginner and
+// fact-check passes write new sentences, and a whole-post pass before them
+// never saw that text. Same shape as the fact-check: read-only reviewers in
+// parallel, then one agent applies, so no two agents edit the file at once.
+log(`Running anti-ai-writing on ${chapterTargets.length} chapter(s) with one read-only Sonnet reviewer each, then one agent applies the fixes.`)
+
+const proseReviewPrompt = (chapter) => `Review ONE chapter of a draft blog post on rhino-inquisitor.com against the \`anti-ai-writing\` skill. This is sentence- and clause-level review only.
+
+File: \`${draft.filePath}\`
+Your chapter: ${chapter}
+(If that heading no longer matches the file exactly, an earlier pass edited it: review the section in that position.)
+
+Read \`.agents/skills/anti-ai-writing/SKILL.md\` in full first, including its restraint rule, evidence tiers, the rules it deliberately dropped, and its stop condition. Then read the whole post for context, and review ONLY your chapter. You may run the skill's diagnostic snippet on the file to find candidates, but a count is a prompt to look, not a verdict.
+
+This is READ-ONLY: do not edit the post or any other repo file. Propose each fix in the schema, with \`oldText\` an exact verbatim substring of the post so it can be applied mechanically. Keep each \`oldText\` as short as uniquely locates the change (usually one sentence).
+
+Hard limits on every \`newText\`:
+- Keep every claim, qualification, number, version, API or class name, menu path, link, and technical term exactly as the post states it. The fact-check just verified this text; a style fix must not re-open it. The corrections it made are listed below — leave their facts intact.
+- Never invent a specific to replace a vague phrase. If a sentence needs a fact the post, brief, or research does not contain, propose no rewrite and say so in \`reason\` instead.
+- Never edit inside a quotation, code fence, inline code, Mermaid block, or front matter.
+- Keep British English and the author's first-person, dry practitioner voice. Do not strip motivated hedges such as "I think" or "as far as I can tell".
+
+Tag every finding with its tier from the skill. Propose [Taste] items only when they are clear improvements; they go to the author, not into the file. If your chapter is clean, return an empty \`findings\` array: no change is a valid result, and edits made for their own sake are a failure mode the skill warns against.
+
+Fact-check corrections already applied: ${JSON.stringify(factCheckResult.correctionsMade || [])}
+Author's brief and notes: ${JSON.stringify({ brief, notes })}`
+
+const proseReviews = (
+  await parallel(
+    chapterTargets.map((chapter, i) => () =>
+      agent(proseReviewPrompt(chapter), {
+        label: `anti-ai-review:${i}:${chapter.replace(/^## /, '').slice(0, 40)}`,
+        phase: 'Verify',
+        model: 'sonnet',
+        effort: 'medium',
+        schema: CHAPTER_PROSE_REVIEW_SCHEMA,
+      })
+    )
+  )
+).filter(Boolean)
+
+if (proseReviews.length < chapterTargets.length) {
+  log(`${chapterTargets.length - proseReviews.length} of ${chapterTargets.length} anti-ai-writing review(s) returned nothing; those chapters get no sentence-level pass.`)
+}
+const proseFindings = proseReviews.flatMap((r) => (r.findings || []).map((f) => ({ chapter: r.chapter, ...f })))
+const enforceable = proseFindings.filter((f) => f.tier !== 'Taste')
+const recurring = [...new Set(proseReviews.flatMap((r) => r.recurringAcrossPost || []))]
+log(`Anti-ai-writing reviewers proposed ${proseFindings.length} fix(es): ${enforceable.length} [Evidenced]/[Craft], ${proseFindings.length - enforceable.length} [Taste] for the author.`)
+
+let antiAiResult
+if (enforceable.length === 0 && recurring.length === 0) {
+  antiAiResult = {
+    changesSummary: 'No [Evidenced] or [Craft] findings in any chapter; file left unchanged.',
+    applied: [],
+    rejected: [],
+    tasteSuggestionsForAuthor: proseFindings.map((f) => `${f.chapter}: ${f.oldText} → ${f.newText} (${f.reason})`),
+    recurringPatternsFixed: [],
+  }
+} else {
+  antiAiResult = await agent(
+    `Read-only reviewers just checked \`${draft.filePath}\` chapter by chapter against the \`anti-ai-writing\` skill (\`.agents/skills/anti-ai-writing/SKILL.md\`; read it first). Apply their fixes to the file.
+
+[Evidenced]/[Craft] findings to apply: ${JSON.stringify(enforceable)}
+[Taste] findings (do NOT apply; return them in tasteSuggestionsForAuthor): ${JSON.stringify(proseFindings.filter((f) => f.tier === 'Taste'))}
+Moves reviewers saw recurring across chapters: ${JSON.stringify(recurring)}
+Fact-check corrections already applied: ${JSON.stringify(factCheckResult.correctionsMade || [])}
+
+How to apply:
+- Apply a fix only if \`newText\` keeps every claim, qualification, number, name, link, and technical term of \`oldText\`, adds no fact the post did not already contain, and reads better. Reject anything else and say why. When a fix would undo or blur a fact-check correction, the correction wins.
+- Never change text inside quotations, code fences, inline code, Mermaid blocks, or front matter, even if a reviewer proposed it.
+- Per-chapter reviewers each see one instance of a move; you see the document. For each recurring move listed above, keep the instance that does real work and fix the rest, within the same limits.
+- Check that the fixes do not leave the post with a new stock phrase repeated in place of the old one.
+
+Return changesSummary, applied, rejected, tasteSuggestionsForAuthor, recurringPatternsFixed.`,
+    { label: 'anti-ai-apply', phase: 'Verify', model: 'sonnet', schema: PROSE_APPLY_SCHEMA }
+  )
+}
+if (antiAiResult) antiAiResult.chapterVerdicts = proseReviews.map((r) => ({ chapter: r.chapter, verdict: r.chapterVerdict }))
 
 const holisticReview = await agent(
   `Read \`${draft.filePath}\` start to finish as a fresh reader with no memory of the editing history — this is a READ-ONLY pass, do not edit the file. Judge only the whole: does it read as one coherent voice throughout, or do the sequential edit passes show seams (a paragraph that reads differently from its neighbors, a fix that undid an earlier rhythm choice, a spot where the tone whiplashes)? Read \`src/content/posts/AGENTS.md\` first so you know the target voice, then ask: would Thomas actually publish this as-is?
