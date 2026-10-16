@@ -2,10 +2,10 @@
 title: 'ExecuteDataReplication: Why "global": "all" Fails'
 description: >-
   Why "global": "all" fails in the ExecuteDataReplication job step, the object form to try instead, and how to verify it on a development target first.
-date: "2026-10-16T09:00:00.000Z"
-lastmod: "2026-10-16T09:00:00.000Z"
+date: "2026-10-16T04:00:00.000Z"
+lastmod: "2026-10-16T04:00:00.000Z"
 url: /executedatareplication-global-all-error/
-draft: true
+draft: false
 heroImage: executedatareplication-global-all-error-hero.jpg
 heroImageAlt: >-
   A cartoon rhino developer frowning at a job configuration screen that shows a red schema error next to a curly-brace object.
