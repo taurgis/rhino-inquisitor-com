@@ -3,7 +3,7 @@ title: 'ExecuteDataReplication: Why "global": "all" Fails'
 description: >-
   Why "global": "all" fails in the ExecuteDataReplication job step, the object form to try instead, and how to verify it on a development target first.
 date: "2026-10-16T04:00:00.000Z"
-lastmod: "2026-10-16T04:00:00.000Z"
+lastmod: "2026-10-16T14:48:00.000Z"
 url: /executedatareplication-global-all-error/
 draft: false
 heroImage: executedatareplication-global-all-error-hero.jpg
@@ -35,7 +35,7 @@ If you landed here by pasting that error into a search engine, you are in the ri
 First, the background. Data replication in SFCC copies data (catalogs, preferences, and so on) from the staging instance to another instance, usually production. The `ExecuteDataReplication` job step runs that copy from a job instead of from the Business Manager replication screens, and you tell it what to copy with a JSON configuration. The `global` part of that configuration covers the tasks that are not tied to a single site, such as `csc_settings` and catalogs.
 
 > [!WARNING]
-> The fix in this post is **not confirmed**. It fits the error message and the object pattern used elsewhere in the documented configuration, but the schema is not published and nobody has yet shown from job logs that every global task ran. Replication always runs from the staging instance, so point your first test at the `development` target, never production.
+> The fix in this post is **not confirmed**. It fits the error message and the object pattern used elsewhere in the documented configuration, but the schema is not published and nobody has yet shown from job logs that every global task ran. I have not run it against a development or production instance myself either: as a partner I cannot start a replication on a customer's environment just to try something, and partners do not get a PIG (primary instance group) of their own to experiment on. Replication always runs from the staging instance, so point your first test at the `development` target, never production.
 
 ## TLDR; Proposed Solution
 
@@ -150,14 +150,14 @@ The useful part is the shape. `tasks.global` is an object, and task keys are set
 | One catalog | `{ "catalogs": { "nto-electronics": true } }` | Does only that catalog show up in the log? |
 | String keyword (fails) | `"all"` | Schema error at save time |
 
-Any other task key beyond `csc_settings` and `catalogs` is **[VERIFY]**. For example, for the site-level tasks the docs list `ab_tests_and_experience` in the parameter list but `ab_tests_and_experiences` in the example JSON, so check the exact spelling before you rely on either.
+The docs list the other global task keys, such as `csrf_whitelists`, `geolocations` and `static_content`, but the catalog example above is the only object-shaped `global` value I have seen used. Watch the spelling, too: for the site-level tasks the docs list `ab_tests_and_experience` in the parameter list but `ab_tests_and_experiences` in the example JSON, so check the exact spelling before you rely on either.
 
 > [!WARNING]
 > The official example JSON contains a trailing comma (after `"master" : "exclude-static"`), so it is not strictly valid JSON. Do not paste it into the job step as it is.
 
 ## Automating It
 
-Replications that nobody notices failing are a known pain point, and running them through jobs is one way to keep an eye on them. Jobs can be scheduled, triggered over an API or from the command line, and monitored. The API route used to mean OCAPI (the Open Commerce API), but Salesforce marked it as [deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/), so new work belongs on the SCAPI Jobs API. Community tips: use the failure notification, and write log entries that a monitoring system can flag.
+Replications that nobody notices failing are a known pain point, and running them through jobs is one way to keep an eye on them. Jobs can be scheduled, triggered over an API or from the command line, and monitored. The API route used to mean OCAPI (the Open Commerce API), but Salesforce marked it as [deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/), so new work belongs on the SCAPI Jobs API. Community tips: use the failure notification, and write log entries that a monitoring system can flag. The step has that notification built in: the documented `notification` object takes a `type` of `process_end`, `process_error` (sent only when the process does not succeed) or `periodically`, plus a `to` list of recipients.
 
 Two community code samples are worth reading. I have not been able to open them, so I will not describe their code. Review it yourself before reusing anything:
 
@@ -182,7 +182,7 @@ Do not trust this post, or anyone's memory, over your own job log.
 1. Create the job with the step on your staging instance, because replication processes only run from staging. Point the `target` at `development` if you have one, and keep production out of your first test. A developer or on-demand sandbox cannot receive replicated data.
 2. Paste the proposed JSON into the `ReplicationConfiguration` parameter and save. If the schema error disappears, that is the first half confirmed.
 3. Run the job. Even against `development`, `transfer_and_publish` overwrites the selected data on the target.
-4. Open the job log and the replication logs (Administration > Site Development > Development Setup > Log Files; the files are named like `staging-...-appserver-yyyymmdd.log`, on both the staging and the target instance). Look for evidence that each global task, for example `csc_settings`, was processed. I have not seen what a successful run looks like there, so I cannot tell you the exact wording to search for.
+4. Open the job log and the replication logs (Administration > Site Development > Development Setup > Log Files; the files are named like `staging-...-appserver-yyyymmdd.log`, on both the staging and the target instance). Look for evidence that each global task, for example `csc_settings`, `csrf_whitelists` or `geolocations`, was processed. The docs list the full set under `tasks.global`. I have not seen what a successful run looks like there, so I cannot tell you the exact wording to search for.
 5. Check the replication history under Administration > Replication > Data Replication. Replications older than 180 days no longer show there, as covered in [the 23.1 release notes](/salesforce-b2c-commerce-cloud-23-1/).
 
 > [!NOTE]
