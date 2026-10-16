@@ -6,7 +6,7 @@ date: "2026-10-16T09:00:00.000Z"
 lastmod: "2026-10-16T09:00:00.000Z"
 url: /executedatareplication-global-all-error/
 draft: true
-heroImage: executedatareplication-global-all-error-hero.png
+heroImage: executedatareplication-global-all-error-hero.jpg
 heroImageAlt: >-
   A cartoon rhino developer frowning at a job configuration screen that shows a red schema error next to a curly-brace object.
 categories:
