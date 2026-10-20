@@ -97,7 +97,7 @@ There is a Business Manager setting for the first case. Go to Administration > G
 
 {{< img-caption src="bm-import-export-settings-filter-invalid-xml.png" alt="Business Manager Import & Export Settings page with an unchecked Filter Invalid XML Characters during Export checkbox." >}}
 
-Set it on the instance you export from. Turning it on at the target does nothing for a file that was already broken at the source.
+The checkbox is off by default, so unless someone has turned it on, your exports are not filtered. Set it on the instance you export from. Turning it on at the target does nothing for a file that was already broken at the source.
 
 Now the caveats, because the documentation is thin. The [Help article](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_order_object_import_export.htm) describes the setting under order export. The screen itself is a global preference and only talks about "the exported data", which suggests it is not limited to orders, but nothing official says that it covers catalog, customer, or other exports. It also says "remove", so assume characters are dropped rather than repaired. What it does to a valid but unusual character, such as a trademark sign, is not documented. A quick sandbox test settles that.
 
