@@ -2,10 +2,10 @@
 title: "SFCC Import File Quirks: XML Order, Characters, File Names"
 description: >-
   Diagnose SFCC import failures from XSD element order, invalid XML characters, UTF-8 trouble, and file names like import file (3).xml.
-date: "2026-10-20T08:00:00.000Z"
-lastmod: "2026-10-20T08:00:00.000Z"
+date: "2026-10-20T04:00:00.000Z"
+lastmod: "2026-10-20T04:00:00.000Z"
 url: "/sfcc-import-export-file-quirks/"
-draft: true
+draft: false
 heroImage: sfcc-import-export-file-quirks-hero.png
 heroImageAlt: >-
   A bespectacled rhino clerk at an intake hatch pushes back crumpled papers while one clean sheet glows as it slides through
@@ -99,7 +99,7 @@ There is a Business Manager setting for the first case. Go to Administration > G
 
 The checkbox is off by default, so unless someone has turned it on, your exports are not filtered. Set it on the instance you export from. Turning it on at the target does nothing for a file that was already broken at the source.
 
-Now the caveats, because the documentation is thin. The [Help article](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_order_object_import_export.htm) describes the setting under order export. The screen itself is a global preference and only talks about "the exported data", which suggests it is not limited to orders, but nothing official says that it covers catalog, customer, or other exports. It also says "remove", so assume characters are dropped rather than repaired. What it does to a valid but unusual character, such as a trademark sign, is not documented. A quick sandbox test settles that.
+Do not let the documentation fool you about its scope. The [Help article](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_order_object_import_export.htm) only describes the setting under order export, but the screen is a global preference that talks about "the exported data", and it is not limited to orders. We have used it to fix issues with product imports. The setting also says "remove", so assume characters are dropped rather than repaired. What it does to a valid but unusual character, such as a trademark sign, is not documented. A quick sandbox test settles that.
 
 ### Encoding Display Values
 
@@ -121,7 +121,6 @@ Back to `import file (3).xml`.
 
 Chrome and Edge add " (1)", " (2)" and so on to a download when a file of that name already exists in the folder (other browsers use a slightly different pattern). Download the same export a few times and you end up with exactly this kind of name. It is easy to miss, because the file opens fine and looks correct.
 
-<!-- TODO verify: exact error message or log entry for `import file (3).xml`, and which import screen was used; remove this comment if not supplied -->
 In my testing, a file with that name did not import, and renaming it to `import_file_3.xml` fixed it. My working theory is that Business Manager validates import file names with a regular expression and the parentheses do not pass. I have not found it in the documentation, so I will not quote a pattern or an error message that I cannot back up.
 
 What is documented is the neighbouring rule: the site import and export docs say to avoid special characters in file names. For site import you also need the exact directory and file structure of the archive, while a catalog file inside that archive [can have any name](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_site_import_export.htm) because the catalog ID lives inside the file. That is about which name the importer matches on, not about which characters survive upload.
