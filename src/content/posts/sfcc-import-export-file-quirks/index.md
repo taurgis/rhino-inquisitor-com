@@ -25,9 +25,9 @@ takeaways:
 ---
 A colleague exports a catalog, tweaks a few products, and uploads the result through Business Manager (the admin UI of B2C Commerce, BM for short). The import fails. The XML looks fine, the data looks fine, and the only visible change since last week is that the file is now called `import file (3).xml`.
 
-Welcome to the small, plain corner of B2C Commerce where files are rejected for reasons that have little to do with whether your data is right. This post collects three of those quirks: element order in the XML, special characters on the way in and out, and a file name that, in my testing, is a tad fussier than it looks.
+Welcome to the small, plain corner of B2C Commerce where files are rejected for reasons that have little to do with whether your data is right. This post collects three of those quirks: element order in the XML, special characters on the way in and out, and a file name that, in a colleague's testing, turned out a tad fussier than it looks.
 
-Salesforce documents some of this and not all of it. I will say which parts come from the official Help pages, which come from my own testing, and which are general XML knowledge.
+Salesforce documents some of this and not all of it. I will say which parts come from the official Help pages, which come from hands-on testing by me or a colleague, and which are general XML knowledge.
 
 ## Imports Are Checked Against a Schema
 
@@ -121,12 +121,12 @@ Back to `import file (3).xml`.
 
 Chrome and Edge add " (1)", " (2)" and so on to a download when a file of that name already exists in the folder (other browsers use a slightly different pattern). Download the same export a few times and you end up with exactly this kind of name. It is easy to miss, because the file opens fine and looks correct.
 
-In my testing, a file with that name did not import, and renaming it to `import_file_3.xml` fixed it. My working theory is that Business Manager validates import file names with a regular expression and the parentheses do not pass. I have not found it in the documentation, so I will not quote a pattern or an error message that I cannot back up.
+A colleague ran into this: a file with that name did not import, and renaming it to `import_file_3.xml` fixed it. Our working theory is that Business Manager validates import file names with a regular expression and the parentheses do not pass. I have not found it in the documentation, so I will not quote a pattern or an error message that I cannot back up.
 
 What is documented is the neighbouring rule: the site import and export docs say to avoid special characters in file names. For site import you also need the exact directory and file structure of the archive, while a catalog file inside that archive [can have any name](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_site_import_export.htm) because the catalog ID lives inside the file. That is about which name the importer matches on, not about which characters survive upload.
 
 > [!WARNING]
-> The file-name finding comes from my own testing, not from official documentation. Confirm it on your own instance before you build a rule around it.
+> The file-name finding comes from a colleague's testing, not from official documentation. Confirm it on your own instance before you build a rule around it.
 
 The safe habit costs nothing. Before you upload, rename the file to letters, digits, underscores and hyphens. No spaces, no brackets, no umlauts. If your [WebDAV transfers](/a-beginners-guide-to-webdav-in-sfcc/) land in `/impex`, I would keep the same naming discipline there too, although my test only covered the Business Manager upload.
 
@@ -136,7 +136,7 @@ Import problems come in two flavours, and the logs tell them apart. The [error h
 
 Log files sit on the instance's WebDAV share (file access over HTTP, which Business Manager exposes) and are listed under Administration > Site Development > Development Setup, and you need the File Transfer Manager permission to reach the Impex area.
 
-The checks below run from cheapest to most expensive, which is why the file name comes first: you can rule it out in seconds, before you open a validator or a log. That first box rests on my own testing plus the documented umlaut rule, so treat it as a precaution.
+The checks below run from cheapest to most expensive, which is why the file name comes first: you can rule it out in seconds, before you open a validator or a log. That first box rests on a colleague's testing plus the documented umlaut rule, so treat it as a precaution.
 
 ```mermaid
 flowchart TD
