@@ -20,7 +20,7 @@ tags:
 author: "Thomas Theunen"
 takeaways:
   - "Explains why import XML is validated against XSD schemas and how to read an error to find the element that is out of place"
-  - "Covers the Filter invalid XML characters during export preference, UTF-8 encoding pitfalls, and what is not documented about special characters"
+  - "Covers the Filter Invalid XML Characters during Export preference, UTF-8 encoding pitfalls, and what is not documented about special characters"
   - "Warns that a browser-renamed file such as import file (3).xml can fail to import and shows the rename that fixed it in testing"
 ---
 A colleague exports a catalog, tweaks a few products, and uploads the result through Business Manager (the admin UI of B2C Commerce, BM for short). The import fails. The XML looks fine, the data looks fine, and the only visible change since last week is that the file is now called `import file (3).xml`.
@@ -93,11 +93,13 @@ Characters cause trouble from two directions. Some are not allowed in XML at all
 
 ### The Export Preference
 
-There is a Business Manager setting for the first case. Go to Administration > Global Preferences > Import & Export and look for the checkbox **Filter invalid XML characters during export**. Salesforce describes it as removing invalid XML characters from exported data, to prevent incorrect coding of some UTF-8 characters.
+There is a Business Manager setting for the first case. Go to Administration > Global Preferences > Import & Export and look for the checkbox **Filter Invalid XML Characters during Export**. Salesforce describes it as removing invalid XML characters from exported data, to prevent incorrect coding of some UTF-8 characters.
+
+{{< img-caption src="bm-import-export-settings-filter-invalid-xml.png" alt="Business Manager Import & Export Settings page with an unchecked Filter Invalid XML Characters during Export checkbox." >}}
 
 Set it on the instance you export from. Turning it on at the target does nothing for a file that was already broken at the source.
 
-Now the caveats, because the documentation is thin. The [Help article](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_order_object_import_export.htm) describes the setting under order export, so I cannot tell you from the source that it covers catalog, customer, or other exports. It also says "remove", so assume characters are dropped rather than repaired. What it does to a valid but unusual character, such as a trademark sign, is not documented. A quick sandbox test settles that.
+Now the caveats, because the documentation is thin. The [Help article](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_order_object_import_export.htm) describes the setting under order export. The screen itself is a global preference and only talks about "the exported data", which suggests it is not limited to orders, but nothing official says that it covers catalog, customer, or other exports. It also says "remove", so assume characters are dropped rather than repaired. What it does to a valid but unusual character, such as a trademark sign, is not documented. A quick sandbox test settles that.
 
 ### Encoding Display Values
 
