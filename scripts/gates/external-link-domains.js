@@ -384,6 +384,7 @@ const DOMAIN_RULES = Object.freeze({
   'viewer.diagrams.net': STATUS,
   'workik.com': STATUS,
   'www.adyen.com': STATUS,
+  'www.anthropic.com': STATUS,
   'www.apexhours.com': STATUS,
   'www.atlassian.com': STATUS,
   'www.braintreepayments.com': STATUS,
