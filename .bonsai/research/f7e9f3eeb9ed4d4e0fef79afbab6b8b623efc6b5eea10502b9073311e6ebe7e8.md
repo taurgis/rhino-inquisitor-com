@@ -1,0 +1,110 @@
+---
+schema_version: 1
+artifact_type: section
+source_url: https://www.php.net/ChangeLog-8.php#version-8234
+source_urls:
+  - https://www.php.net/ChangeLog-8.php#version-8234
+normalized_url: https://www.php.net/ChangeLog-8.php
+cache_key: f7e9f3eeb9ed4d4e0fef79afbab6b8b623efc6b5eea10502b9073311e6ebe7e8
+topic: 
+tags:
+  - fixed
+  - bug
+  - fix
+  - memory
+  - error
+format_available:
+  - compressed
+  - detailed
+tier: standard
+ttl: 
+fetched_at: 2026-10-22T09:25:33.391Z
+validated_at: 2026-10-22T09:25:33.391Z
+stale_after: 2026-11-21T09:25:33.391Z
+capture_method: static_fetch
+extraction_status: extracted
+extraction_confidence: high
+quality_notes:
+  - readability extracted main article
+  - quality:oversized
+  - auto-generated tags via keyword extraction
+supplied_at: 
+supplied_by: 
+etag: 
+last_modified: Wed, 21 Oct 2026 13:33:44 GMT
+content_hash: 4e8b47af14a1bb85a45c8fe45f41b481a47fb344483ca30e44a2bbd21b0f41a6
+token_estimate:
+  compressed: 409
+  detailed: 625
+status: active
+site_module_id: 
+docs_engine: 
+docs_framework: redocly
+source_doc_url: 
+search_provider: 
+parent_cache_key: 357fa8ede2f92e1b40db56650c0acf70d73ed54db92fe3916e435795b653e8d9
+section_anchor: version-8234
+section_heading_path: Version 8.2.34
+---
+
+## Summary
+
+Version 8.2.34
+
+## Compressed
+
+### Version 8.2.34
+
+**24 Sep 2026**
+
+*   Filter:
+    *   Fixed [GHSA-ch8v-r6jh-4vvr] (FILTER\_SANITIZE\_ENCODED does not encode 0xFF).
+*   FPM:
+    *   Fixed [GHSA-62xp-839h-2637] (IPv6 ACL bypass in FastCGI listen.allowed\_clients due to partial address comparison). (CVE-2026-91768)
+*   MySQLnd:
+    *   Fixed [GHSA-r6x9-5r99-36j7] (Various packet overreads in mysqlnd wire protocol). (CVE-2025-1218)
+*   OpenSSL:
+    *   Fixed [GHSA-vvx9-73fr-5jjx] (TLS hostname verification falls back to CN after SAN mismatch). (CVE-2026-91769)
+    *   Fixed [GHSA-xr7j-rvgx-xq5p] (Heap buffer overflow in php\_openssl\_matches\_wildcard\_name() on crafted server certificate wildcard CN). (CVE-2026-91767)
+*   Phar:
+    *   Fixed [GHSA-j3wh-g957-2m85] (Integer overflow in phar\_tar\_number() allowing TAR archive entry injection). (CVE-2026-6103)
+*   SOAP:
+    *   Fixed [GHSA-rgrp-mwpx-f6rm] (Unbounded recursion in server-side cleanup\_xml\_node()). (CVE-2026-91765)
+    *   Fixed [GHSA-cj93-vc83-wgqv] (Integer overflow to buffer overflow in SOAP HTTP parsing). (CVE-2025-14181)
+*   Standard:
+    *   Fixed [GHSA-88hq-2827-7pg6] (Out-of-bounds read in convert.\* stream filters when line-break-chars contains NUL). (CVE-2026-92842)
+    *   Fixed [GHSA-fpwc-w8rq-cr92] (Cross-origin credential leak in HTTP stream wrapper redirects). (CVE-2026-91766)
+    *   Fixed [GHSA-7875-c8px-7q5f] (Out-of-bounds read in the HTTP stream wrapper when following a redirect with an empty Location header). (CVE-2026-93682)
+*   Windows:
+    *   Fixed [GHSA-9f67-6fw4-hpfp] (Reserved device names are not rejected before file and stream I/O). (CVE-2026-17545)
+
+## Detailed
+
+### Version 8.2.34
+
+**24 Sep 2026**
+
+*   Filter:
+    *   Fixed [GHSA-ch8v-r6jh-4vvr](https://github.com/php/php-src/security/advisories/GHSA-ch8v-r6jh-4vvr) (FILTER\_SANITIZE\_ENCODED does not encode 0xFF).
+*   FPM:
+    *   Fixed [GHSA-62xp-839h-2637](https://github.com/php/php-src/security/advisories/GHSA-62xp-839h-2637) (IPv6 ACL bypass in FastCGI listen.allowed\_clients due to partial address comparison). (CVE-2026-91768)
+*   MySQLnd:
+    *   Fixed [GHSA-r6x9-5r99-36j7](https://github.com/php/php-src/security/advisories/GHSA-r6x9-5r99-36j7) (Various packet overreads in mysqlnd wire protocol). (CVE-2025-1218)
+*   OpenSSL:
+    *   Fixed [GHSA-vvx9-73fr-5jjx](https://github.com/php/php-src/security/advisories/GHSA-vvx9-73fr-5jjx) (TLS hostname verification falls back to CN after SAN mismatch). (CVE-2026-91769)
+    *   Fixed [GHSA-xr7j-rvgx-xq5p](https://github.com/php/php-src/security/advisories/GHSA-xr7j-rvgx-xq5p) (Heap buffer overflow in php\_openssl\_matches\_wildcard\_name() on crafted server certificate wildcard CN). (CVE-2026-91767)
+*   Phar:
+    *   Fixed [GHSA-j3wh-g957-2m85](https://github.com/php/php-src/security/advisories/GHSA-j3wh-g957-2m85) (Integer overflow in phar\_tar\_number() allowing TAR archive entry injection). (CVE-2026-6103)
+*   SOAP:
+    *   Fixed [GHSA-rgrp-mwpx-f6rm](https://github.com/php/php-src/security/advisories/GHSA-rgrp-mwpx-f6rm) (Unbounded recursion in server-side cleanup\_xml\_node()). (CVE-2026-91765)
+    *   Fixed [GHSA-cj93-vc83-wgqv](https://github.com/php/php-src/security/advisories/GHSA-cj93-vc83-wgqv) (Integer overflow to buffer overflow in SOAP HTTP parsing). (CVE-2025-14181)
+*   Standard:
+    *   Fixed [GHSA-88hq-2827-7pg6](https://github.com/php/php-src/security/advisories/GHSA-88hq-2827-7pg6) (Out-of-bounds read in convert.\* stream filters when line-break-chars contains NUL). (CVE-2026-92842)
+    *   Fixed [GHSA-fpwc-w8rq-cr92](https://github.com/php/php-src/security/advisories/GHSA-fpwc-w8rq-cr92) (Cross-origin credential leak in HTTP stream wrapper redirects). (CVE-2026-91766)
+    *   Fixed [GHSA-7875-c8px-7q5f](https://github.com/php/php-src/security/advisories/GHSA-7875-c8px-7q5f) (Out-of-bounds read in the HTTP stream wrapper when following a redirect with an empty Location header). (CVE-2026-93682)
+*   Windows:
+    *   Fixed [GHSA-9f67-6fw4-hpfp](https://github.com/php/php-src/security/advisories/GHSA-9f67-6fw4-hpfp) (Reserved device names are not rejected before file and stream I/O). (CVE-2026-17545)
+
+## Provenance
+
+Section "Version 8.2.34" of https://www.php.net/ChangeLog-8.php (parent 357fa8ede2f92e1b40db56650c0acf70d73ed54db92fe3916e435795b653e8d9)

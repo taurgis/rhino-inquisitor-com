@@ -1,0 +1,80 @@
+---
+schema_version: 1
+artifact_type: section
+source_url: https://www.php.net/ChangeLog-8.php#version-8116
+source_urls:
+  - https://www.php.net/ChangeLog-8.php#version-8116
+normalized_url: https://www.php.net/ChangeLog-8.php
+cache_key: 8ca14c7cbbc0f2dd8b95ddbc6c3de3a380eed8edb1f42ebb6e77919c20df2cca
+topic: 
+tags:
+  - fixed
+  - bug
+  - fix
+  - memory
+  - error
+format_available:
+  - compressed
+  - detailed
+tier: standard
+ttl: 
+fetched_at: 2026-10-22T09:25:33.391Z
+validated_at: 2026-10-22T09:25:33.391Z
+stale_after: 2026-11-21T09:25:33.391Z
+capture_method: static_fetch
+extraction_status: extracted
+extraction_confidence: high
+quality_notes:
+  - readability extracted main article
+  - quality:oversized
+  - auto-generated tags via keyword extraction
+supplied_at: 
+supplied_by: 
+etag: 
+last_modified: Wed, 21 Oct 2026 13:33:44 GMT
+content_hash: 9e4df0f5bd688f882a0065106101f9584046883da4b87972a9a4cb991f8a4361
+token_estimate:
+  compressed: 83
+  detailed: 97
+status: active
+site_module_id: 
+docs_engine: 
+docs_framework: redocly
+source_doc_url: 
+search_provider: 
+parent_cache_key: 357fa8ede2f92e1b40db56650c0acf70d73ed54db92fe3916e435795b653e8d9
+section_anchor: version-8116
+section_heading_path: Version 8.1.16
+---
+
+## Summary
+
+Version 8.1.16
+
+## Compressed
+
+### Version 8.1.16
+
+**14 Feb 2023**
+
+*   Core:
+    *   Fixed bug [#81744] (Password\_verify() always return true with some hash).
+    *   Fixed bug [#81746] (1-byte array overrun in common path resolve code).
+*   SAPI:
+    *   Fixed bug GHSA-54hq-v5wp-fqgv (DOS vulnerability when parsing multipart request body). (CVE-2023-0662)
+
+## Detailed
+
+### Version 8.1.16
+
+**14 Feb 2023**
+
+*   Core:
+    *   Fixed bug [#81744](https://bugs.php.net/81744) (Password\_verify() always return true with some hash).
+    *   Fixed bug [#81746](https://bugs.php.net/81746) (1-byte array overrun in common path resolve code).
+*   SAPI:
+    *   Fixed bug GHSA-54hq-v5wp-fqgv (DOS vulnerability when parsing multipart request body). (CVE-2023-0662)
+
+## Provenance
+
+Section "Version 8.1.16" of https://www.php.net/ChangeLog-8.php (parent 357fa8ede2f92e1b40db56650c0acf70d73ed54db92fe3916e435795b653e8d9)

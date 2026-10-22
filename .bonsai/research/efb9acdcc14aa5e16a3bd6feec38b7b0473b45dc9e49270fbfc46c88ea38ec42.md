@@ -1,0 +1,104 @@
+---
+schema_version: 1
+artifact_type: section
+source_url: https://www.php.net/ChangeLog-8.php#version-8331
+source_urls:
+  - https://www.php.net/ChangeLog-8.php#version-8331
+normalized_url: https://www.php.net/ChangeLog-8.php
+cache_key: efb9acdcc14aa5e16a3bd6feec38b7b0473b45dc9e49270fbfc46c88ea38ec42
+topic: 
+tags:
+  - fixed
+  - bug
+  - fix
+  - memory
+  - error
+format_available:
+  - compressed
+  - detailed
+tier: standard
+ttl: 
+fetched_at: 2026-10-22T09:25:33.391Z
+validated_at: 2026-10-22T09:25:33.391Z
+stale_after: 2026-11-21T09:25:33.391Z
+capture_method: static_fetch
+extraction_status: extracted
+extraction_confidence: high
+quality_notes:
+  - readability extracted main article
+  - quality:oversized
+  - auto-generated tags via keyword extraction
+supplied_at: 
+supplied_by: 
+etag: 
+last_modified: Wed, 21 Oct 2026 13:33:44 GMT
+content_hash: 469e7d7e7d5615d1269afd283522115b654435125eebf0452de7ec5b17dd20ff
+token_estimate:
+  compressed: 272
+  detailed: 416
+status: active
+site_module_id: 
+docs_engine: 
+docs_framework: redocly
+source_doc_url: 
+search_provider: 
+parent_cache_key: 357fa8ede2f92e1b40db56650c0acf70d73ed54db92fe3916e435795b653e8d9
+section_anchor: version-8331
+section_heading_path: Version 8.3.31
+---
+
+## Summary
+
+Version 8.3.31
+
+## Compressed
+
+### Version 8.3.31
+
+**07 May 2026**
+
+*   Curl:
+    *   Add support for brotli and zstd on Windows.
+*   FPM:
+    *   Fixed [GHSA-7qg2-v9fj-4mwv] (XSS within status endpoint). (CVE-2026-6735)
+*   MBString:
+    *   Fixed [GHSA-wm6j-2649-pv75] (Null pointer dereference in php\_mb\_check\_encoding() via mb\_ereg\_search\_init()). (CVE-2026-7259)
+*   OpenSSL:
+    *   Fix compatibility issues with OpenSSL 4.0.
+*   PDO\_Firebird:
+    *   Fixed [GHSA-w476-322c-wpvm] (SQL injection via NUL bytes in quoted strings). (CVE-2025-14179)
+*   SOAP:
+    *   Fixed [GHSA-85c2-q967-79q5] (Stale SOAP\_GLOBAL(ref\_map) pointer with Apache Map). (CVE-2026-6722)
+    *   Fixed [GHSA-m33r-qmcv-p97q] (Use-after-free after header parsing failure with SOAP\_PERSISTENCE\_SESSION). (CVE-2026-7261)
+    *   Fixed [GHSA-hmxp-6pc4-f3vv] (Broken Apache map value NULL check). (CVE-2026-7262)
+*   Standard:
+    *   Fixed [GHSA-96wq-48vp-hh57] (Signed integer overflow of char array offset). (CVE-2026-7568)
+    *   Fixed [GHSA-m8rr-4c36-8gq4] (Consistently pass unsigned char to ctype.h functions). (CVE-2026-7258)
+
+## Detailed
+
+### Version 8.3.31
+
+**07 May 2026**
+
+*   Curl:
+    *   Add support for brotli and zstd on Windows.
+*   FPM:
+    *   Fixed [GHSA-7qg2-v9fj-4mwv](https://github.com/php/php-src/security/advisories/GHSA-7qg2-v9fj-4mwv) (XSS within status endpoint). (CVE-2026-6735)
+*   MBString:
+    *   Fixed [GHSA-wm6j-2649-pv75](https://github.com/php/php-src/security/advisories/GHSA-wm6j-2649-pv75) (Null pointer dereference in php\_mb\_check\_encoding() via mb\_ereg\_search\_init()). (CVE-2026-7259)
+*   OpenSSL:
+    *   Fix compatibility issues with OpenSSL 4.0.
+*   PDO\_Firebird:
+    *   Fixed [GHSA-w476-322c-wpvm](https://github.com/php/php-src/security/advisories/GHSA-w476-322c-wpvm) (SQL injection via NUL bytes in quoted strings). (CVE-2025-14179)
+*   SOAP:
+    *   Fixed [GHSA-85c2-q967-79q5](https://github.com/php/php-src/security/advisories/GHSA-85c2-q967-79q5) (Stale SOAP\_GLOBAL(ref\_map) pointer with Apache Map). (CVE-2026-6722)
+    *   Fixed [GHSA-m33r-qmcv-p97q](https://github.com/php/php-src/security/advisories/GHSA-m33r-qmcv-p97q) (Use-after-free after header parsing failure with SOAP\_PERSISTENCE\_SESSION). (CVE-2026-7261)
+    *   Fixed [GHSA-hmxp-6pc4-f3vv](https://github.com/php/php-src/security/advisories/GHSA-hmxp-6pc4-f3vv) (Broken Apache map value NULL check). (CVE-2026-7262)
+*   Standard:
+    *   Fixed [GHSA-96wq-48vp-hh57](https://github.com/php/php-src/security/advisories/GHSA-96wq-48vp-hh57) (Signed integer overflow of char array offset). (CVE-2026-7568)
+    *   Fixed [GHSA-m8rr-4c36-8gq4](https://github.com/php/php-src/security/advisories/GHSA-m8rr-4c36-8gq4) (Consistently pass unsigned char to ctype.h functions). (CVE-2026-7258)
+
+## Provenance
+
+Section "Version 8.3.31" of https://www.php.net/ChangeLog-8.php (parent 357fa8ede2f92e1b40db56650c0acf70d73ed54db92fe3916e435795b653e8d9)
