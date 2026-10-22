@@ -763,13 +763,7 @@ zyft
 zzrf
 zzxx
 zzzz
-deserialisation
-bundlers
-waku
-lachlan
-cryptominers
-censys
+shai
+hulud
+tsai
 php
-rfp
-xqvq
-mandiant
